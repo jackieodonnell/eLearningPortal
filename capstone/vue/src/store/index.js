@@ -19,7 +19,49 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    courses: [
+      {
+        course_id: 1,
+        teacher_id: 1,
+        course_title: "Algebra 1",
+        course_description: "algebra, etc.",
+        difficulty_level: 7,
+        cost: 250
+      },
+      {
+        course_id: 2,
+        teacher_id: 2,
+        course_title: "Biology",
+        course_description: "biology, etc.",
+        difficulty_level: 9,
+        cost: 100
+      },
+      {
+        course_id: 3,
+        teacher_id: 3,
+        course_title: "English 1",
+        course_description: "english, etc.",
+        difficulty_level: 9,
+        cost: 200
+      },
+      {
+        course_id: 4,
+        teacher_id: 4,
+        course_title: "US History",
+        course_description: "us history, etc.",
+        difficulty_level: 9,
+        cost: 200
+      },
+      {
+        course_id: 5,
+        teacher_id: 4,
+        course_title: "Band",
+        course_description: "band, etc.",
+        difficulty_level: 8,
+        cost: 200
+      },
+    ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

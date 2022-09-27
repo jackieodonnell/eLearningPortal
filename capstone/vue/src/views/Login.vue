@@ -74,3 +74,13 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  #login{
+    display: flex;
+    flex-direction: column;
+    /* align-content: center; */
+    text-align: center;
+    justify-content: center;
+  }
+</style>
