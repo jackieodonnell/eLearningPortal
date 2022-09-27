@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <h2>Hello {{$store.state.user.username}}!</h2>
+    <!-- p>You must be authenticated to see this</p -->
     <course-list />
   </div>
 </template>
@@ -13,7 +14,12 @@ export default {
   name: "home",
   components: {
     CourseList
-  }
+  },
+  // methods: {
+  //   getCoursesForUser(){
+  //     this.$store.commit("GET_COURSES", this.user)
+  //   }
+  // }
 };
 </script>
 

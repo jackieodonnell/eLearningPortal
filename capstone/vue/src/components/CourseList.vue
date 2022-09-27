@@ -8,12 +8,26 @@
 
 <script>
 import CourseCard from './CourseCard.vue';
+import courseService from '../services/CourseService';
 
 export default {
     name: 'course-list',
+    data() {
+        return {
+            courses: []
+        }
+    },
     props: ['course'],
     components: {
       CourseCard
+    },
+    created(){
+        courseService.getCoursesForStudent(this.$store.state.user.user_id)
+        .then(response => {
+            if (response.status == 200) {
+                this.courses = response.data
+            }
+        }); 
     }
 }
 </script>

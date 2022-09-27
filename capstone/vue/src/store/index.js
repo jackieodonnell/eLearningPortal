@@ -79,6 +79,10 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    }
+    },
+    // GET_COURSES(state, user){
+    //   state.user = user;
+      
+    // }
   }
 })
