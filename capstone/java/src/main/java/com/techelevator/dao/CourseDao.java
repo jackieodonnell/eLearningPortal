@@ -10,9 +10,14 @@ public interface CourseDao {
 
     List<Course> getAllCourses();
 
+    List<Course> getAllCoursesByStudentId(int studentId);
+
+    List<Course> getAllCoursesByTeacherId(int teacherId);
+
     Course getCourseById(int courseId);
 
     void updateCourse(Course course);
 
     void deleteCourse(Course course);
+
 }

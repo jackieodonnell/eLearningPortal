@@ -37,6 +37,32 @@ public class JdbcCourseDao implements CourseDao {
     }
 
     @Override
+    public List<Course> getAllCoursesByStudentId(int studentId) {
+        List<Course> courses = new ArrayList<>();
+        String sql = "SELECT course.course_id, teacher_id, course_title, course_description, difficulty_level, cost FROM course " +
+                "JOIN course_student ON course.course_id = course_student.course_id WHERE course_student.student_id = ?;";
+        SqlRowSet results = dao.queryForRowSet(sql, studentId);
+        while(results.next()) {
+            Course course = mapRowToCourse(results);
+            courses.add(course);
+        }
+        return courses;
+    }
+
+    @Override
+    public List<Course> getAllCoursesByTeacherId(int teacherId) {
+        List<Course> courses = new ArrayList<>();
+        String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost FROM course " +
+                "WHERE teacher_id = ?;";
+        SqlRowSet results = dao.queryForRowSet(sql,teacherId);
+        while(results.next()) {
+            Course course = mapRowToCourse(results);
+            courses.add(course);
+        }
+        return courses;
+    }
+
+    @Override
     public Course getCourseById(int courseId) {
         Course course = null;
         String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost FROM course " +
