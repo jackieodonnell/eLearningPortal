@@ -79,6 +79,15 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
+  #login{
+    display: flex;
+    flex-direction: column;
+    /* align-content: center; */
+    text-align: center;
+    justify-content: center;
+  }
+=======
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
 
 * {
@@ -156,4 +165,5 @@ input {
   font-size: 4em;
 }
 
+>>>>>>> main
 </style>
