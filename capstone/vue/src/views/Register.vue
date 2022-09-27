@@ -1,11 +1,12 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
+      <h1 class="app-title">Incrementum</h1>
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
+      <!-- <label for="username" class="sr-only">Username</label> -->
       <input
         type="text"
         id="username"
@@ -15,7 +16,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <!-- <label for="password" class="sr-only">Password</label> -->
       <input
         type="password"
         id="password"
@@ -32,6 +33,11 @@
         v-model="user.confirmPassword"
         required
       />
+      <div id="checks">
+        <input type="radio" id="role_teacher" value="Teacher" v-model="user.role"> <label for="role_teacher">Teacher</label>
+        <input type="radio" id="role_student" value="Student" v-model="user.role"> <label for="role_student">Student</label>
+      </div>
+      
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -51,7 +57,8 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: '',
+        // teacher/student role?
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -90,4 +97,82 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+* {
+  font-family: 'Schoolbell', cursive;
+  /* border: 1px solid red; */
+  /* text-align: center; */
+}
+
+#register {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px; */
+}
+
+.form-register {
+  width: 30vw;
+ padding: 1.9rem 1.2rem;
+ text-align: center;
+ background: #f4ff57;
+ border-radius: 4px;
+ box-shadow: 10px 10px #5e6681;
+}
+
+input {
+ margin-top: .5rem;
+ margin-left: auto;
+ margin-right: auto;
+ display: inline;
+ align-items: center;
+ justify-content: center;
+ gap: .5em;
+ background-color: #d8ffcf;
+ border-radius: 4px;
+ padding: .5em 1em;
+}
+
+#checks {
+
+}
+
+.btn {
+ margin: 1rem;
+ border: none;
+ border-radius: 4px;
+ font-weight: bold;
+ font-size: .8em;
+ text-transform: uppercase;
+ padding: 0.6em 1.2em;
+ background-color: #57ffcb;
+ color: #5e6681;
+ box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+ transition: all .3s ease-in-out;
+}
+
+.btn:hover {
+ background-color: #5e6681;
+ color: #ffeba7;
+ box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+}
+
+.app-title, .msg {
+ margin-bottom: 1rem;
+ font-size: 2em;
+ font-weight: 500;
+ color: #5e6681;
+}
+
+.app-title {
+  font-size: 4em;
+}
+
+</style>
