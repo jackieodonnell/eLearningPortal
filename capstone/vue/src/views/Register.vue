@@ -58,7 +58,8 @@ export default {
         password: '',
         confirmPassword: '',
         role: '',
-        // teacher/student role?
+        firstname: '',
+        lastname: ''
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
