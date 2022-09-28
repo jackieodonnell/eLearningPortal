@@ -1,6 +1,6 @@
 <template>
-  <div class="main">
-      <form class="create-course" v-on:submit="createNewCourse">
+  <div class="new-course">
+      <form class="create-new-course" v-on:submit="createNewCourse">
           <div class="form-header">
               <h1 class="create-course-header">Create New Course</h1>
           </div>
@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 div.form-element {
   margin-top: 10px;
 }
