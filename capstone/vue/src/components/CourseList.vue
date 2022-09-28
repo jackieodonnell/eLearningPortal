@@ -29,13 +29,21 @@ export default {
         // .then(response =>{
         //     this.courses = response.data
         // });
-
-        courseService.getCoursesForStudent(this.$store.state.user.id)
-        .then(response => {
-            // if (response.status == 200) {
-             this.courses = response.data
-            // }
-        }); 
+    if(this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_STUDENT")){
+            courseService.getCoursesForStudent(this.$store.state.user.id)
+            .then(response => {
+                if (response.status == 200) {
+                this.courses = response.data
+                }
+            });
+        } else if(this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")){
+            courseService.getCoursesForTeacher(this.$store.state.user.id)
+            .then(response => {
+                if (response.status == 200) {
+                this.courses = response.data
+                }
+            });
+        }
     }
 }
 </script>
