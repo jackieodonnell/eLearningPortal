@@ -49,7 +49,9 @@ export default {
 </script>
 
 <style>
-.book-container {
+.course-container {
+    grid-area: courses;
+    height: 80vh;
     display:flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
