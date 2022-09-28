@@ -9,6 +9,8 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
+	first_name varchar (25) NOT NULL,
+	last_name varchar (25) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
@@ -27,10 +29,12 @@ CREATE TABLE course_student (
   PRIMARY KEY (student_id, course_id)
 );
 
---CREATE TABLE curriculum (
---  curriculum_id SERIAL PRIMARY KEY,
---  course_id int
---);
+CREATE TABLE curriculum (
+  curriculum_id SERIAL PRIMARY KEY,
+  course_id int,
+  curriculum_title varchar(50),
+  curriculum_description varchar(200)
+);
 --
 --CREATE TABLE daily_instructions (
 --  current_day date,
