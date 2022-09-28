@@ -29,10 +29,12 @@ CREATE TABLE course_student (
   PRIMARY KEY (student_id, course_id)
 );
 
---CREATE TABLE curriculum (
---  curriculum_id SERIAL PRIMARY KEY,
---  course_id int
---);
+CREATE TABLE curriculum (
+  curriculum_id SERIAL PRIMARY KEY,
+  course_id int,
+  curriculum_title varchar(50),
+  curriculum_description varchar(200)
+);
 --
 --CREATE TABLE daily_instructions (
 --  current_day date,

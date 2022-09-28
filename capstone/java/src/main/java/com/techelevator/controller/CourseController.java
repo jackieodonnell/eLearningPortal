@@ -42,14 +42,14 @@ public class CourseController {
         return courseDao.getCourseById(id);
     }
 
-//    @PreAuthorize("hasRole('ROLE_TEACHER')")
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/course/{id}", method = RequestMethod.PUT)
     public void updateCourse(@RequestBody Course course) {
         courseDao.updateCourse(course);
     }
 
-//    @PreAuthorize("hasRole('ROLE_TEACHER')")
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/course/{id}", method = RequestMethod.DELETE)
     public void deleteCourse(@RequestBody Course course) {
