@@ -14,12 +14,7 @@ export default {
   name: "home",
   components: {
     CourseList
-  },
-  // methods: {
-  //   getCoursesForUser(){
-  //     this.$store.commit("GET_COURSES", this.user)
-  //   }
-  // }
+  }
 };
 </script>
 

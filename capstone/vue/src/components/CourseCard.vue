@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <h2 class="course-title">{{course.course_title}}</h2>
-    <h3 class="course-description">{{course.course_description}}</h3>
+    <h2 class="course-title">{{course.courseTitle}}</h2>
+    <h3 class="course-description">{{course.courseDescription}}</h3>
     </div>
 </template>
 
