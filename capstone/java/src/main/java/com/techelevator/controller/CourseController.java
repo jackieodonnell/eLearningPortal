@@ -25,7 +25,7 @@ public class CourseController {
         this.userDao = userDao;
     }
 
-//    @PreAuthorize("hasRole('ROLE_TEACHER')")
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/courses", method = RequestMethod.POST)
     public int createCourse(@Valid @RequestBody Course course) {
@@ -55,4 +55,17 @@ public class CourseController {
     public void deleteCourse(@RequestBody Course course) {
         courseDao.deleteCourse(course);
     }
+
+    @RequestMapping(value = "/student/{studentId}/courses", method = RequestMethod.GET)
+    public List<Course> getAllCoursesByStudentId(@PathVariable int studentId){
+        return courseDao.getAllCoursesByStudentId(studentId);
+    }
+
+    @RequestMapping(value = "/teacher/{teacherId}/courses", method = RequestMethod.GET)
+    public List<Course> getAllCoursesByTeacherId(@PathVariable int teacherId){
+        return courseDao.getAllCoursesByTeacherId(teacherId);
+    }
+
+
+
 }
