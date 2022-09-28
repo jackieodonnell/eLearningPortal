@@ -13,8 +13,8 @@
               <textarea id="course-description" v-model="newCourse.courseDescription"></textarea>
           </div>
           <div class="form-element">
-              <label for="difficulty-level">Grade Level:</label>
-              <select id="difficulty-level" v-model="newCourse.difficultyLevel">
+              <label for="difficulty">Grade Level:</label>
+              <select id="difficulty" v-model="newCourse.difficulty">
                   <option value="K">K</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -28,7 +28,7 @@
           </div>
           <div class="form-element">
               <label for="cost">Tuition Cost:</label>
-              <select id="cost">
+              <select id="cost" v-model="newCourse.cost">
                   <option value="0.00">FREE</option>
               </select>
           </div>
@@ -49,7 +49,7 @@ export default {
                 teacherId: this.$store.state.user.id,
                 courseTitle: '',
                 courseDescription: '',
-                difficultyLevel: '',
+                difficulty: '',
                 cost: '',
             }
         }
@@ -80,8 +80,20 @@ export default {
 </script>
 
 <style scoped>
+.create-new-course {
+    background-color: #cccccc94;
+    border-radius: 10px;
+    padding: 30px;
+    font-family: sans-serif;
+}
+
+.form-header {
+    text-align: center;
+}
+
 div.form-element {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 div.form-element > label {
   display: block;
@@ -90,17 +102,36 @@ div.form-element > input,
 div.form-element > select {
   height: 30px;
   width: 300px;
+  border-radius: 4px;
+  padding: 3px 10px;
 }
 div.form-element > textarea {
-  height: 60px;
-  width: 300px;
+  width: 100%;
+  height: 150px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
 }
-form > input[type="button"] {
-  width: 100px;
-}
-form > input[type="submit"] {
-  width: 100px;
-  margin-right: 10px;
+form > input[type="button"], form > input[type="submit"]{
+  width: 40%;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: rgb(73, 109, 226);
+  border: none;
+  color: white;
+  padding: 5% 10%;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
 }
 
+form > input[type="submit"]:hover {
+    background-color:#04AA6D
+}
+form > input[type="button"]:hover {
+    background-color:#eb453f
+}
 </style>

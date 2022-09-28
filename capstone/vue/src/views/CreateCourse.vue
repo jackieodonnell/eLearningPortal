@@ -16,5 +16,9 @@ export default {
 </script>
 
 <style>
-
+.create-course {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>
