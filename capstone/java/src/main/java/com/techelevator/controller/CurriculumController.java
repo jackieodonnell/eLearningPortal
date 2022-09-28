@@ -42,7 +42,7 @@ public class CurriculumController {
         return curriculumDao.getCurriculumById(curriculumId);
     }
 
-    @PreAuthorize("hadRole('ROLE_TEACHER')")
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/course/{curriculumId}", method = RequestMethod.PUT)
     public void updateCurriculum(@RequestBody Curriculum curriculum) {
