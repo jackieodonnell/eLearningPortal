@@ -1,7 +1,13 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <h2>Hello {{$store.state.user.firstname}}!</h2>
+    <nav-bar />
+    <div class="welcome">
+      <h1>Home</h1>
+      <h2>Hello {{$store.state.user.firstname}}!</h2>
+
+
+    </div>
+ 
     <!-- p>You must be authenticated to see this</p -->
     <course-list />
     <div class="footer">
@@ -12,12 +18,12 @@
 
 <script>
 import CourseList from '../components/CourseList.vue';
-// import NavBar from '../components/NavBar.vue';
+import NavBar from '../components/NavBar.vue';
 
 export default {
   name: "home",
   components: {
-    // NavBar,
+    NavBar,
     CourseList
   }
 };
