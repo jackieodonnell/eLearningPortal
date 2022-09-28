@@ -67,7 +67,7 @@ public class JdbcCourseDao implements CourseDao {
         Course course = null;
         String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost FROM course " +
                 "WHERE course_id = ?;";
-        SqlRowSet results = dao.queryForRowSet(sql);
+        SqlRowSet results = dao.queryForRowSet(sql, courseId);
         while (results.next()) {
             course = mapRowToCourse(results);
         }
@@ -83,8 +83,9 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public void deleteCourse(Course course) {
-        String sql = "DELETE FROM course WHERE course_id = ?;";
-        dao.update(sql, course.getCourseId());
+        String sql = "DELETE FROM course_student WHERE course_id = ?; " +
+                "DELETE FROM course WHERE course_id = ?;";
+        dao.update(sql, course.getCourseId(), course.getCourseId());
     }
 
     private Course mapRowToCourse(SqlRowSet result) {
