@@ -14,4 +14,8 @@ export default {
     return axios.get('/courses')
   },
 
+  createCourse(course){
+    return axios.post('/courses', course)
+  }
+
 }
