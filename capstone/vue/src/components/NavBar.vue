@@ -74,7 +74,7 @@ nav a {
   color: #0d47a1
 }
 
-a:hover {
+nav a:hover {
   box-shadow: inset 100px 0 0 0 #54b3d6;
   color: white;
 }

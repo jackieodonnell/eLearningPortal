@@ -4,8 +4,6 @@
     <div class="welcome">
       <h1>Home</h1>
       <h2>Hello {{$store.state.user.firstname}}!</h2>
-
-
     </div>
  
     <!-- p>You must be authenticated to see this</p -->

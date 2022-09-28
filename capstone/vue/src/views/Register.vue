@@ -7,7 +7,8 @@
         {{ registrationErrorMsg }}
       </div>
       <!-- <label for="username" class="sr-only">Username</label> -->
-      <input
+      <div id="text">
+        <input
         type="text"
         id="username"
         class="form-control"
@@ -16,7 +17,6 @@
         required
         autofocus
       />
-      <!-- <label for="password" class="sr-only">Password</label> -->
       <input
         type="password"
         id="password"
@@ -33,6 +33,24 @@
         v-model="user.confirmPassword"
         required
       />
+      <input type="firstname"
+      id="firstname"
+      class="form-control"
+      placeholder="First Name"
+      v-model="user.firstname"
+      required
+      />
+      <input type="lastname"
+      id="lastname"
+      class="form-control"
+      placeholder="Last Name"
+      v-model="user.lastname"
+      required
+      />
+
+      </div>
+      
+
       <div id="checks">
         <input type="radio" id="role_teacher" value="Teacher" v-model="user.role"> <label for="role_teacher">Teacher</label>
         <input type="radio" id="role_student" value="Student" v-model="user.role"> <label for="role_student">Student</label>
@@ -98,7 +116,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
 
 * {
@@ -128,21 +146,25 @@ export default {
  box-shadow: 10px 10px #5e6681;
 }
 
-input {
+#text input {
  margin-top: .5rem;
  margin-left: auto;
  margin-right: auto;
- display: inline;
+ display: flex;
  align-items: center;
  justify-content: center;
  gap: .5em;
  background-color: #d8ffcf;
  border-radius: 4px;
  padding: .5em 1em;
+ width: 20rem;
 }
 
 #checks {
-
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
 }
 
 .btn {
