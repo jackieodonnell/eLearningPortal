@@ -1,11 +1,21 @@
 <template>
   <div class="course-details">
-      <h1 class="course-title">
-          {{ course.courseTitle }} | Grade Level: {{ course.difficulty }}
-      </h1>
-      <p class="course-description">
-          {{ course.courseDescription }}
-      </p>
+      <div class="course-container">
+          <div class="course-title-box">
+              <h1 class="course-title"> {{ course.courseTitle }} | Grade Level: {{ course.difficulty }} </h1>
+          </div>
+          <div class="course-desc-box">
+              <p class="course-description">{{ course.courseDescription }} </p>
+          </div>
+          <div class="curriculum">
+              <h1 class="curr-title">This is where the curriculum/homework will go</h1>
+          </div>
+      </div>
+
+
+
+      
+      
   </div>
 </template>
 
@@ -37,5 +47,12 @@ export default {
 </script>
 
 <style>
+.course-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: flex-start;
+}
 
 </style>

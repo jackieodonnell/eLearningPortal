@@ -3,7 +3,6 @@
     <nav-bar />
 
       <main>
-        <section>
       <div class= "hero-container">
         <div class= "hero-one">
           <h1 class= "hero-title">Welcome to School {{$store.state.user.firstname}}!</h1>
@@ -12,27 +11,24 @@
           <img class="hero-picture" src="https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/Tech_Elevator/original.png?1579896670">
         </div>
        </div>
-     </section>
-     <section>
+     
+  
      
 
-       <div class= "product-container">
-          <h1 class= "product-title">Your Classes</h1>
+       <div class= "classes-container">
+          <h1 class= "classes-title">Your Classes</h1>
          <course-list />
        </div>
-     </section>
+   
      
      <div class= "calendar-container">
        <div class= "calendar-box">
-         <h2>This container can be used for grades or notifications or something</h2>
+         <h2>Upcoming assignments</h2>
        </div>
      </div>
    </main>
 
-    <div class="footer">
-      <h1>footer</h1>
-    </div>
-  </div>
+ </div>
 </template>
 
 <script>
@@ -43,7 +39,8 @@ export default {
   name: "home",
   components: {
     NavBar,
-    CourseList
+    CourseList,
+   
   }
 };
 </script>
@@ -51,7 +48,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
 
-.home {
+* {
   font-family: 'Schoolbell', cursive;
 }
   .hero-container {
@@ -88,7 +85,7 @@ export default {
     height: 20vh;
     justify-content: right;
   }
-  .product-container {
+  .classes-container {
     margin-top: 20px;
     width: 100%;
     height: 10%;
@@ -98,7 +95,7 @@ export default {
     flex-direction: column;
     min-height: 25%;
   }
-  .product-title {
+  .classes-title {
     text-align: center;
     font-size: 36px;
     font-weight: 1000;
