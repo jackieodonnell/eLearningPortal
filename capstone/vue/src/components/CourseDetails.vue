@@ -1,6 +1,11 @@
 <template>
   <div class="course-details">
-
+      <h1 class="course-title">
+          {{ course.courseTitle }} | Grade Level: {{ course.difficulty }}
+      </h1>
+      <p class="course-description">
+          {{ course.courseDescription }}
+      </p>
   </div>
 </template>
 

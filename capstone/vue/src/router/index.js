@@ -65,7 +65,11 @@ const router = new Router({
       //   }
       // },
       meta: {
+<<<<<<< HEAD
         requiresAuth: true
+=======
+        requiresAuth: false,
+>>>>>>> main
       }
     },
     {
