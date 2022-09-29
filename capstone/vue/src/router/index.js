@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import CreateCourse from '../views/CreateCourse.vue'
+import CoursePage from '../views/CoursePage.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -59,9 +60,17 @@ const router = new Router({
       name: "create-course",
       component: CreateCourse,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
+    {
+      path: "/course/:courseId",
+      name: "course-details",
+      component: CoursePage,
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
 })
 

@@ -35,23 +35,23 @@ CREATE TABLE curriculum (
   curriculum_title varchar(50),
   curriculum_description varchar(200)
 );
---
---CREATE TABLE daily_instructions (
---  current_day date,
---  curriculum_id int,
---  instructions varchar,
---  assignment_id int,
---  PRIMARY KEY (current_date, curriculum_id)
---);
---
---CREATE TABLE assignment (
---  assignment_id int PRIMARY KEY,
---  assigned_date date,
---  due_date date,
---  assignment_title varchar,
---  assignment_description varchar,
---  assignment_type varchar
---);
+
+CREATE TABLE daily_instructions (
+  current_day date,
+  curriculum_id int,
+  instructions varchar(500),
+  assignment_id int,
+  PRIMARY KEY (current_date, curriculum_id)
+);
+
+CREATE TABLE assignment (
+  assignment_id int PRIMARY KEY,
+  assigned_date date,
+  due_date date,
+  assignment_title varchar(100),
+  assignment_description varchar(500),
+  assignment_type varchar(50)
+);
 --
 --CREATE TABLE grades (
 --  student_id int,

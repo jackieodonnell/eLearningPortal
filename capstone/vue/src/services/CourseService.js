@@ -16,6 +16,10 @@ export default {
 
   createCourse(course){
     return axios.post('/courses', course)
-  }
+  },
+
+  getCourseByCourseId(courseId){
+    return axios.get(`/course/${courseId}`)
+  },
 
 }
