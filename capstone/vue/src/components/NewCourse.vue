@@ -32,7 +32,7 @@
                   <option value="0.00">FREE</option>
               </select>
           </div>
-          <input type="submit" value="Save"/>
+          <input type="submit" value="Save" v-on:click.prevent="createNewCourse" />
           <input type="button" value="Cancel" v-on:click.prevent="resetForm" />       
       </form>
   </div>
@@ -59,7 +59,6 @@ export default {
             courseService.createCourse(this.newCourse).then(response => {
                 if (response.status == 201) {
                     this.resetForm();
-                    this.$router.push({name: 'Home'});
                 } else {
                     console.log('Error - failed to create new course');
                 }
@@ -74,6 +73,7 @@ export default {
                 difficultyLevel: '',
                 cost: '',
             };
+            this.$router.push({name: 'home'});
         }
     }
 }
