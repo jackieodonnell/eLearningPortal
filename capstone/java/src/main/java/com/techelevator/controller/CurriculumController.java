@@ -33,12 +33,12 @@ public class CurriculumController {
 
 
     @RequestMapping(value = "/{courseId}/curricula", method = RequestMethod.GET)
-    public List<Curriculum> getAllCurriculumInCourse(int courseId){
+    public List<Curriculum> getAllCurriculumInCourse(@PathVariable int courseId){
         return curriculumDao.getAllCurriculumInCourse(courseId);
     }
 
     @RequestMapping(value = "/course/curriculum/{curriculumId}", method = RequestMethod.GET)
-    public Curriculum getCurriculumById(int curriculumId) {
+    public Curriculum getCurriculumById(@PathVariable int curriculumId) {
         return curriculumDao.getCurriculumById(curriculumId);
     }
 
@@ -52,7 +52,7 @@ public class CurriculumController {
     @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/course/curriculum/{curriculumId}", method = RequestMethod.DELETE)
-    public void deleteCurriculum(Curriculum curriculum) {
+    public void deleteCurriculum(@RequestBody Curriculum curriculum) {
         curriculumDao.deleteCurriculum(curriculum);
     }
 }

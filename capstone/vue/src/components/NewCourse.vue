@@ -73,8 +73,13 @@ export default {
                 difficultyLevel: '',
                 cost: '',
             };
+<<<<<<< HEAD
             this.$router.push({name: 'home'})
         },
+=======
+            this.$router.push({name: 'home'});
+        }
+>>>>>>> main
     }
 }
 </script>

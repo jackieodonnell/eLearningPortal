@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import CreateCourse from '../views/CreateCourse.vue'
 import CoursePage from '../views/CoursePage.vue'
+import Account from '../views/Account.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -67,8 +68,7 @@ const router = new Router({
           alert("You don't have access to this page.")
           next(from)
         }
-      }
-,
+      },
       meta: {
         requiresAuth: false,
       }
@@ -79,6 +79,14 @@ const router = new Router({
       component: CoursePage,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: "/account",
+      name: "account",
+      component: Account,
+      meta: {
+        requiresAuth: false
       }
     }
   ]
