@@ -7,7 +7,7 @@ export default {
     },
 
     getInstructionById(dailyInstructionsId) {
-        return axios.get(`/course/curriculum/${dailyInstructionsId}`)
+        return axios.get(`/course/curriculum/instruction/${dailyInstructionsId}`)
     },
 
     createInstruction(dailyInstruction) {

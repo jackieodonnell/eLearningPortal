@@ -39,7 +39,7 @@ public class DailyInstructionController {
         return dailyInstructionDao.getAllInstructionsInCurriculum(curriculumId);
     }
 
-    @RequestMapping(value = "/course/curriculum/{dailyInstructionId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/course/curriculum/instruction/{dailyInstructionId}", method = RequestMethod.GET)
     public DailyInstruction getInstructionByID(@PathVariable int dailyInstructionId) {
         return dailyInstructionDao.getInstructionById(dailyInstructionId);
     }

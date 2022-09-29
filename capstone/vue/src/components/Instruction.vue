@@ -1,5 +1,6 @@
 <template>
   <div>
+      {{dailyInstruction.currentDay}}
       {{dailyInstruction.instructions}}
   </div>
 </template>
@@ -9,7 +10,7 @@ import InstructionService from '../services/InstructionService'
 
 export default {
     name: "instruction",
-    props: ['curriculum'],
+    props: ['instructionItem'],
     data(){
     return {
         dailyInstruction: {
@@ -23,13 +24,15 @@ export default {
     }
 },
     created() {
-        InstructionService.getInstructionsInCurriculum(this.curriculum.curriculumId).then(response => {
-            if(response.status == 200) {
-                this.dailyInstruction = response.data
-            }
+        InstructionService.getInstructionById(this.instructionItem.dailyInstructionsId).then(
+            response => {
+                if (response.status == 200){
+                    this.dailyInstruction = response.data;
+                }
         })
-    }
+        }
 }
+
 </script>
 
 <style>
