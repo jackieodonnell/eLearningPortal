@@ -37,14 +37,14 @@
       id="firstname"
       class="form-control"
       placeholder="First Name"
-      v-model="user.firstname"
+      v-model="user.firstName"
       required
       />
       <input type="lastname"
       id="lastname"
       class="form-control"
       placeholder="Last Name"
-      v-model="user.lastname"
+      v-model="user.lastName"
       required
       />
 
@@ -76,8 +76,8 @@ export default {
         password: '',
         confirmPassword: '',
         role: '',
-        firstname: '',
-        lastname: ''
+        firstName: '',
+        lastName: ''
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
