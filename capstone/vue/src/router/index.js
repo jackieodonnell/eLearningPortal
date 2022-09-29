@@ -59,11 +59,16 @@ const router = new Router({
       path: "/course/new",
       name: "create-course",
       component: CreateCourse,
-      // beforeEnter: (to, from, next) => {
-      //   if(this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")){
-      //     next();
-      //   }
-      // },
+      beforeEnter: (to, from, next) => {
+        if(store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")){
+          next();
+        }
+        else{
+          alert("You don't have access to this page.")
+          next(from)
+        }
+      }
+,
       meta: {
         requiresAuth: false,
       }
