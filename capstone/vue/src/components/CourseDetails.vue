@@ -1,6 +1,5 @@
 <template>
   <div class="course-details">
-<<<<<<< HEAD
       <div class="course-container">
           <div class="course-title-box">
               <h1 class="course-title"> {{ course.courseTitle }} | Grade Level: {{ course.difficulty }} </h1>
@@ -17,26 +16,17 @@
 
       
       
-=======
-      <h1 class="course-title">
-          {{ course.courseTitle }}
-      </h1>
-      <p class="course-description">
-          Level: {{ course.difficulty }} - {{ course.courseDescription }}
-      </p>
-      <curriculum-list/>
->>>>>>> main
   </div>
 </template>
 
 <script>
 import courseService from '../services/CourseService';
-import CurriculumList from './CurriculumList.vue';
+// import CurriculumList from './CurriculumList.vue';
 
 export default {
     name: "course-details",
     components: {
-    CurriculumList 
+    // CurriculumList 
     },
     data(){
         return {
