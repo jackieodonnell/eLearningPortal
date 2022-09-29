@@ -65,16 +65,12 @@ const router = new Router({
       //   }
       // },
       meta: {
-<<<<<<< HEAD
-        requiresAuth: true
-=======
         requiresAuth: false,
->>>>>>> main
       }
     },
     {
       path: "/course/:courseId",
-      name: "course-details",
+      name: "course-page",
       component: CoursePage,
       meta: {
         requiresAuth: true

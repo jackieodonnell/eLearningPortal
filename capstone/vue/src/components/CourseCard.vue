@@ -1,5 +1,6 @@
 <template>
 <div class="card">
+  <router-link :to="{name: 'course-page', params: {courseId: course.courseId}}">
 <div class="card-img"></div>
   <div class="card-info">
     <div class="card-text">
@@ -13,7 +14,9 @@
       </svg>
     </div>
   </div>
+    </router-link>
 </div>
+
 </template>
 
 <script>

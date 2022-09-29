@@ -37,21 +37,21 @@ public class CurriculumController {
         return curriculumDao.getAllCurriculumInCourse(courseId);
     }
 
-    @RequestMapping(value = "/course/{curriculumId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/course/curriculum/{curriculumId}", method = RequestMethod.GET)
     public Curriculum getCurriculumById(int curriculumId) {
         return curriculumDao.getCurriculumById(curriculumId);
     }
 
     @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/course/{curriculumId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/course/curriculum/{curriculumId}", method = RequestMethod.PUT)
     public void updateCurriculum(@RequestBody Curriculum curriculum) {
         curriculumDao.updateCurriculum(curriculum);
     }
 
     @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(value = "/course/{curriculumId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/course/curriculum/{curriculumId}", method = RequestMethod.DELETE)
     public void deleteCurriculum(Curriculum curriculum) {
         curriculumDao.deleteCurriculum(curriculum);
     }
