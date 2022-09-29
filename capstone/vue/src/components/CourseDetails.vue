@@ -51,12 +51,17 @@ export default {
 </script>
 
 <style>
+
 .course-container {
     padding: 20px;
     display: flex;
     flex-direction: column;
     height: 50vh;
     justify-content: flex-start;
+}
+.course-container div {
+    /* border: 1px solid red; */
+    margin: 10px;
 }
 
 </style>

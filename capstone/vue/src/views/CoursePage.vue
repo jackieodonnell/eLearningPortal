@@ -3,7 +3,7 @@
       <nav-bar />
       <div class= "hero-container">
         <div class= "hero-one">
-          <h1 class= "hero-title"> {{ course.courseTitle}}</h1>
+          <h1 class= "hero-title"> {{course.courseTitle}}</h1>
 
         </div>
         <div class= "hero-two">
@@ -38,6 +38,18 @@ import NavBar from '../components/NavBar.vue'
 import courseService from '../services/CourseService';
 export default {
     name: "course-page",
+    data(){
+        return {
+            course: {
+                courseId: '',
+                teacherId: '',
+                courseTitle: '',
+                courseDescription: '',
+                difficulty: '',
+                cost: '',
+            }
+        }
+    },
     components: {
         CourseDetails,
         NavBar
