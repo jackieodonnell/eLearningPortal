@@ -22,8 +22,8 @@
        </div>
      </section>
      
-     <div class= "quote-container">
-       <div class= "quote-box">
+     <div class= "calendar-container">
+       <div class= "calendar-box">
          <h2>This container can be used for grades or notifications or something</h2>
        </div>
      </div>
@@ -49,6 +49,11 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+.home {
+  font-family: 'Schoolbell', cursive;
+}
   .hero-container {
     display: flex;
     justify-content: space-between;
@@ -115,14 +120,14 @@ export default {
     margin-top: 10px;
     font-weight: bolder;
   }
-  .quote-container {
+  .calendar-container {
     display: flex;
-    height: 250px;
+    height: 30vh;
     background-color: #E5E7EB;
     justify-items: center;
     align-items: center;
   }
-  .quote-box {
+  .calendar-box {
     background-color: #E5E7EB;
     text-align: center;
     font-size: 18px;
@@ -130,46 +135,7 @@ export default {
     font-weight: lighter;
     margin: 80px;
   }
-  .cta-container {
-    display: flex;
-    height: 250px;
-    width: auto;
-    background-color: white;
-    justify-content: center;
-    align-items: center;  
-  }
-  .cta-item {
-    background-color: #3882F6;
-    height: 75%;
-    width: 75%;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 200px;
-  }
-  .cta-text {
-    color: white;
-    justify-content: center;
-    align-items: center;
-  }
-  .cta-title {
-    font-size: 36px;
-    font-weight: 1000;
-  }
-  .cta-write {
-    font-size: 20px;
-    font-style: italic;
-  }
-  .cta-button {
-    border: 2px solid white;
-    border-radius: 8px;
-    background-color: transparent;
-    color: white;
-    font-size: 20px;
-    padding: 3px;
-  }
-
+  
 .footer {
   grid-area: footer;
   height: 10vh;

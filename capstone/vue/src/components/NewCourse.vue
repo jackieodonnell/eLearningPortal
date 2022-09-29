@@ -32,7 +32,7 @@
                   <option value="0.00">FREE</option>
               </select>
           </div>
-          <input type="submit" value="Save"/>
+          <input type="submit" value="Save" v-on:click.prevent="resetForm" />
           <input type="button" value="Cancel" v-on:click.prevent="resetForm" />       
       </form>
   </div>
@@ -74,6 +74,7 @@ export default {
                 difficultyLevel: '',
                 cost: '',
             };
+            this.$router.push("/");
         }
     }
 }
