@@ -33,27 +33,39 @@ INSERT INTO course_student(student_id, course_id) VALUES(5, 3);
 INSERT INTO course_student(student_id, course_id) VALUES(4, 4);
 INSERT INTO course_student(student_id, course_id) VALUES(6, 4);
 
-INSERT INTO curriculum (course_id, curriculum_title, curriculum_description) VALUES (4, 'U.S. History', 'We will cover the history of the United States of America.');
-INSERT INTO curriculum (course_id, curriculum_title, curriculum_description) VALUES (3, 'English 1', 'An introduction to basic English grammar.');
+INSERT INTO curriculum (course_id, curriculum_title, curriculum_description)
+    VALUES (4, 'U.S. History', 'We will cover the history of the United States of America.');
+INSERT INTO curriculum (course_id, curriculum_title, curriculum_description)
+    VALUES (3, 'English 1', 'An introduction to basic English grammar.');
 
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('03-10-2022', 1, '1.01 Creating a New Government', 1);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('04-10-2022', 1, '1.02 The Bill Of Rights', 2);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('05-10-2022', 1, '1.03 US Westward Expansion', 3);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('06-10-2022', 1, '1.04 US Antebellum Movement', 4);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('07-10-2022', 1, '1.05 Before US Civil War', 5);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('10-10-2022', 1, '1.06 Reconstruction', 6);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('11-10-2022', 1, '1.07 The US - End of 20th Century', 7);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('12-10-2022', 1, '1.08 Historical Thinking', 8);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('13-10-2022', 1, '1.09 Foundations of Gov', 9);
-INSERT INTO daily_instructions (current_day, curriculum_id, instructions, assignment_id) VALUES ('14-10-2022', 1, '1.10 Public Policy', 10);
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-03', 1, '1.01 Creating a New Government');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-04', 1, '1.02 The Bill Of Rights');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-05', 1, '1.03 US Westward Expansion');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-06', 1, '1.04 US Antebellum Movement');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-07', 1, '1.05 Before US Civil War');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-10', 1, '1.06 Reconstruction');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-11', 1, '1.07 The US - End of 20th Century');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-12', 1, '1.08 Historical Thinking');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-13', 1, '1.09 Foundations of Gov');
+INSERT INTO daily_instructions (current_day, curriculum_id, instructions)
+    VALUES ('2022-10-14', 1, '1.10 Public Policy');
 
-INSERT INTO assignment (assignment_date, due_date, assignment_title, assignment_description, assignment_type)
-    VALUES ('03-10-2022', '05-10-2022', '')
+INSERT INTO assignment (daily_instructions_id, assigned_date, due_date, assignment_title, assignment_description, assignment_type)
+    VALUES (1, '2022-10-03', '2022-10-05', '1.01 Checks and Balances Review Assignment', 'Write a 500 word summary on the importance of checks and balances in government', 'homework');
+INSERT INTO assignment (daily_instructions_id, assigned_date, due_date, assignment_title, assignment_description, assignment_type)
+    VALUES (2, '2022-10-04', '2022-10-06', '1.02 Create Your Own Bill of Rights', 'Create your own Bill of Rights, modeled after the United States Constitution.', 'homework');
+INSERT INTO assignment (daily_instructions_id, assigned_date, due_date, assignment_title, assignment_description, assignment_type)
+    VALUES (3, '2022-10-05', '2022-10-07', '1.03 Westward Expansion Short-Answer Questions', 'Submit brief answers to each of the questions regarding Westward Expansions, as discussed in class.', 'homework');
+INSERT INTO assignment (daily_instructions_id, assigned_date, due_date, assignment_title, assignment_description, assignment_type)
+    VALUES (5, '2022-10-07', '2022-10-11', '1.05 Group Project on Pre-Civil War America', 'Collaborate with your assigned group - each student will submit a one-page summary of the events that led to the Civil War', 'homework');
 
 COMMIT TRANSACTION;
-
-SELECT user_id, username, first_name, last_name, course.course_title FROM users
-JOIN course_student ON users.user_id = course_student.student_id
-JOIN course ON course.course_id = course_student.course_id;
-
-SELECT * FROM users
