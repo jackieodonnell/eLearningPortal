@@ -59,8 +59,17 @@ const router = new Router({
       path: "/course/new",
       name: "create-course",
       component: CreateCourse,
+      // beforeEnter: (to, from, next) => {
+      //   if(this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")){
+      //     next();
+      //   }
+      // },
       meta: {
+<<<<<<< HEAD
         requiresAuth: true
+=======
+        requiresAuth: false,
+>>>>>>> main
       }
     },
     {
