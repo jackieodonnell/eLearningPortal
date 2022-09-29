@@ -33,18 +33,18 @@
         v-model="user.confirmPassword"
         required
       />
-      <input type="firstname"
-      id="firstname"
+      <input type="firstName"
+      id="firstName"
       class="form-control"
       placeholder="First Name"
-      v-model="user.firstname"
+      v-model="user.firstName"
       required
       />
-      <input type="lastname"
-      id="lastname"
+      <input type="lastName"
+      id="lastName"
       class="form-control"
       placeholder="Last Name"
-      v-model="user.lastname"
+      v-model="user.lastName"
       required
       />
 
@@ -76,8 +76,8 @@ export default {
         password: '',
         confirmPassword: '',
         role: '',
-        firstname: '',
-        lastname: ''
+        firstName: '',
+        lastName: ''
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -85,6 +85,7 @@ export default {
   },
   methods: {
     register() {
+      // Password validation
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';

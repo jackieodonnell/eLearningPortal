@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .create-new-course {
     background-color: #cccccc94;
     border-radius: 10px;

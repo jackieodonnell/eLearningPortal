@@ -51,9 +51,9 @@ export default {
 <style>
 .course-container {
     grid-area: courses;
-    height: 80vh;
     display:flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 50px;
     flex-wrap: wrap;
 }
 </style>
