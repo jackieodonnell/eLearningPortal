@@ -8,25 +8,21 @@
               <p class="course-description">{{ course.courseDescription }} </p>
           </div>
           <div class="curriculum">
-              <h1 class="curr-title">This is where the curriculum/homework will go</h1>
+              <h1 class="curr-title"></h1>
+              <curriculum-list />
           </div>
       </div>
-
-
-
-      
-      
   </div>
 </template>
 
 <script>
 import courseService from '../services/CourseService';
-// import CurriculumList from './CurriculumList.vue';
+import CurriculumList from './CurriculumList.vue';
 
 export default {
     name: "course-details",
     components: {
-    // CurriculumList 
+    CurriculumList 
     },
     data(){
         return {
