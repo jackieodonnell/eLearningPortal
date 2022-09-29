@@ -1,5 +1,5 @@
 <template>
-  <div class="course-container">
+  <div class="courses-container">
     <!-- course-card class="card" v-for="course in $store.state.courses" 
     v-bind:key="course.course_title" v-bind:course="course">
     </course-card -->
@@ -49,11 +49,11 @@ export default {
 </script>
 
 <style>
-.course-container {
+.courses-container {
     grid-area: courses;
     display:flex;
     justify-content: center;
-    gap: 50px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 </style>
