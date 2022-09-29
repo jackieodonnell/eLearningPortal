@@ -7,8 +7,8 @@
 
     <ul>
         <li><router-link :to="{name: 'home'}">Home</router-link></li>
-        <li><router-link :to="{name: '#'}">Classes</router-link></li>
-        <li><router-link :to="{name: '#'}">Grades</router-link></li>
+        <li><router-link :to="{name: 'create-course'}" v-bind="teacher" v-if="teacher">Create</router-link></li>
+        <!-- li><router-link :to="{name: '#'}">Grades</router-link></li -->
         <li><router-link :to="{name: '#'}">Account</router-link></li>
         <li><router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link></li>
     </ul>
@@ -24,6 +24,11 @@
 <script>
 export default {
     name: 'nav-bar',
+    data(){
+      return{
+        teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")
+      }
+    }
 }
 </script>
 

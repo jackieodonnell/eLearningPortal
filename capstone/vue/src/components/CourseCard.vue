@@ -4,6 +4,7 @@
   <div class="card-info">
     <div class="card-text">
     <h2 class="course-title">{{course.courseTitle}}</h2>
+    <h4 class="course-difficulty">Level {{course.difficulty}}</h4>
     <h3 class="course-description">{{course.courseDescription}}</h3>
     </div>
     <div class="card-icon">
