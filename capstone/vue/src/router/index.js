@@ -75,7 +75,7 @@ const router = new Router({
     },
     {
       path: "/course/:courseId",
-      name: "course-details",
+      name: "course-page",
       component: CoursePage,
       meta: {
         requiresAuth: true

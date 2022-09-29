@@ -3,6 +3,9 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS course CASCADE;
 DROP TABLE IF EXISTS course_student CASCADE;
+DROP TABLE IF EXISTS curriculum CASCADE;
+DROP TABLE IF EXISTS daily_instructions CASCADE;
+DROP TABLE IF EXISTS assignment CASCADE;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -37,15 +40,15 @@ CREATE TABLE curriculum (
 );
 
 CREATE TABLE daily_instructions (
+  daily_instructions_id SERIAL PRIMARY KEY,
   current_day date,
   curriculum_id int,
-  instructions varchar(500),
-  assignment_id int,
-  PRIMARY KEY (current_date, curriculum_id)
+  instructions varchar(500)
 );
 
 CREATE TABLE assignment (
-  assignment_id int PRIMARY KEY,
+  assignment_id SERIAL PRIMARY KEY,
+  daily_instructions_id int,
   assigned_date date,
   due_date date,
   assignment_title varchar(100),
@@ -67,16 +70,16 @@ ALTER TABLE course_student ADD FOREIGN KEY (student_id) REFERENCES users (user_i
 
 ALTER TABLE course_student ADD FOREIGN KEY (course_id) REFERENCES course (course_id);
 
---ALTER TABLE curriculum ADD FOREIGN KEY (course_id) REFERENCES course (course_id);
---
---ALTER TABLE daily_instructions ADD FOREIGN KEY (curriculum_id) REFERENCES curriculum (curriculum_id);
---
---ALTER TABLE assignment ADD FOREIGN KEY (assignment_id) REFERENCES daily_instructions (assignment_id);
+ALTER TABLE curriculum ADD FOREIGN KEY (course_id) REFERENCES course (course_id);
+
+ALTER TABLE daily_instructions ADD FOREIGN KEY (curriculum_id) REFERENCES curriculum (curriculum_id);
+
+ALTER TABLE assignment ADD FOREIGN KEY (daily_instructions_id) REFERENCES daily_instructions (daily_instructions_id);
 --
 --ALTER TABLE grades ADD FOREIGN KEY (student_id) REFERENCES users (user_id);
 --
 --ALTER TABLE grades ADD FOREIGN KEY (assignment_id) REFERENCES assignment (assignment_id);
---
+
 --ALTER TABLE grades ADD FOREIGN KEY (course_id) REFERENCES course (course_id);
 
 COMMIT TRANSACTION;
