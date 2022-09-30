@@ -92,7 +92,13 @@ export default {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
-      } else {
+      } else if ((this.user.password.search(/[A-Z]/) < 0) || 
+                 (this.user.password.search(/[0-9]/) < 0)) {
+        this.registrationErrors = true;
+        this.registrationErrorMsg = 'Password must include at least one ' + 
+                                    'uppercase letter and at least one number.';
+      }
+        else {
         authService
           .register(this.user)
           .then((response) => {
