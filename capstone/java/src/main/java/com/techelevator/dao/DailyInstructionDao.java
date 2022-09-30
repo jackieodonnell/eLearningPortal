@@ -12,6 +12,8 @@ public interface DailyInstructionDao {
     //r
     List<DailyInstruction> getAllInstructionsInCurriculum(int curriculumId);
 
+    List<DailyInstruction> getAllInstructionsInCourse(int courseId);
+
     DailyInstruction getInstructionById(int dailyInstructionId);
 
     //u
