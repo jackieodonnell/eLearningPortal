@@ -3,38 +3,42 @@
       <nav-bar />
       <class-page-hero />
       
-       <div class= "details-container">
+       <!-- <div class= "details-container">
             <course-details />
-       </div>
+       </div> -->
+      
+      <div class="curriculum-container">
+          <curriculum-list />
+      </div>
 
+      <div class="instruction-content">
+          <instruction-content v-bind:dailyInstructionsId="parseInt($route.params.instructionId)"/>
+      </div>
             
      <div class= "assignments-container">
        <div class= "assignments-box">
          <h2>Upcoming assignments</h2>
        </div>
      </div>
-
-       
-    
-     
-     
-
-
     
   </div>
 </template>
 
 <script>
-import CourseDetails from '../components/CourseDetails.vue';
+// import CourseDetails from '../components/CourseDetails.vue';
 import NavBar from '../components/NavBar.vue';
 import ClassPageHero from '../components/ClassPageHero.vue';
+import CurriculumList from '../components/CurriculumList.vue';
+import InstructionContent from '../components/InstructionContent.vue';
 
 export default {
     name: "course-page",
     components: {
-        CourseDetails,
+        // CourseDetails,
         NavBar,
-        ClassPageHero
+        ClassPageHero,
+        CurriculumList,
+        InstructionContent
     },
 }
 </script>
