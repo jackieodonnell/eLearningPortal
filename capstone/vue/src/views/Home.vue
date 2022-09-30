@@ -12,7 +12,7 @@
      
      <div class= "calendar-container">
        <div class= "calendar-box">
-         <h2>Upcoming assignments</h2>
+         <upcoming-assignments />
        </div>
      </div>
 
@@ -22,14 +22,22 @@
 <script>
 import CourseList from '../components/CourseList.vue';
 import NavBar from '../components/NavBar.vue';
+<<<<<<< HEAD
 import HomePageHero from '../components/HomePageHero.vue'
+=======
+import UpcomingAssignments from '../components/UpcomingAssignments.vue';
+>>>>>>> main
 
 export default {
   name: "home",
   components: {
     NavBar,
     CourseList,
+<<<<<<< HEAD
     HomePageHero
+=======
+    UpcomingAssignments,
+>>>>>>> main
    
   }
 };

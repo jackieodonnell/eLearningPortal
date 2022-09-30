@@ -4,13 +4,13 @@ INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('
 																			'user', 'user');
 INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN',
 																			'admin', 'admin');
-INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('markdarby','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_TEACHER',
+INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('markdarby','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_TEACHER',
 																			'Mark', 'Darby');
-INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('jackieodonnell','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_STUDENT', 
+INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('jackieodonnell','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT', 
 																			'Jackie', 'O''Donnell');
-INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('prestonphillips','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_STUDENT', 
+INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('prestonphillips','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT', 
 																			'Preston', 'Phillips');
-INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('williamkendig','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_STUDENT', 
+INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('williamkendig','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT', 
 																			'William', 'Kendig');
 
 
@@ -69,3 +69,4 @@ INSERT INTO assignment (daily_instructions_id, assigned_date, due_date, assignme
     VALUES (5, '2022-10-07', '2022-10-11', '1.05 Group Project on Pre-Civil War America', 'Collaborate with your assigned group - each student will submit a one-page summary of the events that led to the Civil War', 'homework');
 
 COMMIT TRANSACTION;
+

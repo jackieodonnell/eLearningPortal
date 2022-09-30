@@ -39,7 +39,7 @@ export default {
                 this.curriculumId = this.curricula[0].curriculumId
             }
         });
-        InstructionService.getInstructionsInCurriculum(1).then(response => {
+        InstructionService.getInstructionsInCourse(this.$route.params.courseId).then(response => {
             if(response.status == 200) {
                 this.dailyInstructions = response.data 
             } 
