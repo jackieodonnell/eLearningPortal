@@ -1,20 +1,20 @@
 <template>
   <div class="new-course">
-      <form class="create-new-course" v-on:submit="createNewCourse">
+      <form class="create-new-course" v-on:submit.prevent="createNewCourse">
           <div class="form-header">
               <h1 class="create-course-header">Create New Course</h1>
           </div>
           <div class="form-element">
               <label for="course-title">Course Title:</label>
-              <input id="course-title" type="text" v-model="newCourse.courseTitle" />
+              <input id="course-title" type="text" v-model="newCourse.courseTitle" required />
           </div>
           <div class="form-element">
               <label for="course-description">Course Description:</label>
-              <textarea id="course-description" v-model="newCourse.courseDescription"></textarea>
+              <input type="textarea" id="course-description" v-model="newCourse.courseDescription" required />
           </div>
           <div class="form-element">
               <label for="difficulty">Grade Level:</label>
-              <select id="difficulty" v-model="newCourse.difficulty">
+              <select id="difficulty" form="create-new-course" v-model="newCourse.difficulty" required>
                   <option value="K">K</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -28,11 +28,11 @@
           </div>
           <div class="form-element">
               <label for="cost">Tuition Cost:</label>
-              <select id="cost" v-model="newCourse.cost">
+              <select id="cost" form="create-new-course" v-model="newCourse.cost" required>
                   <option value="0.00">FREE</option>
               </select>
           </div>
-          <input type="submit" value="Save" v-on:click.prevent="createNewCourse" />
+          <input type="submit" value="Save" />
           <input type="button" value="Cancel" v-on:click.prevent="resetForm" />       
       </form>
   </div>

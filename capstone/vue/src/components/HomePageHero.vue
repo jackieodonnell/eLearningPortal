@@ -6,7 +6,8 @@
           Welcome to School {{ $store.state.user.firstname }}!
         </h1>
         <div class="home-page-btn-container">
-        <router-link :to="{}" tag="button" v-bind="teacher" v-if="!teacher">Join New Course</router-link>
+        <button v-bind="teacher" v-if="!teacher" v-on:click="showCourses">Join New Course</button>
+        <join-course v-if="display" />
         <router-link :to="{name: 'create-course'}" tag="button" v-bind="teacher" v-if="teacher">Create Course</router-link>
 
         </div>
@@ -22,11 +23,24 @@
 </template>
 
 <script>
+import JoinCourse from './JoinCourse.vue';
 export default {
+  components: { JoinCourse },
   name: "home-page-hero",
   data() {
     return {
-       teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")
+       teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER"),
+       display: false,
+    }
+  },
+  methods: {
+    showCourses(){
+      if (this.display == false) {
+        this.display = true;
+      } else {
+        this.display = false;
+      }
+
     }
   }
 };
