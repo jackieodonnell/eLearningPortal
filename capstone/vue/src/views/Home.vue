@@ -23,7 +23,7 @@
      
      <div class= "calendar-container">
        <div class= "calendar-box">
-         <h2>Upcoming assignments</h2>
+         <upcoming-assignments />
        </div>
      </div>
    </main>
@@ -34,12 +34,14 @@
 <script>
 import CourseList from '../components/CourseList.vue';
 import NavBar from '../components/NavBar.vue';
+import UpcomingAssignments from '../components/UpcomingAssignments.vue';
 
 export default {
   name: "home",
   components: {
     NavBar,
     CourseList,
+    UpcomingAssignments,
    
   }
 };

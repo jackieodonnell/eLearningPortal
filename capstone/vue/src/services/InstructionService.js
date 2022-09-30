@@ -3,8 +3,12 @@ import axios from 'axios';
 export default {
 
     getInstructionsInCurriculum(curriculumId) {
-        return axios.get(`/course/${curriculumId}/instructions`);
+        return axios.get(`/curriculum/${curriculumId}/instructions`);
     },
+
+    getInstructionsInCourse(courseId) {
+        return axios.get(`/course/${courseId}/instructions`);
+    },   
 
     getInstructionById(dailyInstructionsId) {
         return axios.get(`/course/curriculum/instruction/${dailyInstructionsId}`)

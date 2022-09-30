@@ -38,6 +38,20 @@ public class JdbcDailyInstructionDao implements  DailyInstructionDao{
     }
 
     @Override
+    public List<DailyInstruction> getAllInstructionsInCourse(int courseId) {
+        List<DailyInstruction> instructions = new ArrayList<>();
+        String sql = "SELECT daily_instructions_id, current_day, daily_instructions.curriculum_id, instructions " +
+                "FROM daily_instructions JOIN curriculum ON daily_instructions.curriculum_id = curriculum.curriculum_id " +
+                "WHERE curriculum.course_id = ?;";
+        SqlRowSet results = dao.queryForRowSet(sql, courseId);
+        while (results.next()) {
+            DailyInstruction dailyInstruction = mapRowToDailyInstruction(results);
+            instructions.add(dailyInstruction);
+        }
+        return instructions;
+    }
+
+    @Override
     public DailyInstruction getInstructionById(int dailyInstructionId) {
         DailyInstruction instruction = null;
         String sql = "SELECT daily_instructions_id, current_day, curriculum_id, instructions " +
