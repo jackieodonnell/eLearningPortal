@@ -1,19 +1,8 @@
 <template>
   <div class="home">
     <nav-bar />
+    <home-page-hero />
 
-      <main>
-      <div class= "hero-container">
-        <div class= "hero-one">
-          <h1 class= "hero-title">Welcome to School {{$store.state.user.firstname}}!</h1>
-        </div>
-        <div class= "hero-two">
-          <img class="hero-picture" src="https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/Tech_Elevator/original.png?1579896670">
-        </div>
-       </div>
-     
-  
-     
 
        <div class= "classes-container">
           <h1 class= "classes-title">Your Classes</h1>
@@ -26,7 +15,6 @@
          <h2>Upcoming assignments</h2>
        </div>
      </div>
-   </main>
 
  </div>
 </template>
@@ -34,12 +22,14 @@
 <script>
 import CourseList from '../components/CourseList.vue';
 import NavBar from '../components/NavBar.vue';
+import HomePageHero from '../components/HomePageHero.vue'
 
 export default {
   name: "home",
   components: {
     NavBar,
     CourseList,
+    HomePageHero
    
   }
 };
@@ -48,43 +38,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
 
-* {
-  font-family: 'Schoolbell', cursive;
-}
-  .hero-container {
-    display: flex;
-    justify-content: space-between;
-    background: #000b6c;
-    height: 25%;
-  }
 
-  .hero-container div {
-    display: flex;
-    margin: 50px;
-    /* border: 1px solid red; */
-  }
-  
-  .hero-one {
-    align-self: center;
-    color: white;
-    width: 50%;
-  }
-
-  .hero-title {
-    font-size: 48px;
-    font-style: extra-bold;
-    font-family: #F9FAF8;
-  }
-  .hero-subtitle {
-    font-size: 18px;
-    font-family: #E5E7EB;
-  }
-
-  .hero-picture {
-    border-radius: 8px;
-    height: 20vh;
-    justify-content: right;
-  }
   .classes-container {
     margin-top: 20px;
     width: 100%;

@@ -7,9 +7,9 @@
                 <instruction v-bind:instructionItem="instruction"/>
               
             </div>
-            <div class="course-assignments" v-for="assignment in assignments" v-bind:key="assignment.assignmentId">
+            <!-- <div class="course-assignments" v-for="assignment in assignments" v-bind:key="assignment.assignmentId">
                 <assignment v-bind:assignmentItem="assignment"/>
-            </div>  
+            </div>   -->
             
       </div>
   </div>
@@ -19,7 +19,7 @@
 import CurriculumService from '../services/CurriculumService.js';
 import Instruction from '../components/Instruction.vue';
 import InstructionService from '../services/InstructionService';
-import Assignment from '../components/Assignment.vue';
+// import Assignment from '../components/Assignment.vue';
 import AssignmentService from '../services/AssignmentService';
 
 export default {
@@ -55,7 +55,7 @@ export default {
     },
     components: {
         Instruction,
-        Assignment
+        // Assignment
     }
 }
 
