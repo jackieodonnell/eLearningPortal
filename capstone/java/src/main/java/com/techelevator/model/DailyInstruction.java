@@ -7,12 +7,14 @@ public class DailyInstruction {
     private LocalDate currentDay;
     private int curriculumId;
     private String instructions;
+    private String content;
 
-    public DailyInstruction(int dailyInstructionsId, LocalDate currentDay, int curriculumId, String instructions) {
+    public DailyInstruction(int dailyInstructionsId, LocalDate currentDay, int curriculumId, String instructions, String content) {
         this.dailyInstructionsId = dailyInstructionsId;
         this.currentDay = currentDay;
         this.curriculumId = curriculumId;
         this.instructions = instructions;
+        this.content = content;
     }
 
     public DailyInstruction() {
@@ -48,5 +50,13 @@ public class DailyInstruction {
 
     public void setInstructions(String instructions) {
         this.instructions = instructions;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

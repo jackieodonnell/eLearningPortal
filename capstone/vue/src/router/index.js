@@ -74,7 +74,7 @@ const router = new Router({
       }
     },
     {
-      path: "/course/:courseId",
+      path: "/course/:courseId/:instructionId",
       name: "course-page",
       component: CoursePage,
       meta: {

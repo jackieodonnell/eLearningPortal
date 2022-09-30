@@ -1,7 +1,6 @@
 <template>
   <div>
-      {{dailyInstruction.currentDay}}
-      {{dailyInstruction.instructions}}
+      {{dailyInstruction.content}}
   </div>
 </template>
 
@@ -9,8 +8,10 @@
 import InstructionService from '../services/InstructionService'
 
 export default {
-    name: "instruction",
-    props: ['instructionItem'],
+    name: "instruction-content",
+    props: {
+        dailyInstructionsId: Number,
+    },
     data(){
     return {
         dailyInstruction: {
@@ -24,18 +25,13 @@ export default {
     }
 },
     created() {
-        InstructionService.getInstructionById(this.instructionItem.dailyInstructionsId).then(
+        InstructionService.getInstructionById(this.$route.params.instructionId).then(
             response => {
                 if (response.status == 200){
                     this.dailyInstruction = response.data;
                 }
         })
-    },
-    methods: {
-        displayContent(event){
-            this.instruction = event.target;
         }
-    },
 }
 
 </script>

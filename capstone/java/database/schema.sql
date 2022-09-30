@@ -43,7 +43,8 @@ CREATE TABLE daily_instructions (
   daily_instructions_id SERIAL PRIMARY KEY,
   current_day date,
   curriculum_id int,
-  instructions varchar(500)
+  instructions varchar(500),
+  content varchar(10000)
 );
 
 CREATE TABLE assignment (
