@@ -1,18 +1,25 @@
 <template>
   <div class="curriculum-list">
       <div class="curriculum-item" v-for="curriculum in curricula" v-bind:key="curriculum.curriculumId" v-bind:curriculumId="curriculum.curriculumId">
-            <h1 class="header">{{ curriculum.curriculumTitle }}</h1>
-            <p class="header">{{ curriculum.curriculumDescription }}</p>
-            <div class="daily-instructions"> 
-                <div class="sidebar">
-                    <router-link v-bind:to="{name: 'course-page'}" v-for="instruction in dailyInstructions" v-bind:key="instruction.dailyInstructionsId">
-                        <instruction v-bind:instructionItem="instruction" />
-                    </router-link>    
-                </div>
-                <div class="content">
-                    {{ instruction.content }}
-                    <!-- <instruction-content v-bind:instructionItem="this.instruction"/> -->
-                </div>
+            <!-- <h1 class="header">{{ curriculum.curriculumTitle }}</h1>
+            <p class="header">{{ curriculum.curriculumDescription }}</p> -->
+            <div class="daily-instructions">
+                    <div class="course-overview">
+                        <router-link v-bind:to="{name: 'course-page'}" class="overview-item">
+                            Course Overview
+                        </router-link>
+                    </div> 
+                     <div class="instruction-item" 
+                        v-for="instruction in dailyInstructions" 
+                        v-bind:key="instruction.dailyInstructionsId"
+                        >
+                        <router-link v-bind:to="{name: 'instruction-content', params: {instructionId: instruction.dailyInstructionsId} }" 
+                        v-bind:dailyInstructionsId="instruction.dailyInstructionsId"
+                        class="instruction-links">
+                            {{instruction.instructions}}
+                        </router-link>    
+                    </div> 
+
                 
             </div>
             <!-- <div class="course-assignments" v-for="assignment in assignments" v-bind:key="assignment.assignmentId">
@@ -25,7 +32,7 @@
 
 <script>
 import CurriculumService from '../services/CurriculumService.js';
-import Instruction from '../components/Instruction.vue';
+// import Instruction from '../components/Instruction.vue';
 import InstructionService from '../services/InstructionService';
 // import Assignment from '../components/Assignment.vue';
 import AssignmentService from '../services/AssignmentService';
@@ -65,7 +72,7 @@ export default {
 
     },
     components: {
-        Instruction,
+        // Instruction,
         // InstructionContent
         // Assignment
     }
@@ -74,30 +81,18 @@ export default {
 </script>
 
 <style>
-/* .curriculum-item{
-    display: grid;
-    grid-template-columns: 1 fr 1 fr 1 fr 1 fr 1 fr;
-    grid-template-areas:
-        "head head head head head"
-        "side main main main main";
-    gap: 40px;
-} */
-/* .header {
-    grid-area: head;
-} */
-.daily-instructions {
-    display: flex;
+.instruction-item, .course-overview {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-bottom: 1px solid gray;
 }
 
-.sidebar {
-    width: 20%;
-    flex-direction: column;
-    flex: 0 0 auto;
-    display: flex;
-}
-
-.content {
-    flex: 1 1 auto;
+.instruction-links, .overview-item {
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
 }
 
 </style>

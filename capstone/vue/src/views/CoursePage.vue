@@ -8,18 +8,23 @@
        </div> -->
       
       <div class="curriculum-container">
-          <curriculum-list />
+          <div class="sidebar">
+            <curriculum-list />
+          </div>
+          <div class="content">
+            <course-details v-if="this.$route.name == 'course-page'"/>
+            <router-view v-else></router-view>
+          </div>
       </div>
-
-      <div class="instruction-content">
-          <instruction-content v-bind:dailyInstructionsId="parseInt($route.params.instructionId)"/>
-      </div>
+      <!-- <div class="content">
+       
+      </div> -->
             
-     <div class= "assignments-container">
+     <!-- <div class= "assignments-container">
        <div class= "assignments-box">
          <h2>Upcoming assignments</h2>
        </div>
-     </div>
+     </div> -->
     
   </div>
 </template>
@@ -29,7 +34,8 @@
 import NavBar from '../components/NavBar.vue';
 import ClassPageHero from '../components/ClassPageHero.vue';
 import CurriculumList from '../components/CurriculumList.vue';
-import InstructionContent from '../components/InstructionContent.vue';
+import CourseDetails from '../components/CourseDetails.vue';
+
 
 export default {
     name: "course-page",
@@ -38,12 +44,17 @@ export default {
         NavBar,
         ClassPageHero,
         CurriculumList,
-        InstructionContent
+        CourseDetails,
+       
     },
 }
 </script>
 
 <style>
+  .course-page {
+    background-color: #ddddddb0;
+  }
+
   .details-container {
     margin-top: 20px;
     width: 100%;
@@ -76,5 +87,32 @@ export default {
     font-weight: lighter;
     margin: 80px;
   }
+
+  .curriculum-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    display: flex;
+    border: none;
+    border-radius: 4px;
+    background-color:  #f5f5f5;
+
+  }
+  .sidebar {
+    flex: 0 0 25%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: 1%;
+    display: flex;
+    background-color: #fafafae1;
+    border-right: 1px solid black;
+}
+
+.content {
+    flex: 0 0 70%;
+    flex-direction: column;
+    background-color: #f5f5f5;
+} 
 
 </style>

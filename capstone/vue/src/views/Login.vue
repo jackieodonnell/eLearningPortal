@@ -84,7 +84,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
 
-* {
+#login {
   font-family: 'Schoolbell', cursive;
   /* border: 1px solid red; */
   /* text-align: center; */

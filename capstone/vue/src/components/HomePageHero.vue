@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style>
-* {
+.home-page-hero {
   font-family: 'Schoolbell', cursive;
 }
   .hero-container {

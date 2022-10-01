@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import CreateCourse from '../views/CreateCourse.vue'
 import CoursePage from '../views/CoursePage.vue'
+import InstructionContent from '../components/InstructionContent'
 import Account from '../views/Account.vue'
 import store from '../store/index'
 
@@ -74,9 +75,15 @@ const router = new Router({
       }
     },
     {
-      path: "/course/:courseId/:instructionId",
+      path: "/course/:courseId",
       name: "course-page",
       component: CoursePage,
+      children: [
+        {
+          path: ":instructionId",
+          name: "instruction-content",
+          component: InstructionContent
+        }], 
       meta: {
         requiresAuth: true
       }

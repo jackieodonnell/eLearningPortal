@@ -72,6 +72,7 @@ img {
 .nav-top a {
   text-decoration: none;
   color: #f4ff57;
+  font-family: sans-serif;
 }
 
 .nav-top li a:hover {

@@ -97,14 +97,15 @@ export default {
 }
 
 .hero-title {
+  font-family: 'Schoolbell', cursive;
   text-align: center;
   font-size: 48px;
   font-style: extra-bold;
-  font-family: #f9faf8;
+  color: #f9faf8;
 }
 .hero-subtitle {
   font-size: 18px;
-  font-family: #e5e7eb;
+  color: #e5e7eb;
 }
 
 .hero-picture {
