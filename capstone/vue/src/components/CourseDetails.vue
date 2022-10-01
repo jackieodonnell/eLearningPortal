@@ -7,22 +7,21 @@
           <div class="course-desc-box">
               <p class="course-description">{{ course.courseDescription }} </p>
           </div>
-          <div class="curriculum">
-              <h1 class="curr-title"></h1>
+          <!-- <div class="curriculum">
               <curriculum-list />
-          </div>
+          </div> -->
       </div>
   </div>
 </template>
 
 <script>
 import courseService from '../services/CourseService';
-import CurriculumList from './CurriculumList.vue';
+// import CurriculumList from './CurriculumList.vue';
 
 export default {
     name: "course-details",
     components: {
-    CurriculumList 
+    // CurriculumList 
     },
     data(){
         return {

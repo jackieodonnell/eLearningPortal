@@ -22,11 +22,7 @@
 <script>
 import CourseList from '../components/CourseList.vue';
 import NavBar from '../components/NavBar.vue';
-<<<<<<< HEAD
-import HomePageHero from '../components/HomePageHero.vue'
-=======
 import HomePageHero from '../components/HomePageHero.vue';
->>>>>>> main
 import UpcomingAssignments from '../components/UpcomingAssignments.vue';
 
 export default {
@@ -36,10 +32,6 @@ export default {
     CourseList,
     HomePageHero,
     UpcomingAssignments,
-<<<<<<< HEAD
-   
-=======
->>>>>>> main
   }
 };
 </script>

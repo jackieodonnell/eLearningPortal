@@ -11,9 +11,9 @@
           <curriculum-list />
       </div>
 
-      <div class="instruction-content">
+      <!-- <div class="instruction-content">
           <instruction-content v-bind:dailyInstructionsId="parseInt($route.params.instructionId)"/>
-      </div>
+      </div> -->
             
      <div class= "assignments-container">
        <div class= "assignments-box">
@@ -29,7 +29,7 @@
 import NavBar from '../components/NavBar.vue';
 import ClassPageHero from '../components/ClassPageHero.vue';
 import CurriculumList from '../components/CurriculumList.vue';
-import InstructionContent from '../components/InstructionContent.vue';
+// import InstructionContent from '../components/InstructionContent.vue';
 
 export default {
     name: "course-page",
@@ -38,13 +38,14 @@ export default {
         NavBar,
         ClassPageHero,
         CurriculumList,
-        InstructionContent
+        // InstructionContent
     },
 }
 </script>
 
 <style>
-  .details-container {
+
+  .curriculum-container {
     margin-top: 20px;
     width: 100%;
     height: 10%;

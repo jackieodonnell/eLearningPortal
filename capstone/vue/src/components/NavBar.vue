@@ -39,6 +39,7 @@ export default {
   grid-area: navbar;
   padding: 0;
   margin: 0;
+  width: auto;
 }
 
 .title-div {
