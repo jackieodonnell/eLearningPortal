@@ -23,7 +23,11 @@ export default {
   },
 
   enrollInCourse(studentId, courseId){
-    return axios.post(`/student/enroll/${studentId}/${courseId}`)
+    const studentCourseObject = {
+      courseId: courseId,
+      studentId: studentId
+    }
+    return axios.post(`/student/enroll/${studentId}/${courseId}`, studentCourseObject)
   }
 
 }
