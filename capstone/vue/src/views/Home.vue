@@ -15,7 +15,7 @@
          <!-- <upcoming-assignments /> -->
        </div>
      </div>
-
+     <footer-section class="footer"/>
  </div>
 </template>
 
@@ -23,6 +23,7 @@
 import CourseList from '../components/CourseList.vue';
 import NavBar from '../components/NavBar.vue';
 import HomePageHero from '../components/HomePageHero.vue';
+import FooterSection from '../components/FooterSection.vue';
 // import UpcomingAssignments from '../components/UpcomingAssignments.vue';
 
 export default {
@@ -31,6 +32,7 @@ export default {
     NavBar,
     CourseList,
     HomePageHero,
+    FooterSection,
     // UpcomingAssignments,
   }
 };
@@ -43,6 +45,7 @@ export default {
   .classes-container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 0px;
+    margin-bottom: 0px;
     width: 100%;
     height: 10%;
     /* background-color: white; */
@@ -93,13 +96,12 @@ export default {
     font-size: 18px;
     font-style: italic;
     font-weight: lighter;
-    margin: 80px;
+    margin: 0px;
   }
-  
-.footer {
-  grid-area: footer;
-  height: 10vh;
-}
 
+.footer {
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
 
 </style>

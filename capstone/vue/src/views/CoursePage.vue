@@ -25,7 +25,7 @@
          <h2>Upcoming assignments</h2>
        </div>
      </div> -->
-    
+    <footer-section />
   </div>
 </template>
 
@@ -35,6 +35,7 @@ import NavBar from '../components/NavBar.vue';
 import ClassPageHero from '../components/ClassPageHero.vue';
 import CurriculumList from '../components/CurriculumList.vue';
 import CourseDetails from '../components/CourseDetails.vue';
+import FooterSection from '../components/FooterSection.vue';
 
 
 export default {
@@ -45,6 +46,7 @@ export default {
         ClassPageHero,
         CurriculumList,
         CourseDetails,
+        FooterSection,
        
     },
 }
