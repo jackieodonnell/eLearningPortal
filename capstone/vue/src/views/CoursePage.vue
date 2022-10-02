@@ -90,13 +90,14 @@ export default {
 
   .curriculum-container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 5%;
     display: flex;
     border: none;
     border-radius: 4px;
-    background-color:  #f5f5f5;
+    background-color:  #f6f4f7;
+    min-height: 80vh;
 
   }
   .sidebar {
@@ -104,15 +105,14 @@ export default {
     flex-direction: column;
     flex-wrap: wrap;
     margin-right: 1%;
-    display: flex;
-    background-color: #fafafae1;
-    border-right: 1px solid black;
+    background-color: #f8e790;
 }
 
 .content {
     flex: 0 0 70%;
     flex-direction: column;
-    background-color: #f5f5f5;
+    background-color: #f6f4f7;
+    padding-left: 1%;
 } 
 
 </style>

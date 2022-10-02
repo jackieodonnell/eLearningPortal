@@ -116,7 +116,8 @@ export default {
  width: 30vw;
  padding: 1.9rem 1.2rem;
  text-align: center;
- background: #f4ff57;
+ /* background: #f4ff57; */
+ background-color: #ffe760;
  border-radius: 4px;
  box-shadow: 10px 10px #5e6681;
 }
@@ -152,7 +153,7 @@ input {
 
 .btn:hover {
  background-color: #5e6681;
- color: #ffeba7;
+ color: #fff7aa;
  box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
 }
 
@@ -167,6 +168,13 @@ input {
 
 .app-title {
   font-size: 4em;
+}
+
+.msg {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.7rem;
 }
 
 </style>

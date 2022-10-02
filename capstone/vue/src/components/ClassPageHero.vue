@@ -52,16 +52,16 @@ export default {
 </script>
 
 <style>
-.hero-container {
+/* .hero-container {
   display: flex;
   justify-content: space-between;
   background: #000b6c;
-  height: 25%;
-}
+  height: 20%;
+} */
 
 .hero-container div {
   display: flex;
-  margin: 50px;
+  /* margin: 50px; */
   /* border: 1px solid red; */
 }
 
@@ -77,14 +77,15 @@ export default {
 }
 
 .course-btns-container button {
- margin: 5px;
+ margin-right: 10px;
  border: none;
  border-radius: 4px;
  font-weight: bold;
  font-size: .8em;
  text-transform: uppercase;
- padding: 3px;
- background-color: #f4ff57;
+ padding: 10px;
+ /* background-color: #f4ff57; */
+ background-color: #f9dc59;
  color: #5e6681;
  box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
  transition: all .3s ease-in-out;

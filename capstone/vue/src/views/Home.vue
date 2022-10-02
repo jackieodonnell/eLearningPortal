@@ -5,7 +5,7 @@
 
 
        <div class= "classes-container">
-          <h1 class= "classes-title">Your Classes</h1>
+          <h1 class= "classes-title">Your Classes Dashboard</h1>
          <course-list />
        </div>
    
@@ -41,11 +41,12 @@ export default {
 
 
   .classes-container {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0px;
     width: 100%;
     height: 10%;
-    background-color: white;
+    /* background-color: white; */
+    background-color: #f6f4f7;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -53,26 +54,32 @@ export default {
   }
   .classes-title {
     text-align: center;
-    font-size: 36px;
-    font-weight: 1000;
-    color: #1F2937;
+    padding: 5px;
+    font-size: 1.5rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1f2937cc;
+    color: #1f2937cc;
+    font-weight: 400;
   }
-  .text-container {
+  /* .text-container {
     background-color: white;
     justify-content: center;
     display: flex;
-    gap: 70px;
-    flex-direction: row;
-    height: 150px;
-  }
-  .text-container div {
-    height: 100px;
-    width: 100px;
+    /* gap: 70px; */
+    /* flex-direction: row; */
+    /* height: 150px; */
+  /* } */
+  /* .text-container div { */
+    /* height: 100px; */
+    /* width: 100px;
     text-align: center;
     color: #1F2937;
     margin-top: 10px;
     font-weight: bolder;
-  }
+  } */ 
   .calendar-container {
     display: flex;
     height: 30vh;

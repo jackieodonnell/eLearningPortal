@@ -1,9 +1,8 @@
 <template>
   <div class="curriculum-list">
-      <div class="curriculum-item" v-for="curriculum in curricula" v-bind:key="curriculum.curriculumId" v-bind:curriculumId="curriculum.curriculumId">
+      <div class="curriculum-items" v-for="curriculum in curricula" v-bind:key="curriculum.curriculumId" v-bind:curriculumId="curriculum.curriculumId">
             <!-- <h1 class="header">{{ curriculum.curriculumTitle }}</h1>
             <p class="header">{{ curriculum.curriculumDescription }}</p> -->
-            <div class="daily-instructions">
                     <div class="course-overview">
                         <router-link v-bind:to="{name: 'course-page'}" class="overview-item">
                             Course Overview
@@ -19,13 +18,9 @@
                             {{instruction.instructions}}
                         </router-link>    
                     </div> 
-
-                
-            </div>
             <!-- <div class="course-assignments" v-for="assignment in assignments" v-bind:key="assignment.assignmentId">
                 <assignment v-bind:assignmentItem="assignment"/>
             </div>   -->
-            
       </div>
   </div>
 </template>
@@ -81,12 +76,41 @@ export default {
 </script>
 
 <style>
+.curriculum-items {
+    display: flex;
+    flex-direction: column;
+}
+
 .instruction-item, .course-overview {
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 3%;
     padding-right: 3%;
     border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    /* background-color: #c3e7dd; */
+    background-color: #f4fde767;
+    border-radius: 2px;
+}
+
+.course-overview {
+    background-color: #ffeb91;
+    font-weight: bold;
+}
+
+.instruction-item a, .course-overview a {
+     color: #001a33;
+ } 
+
+/* .instruction-item a:hover, .course-overview a:hover {
+     color: #f9dc59;
+ }  */
+
+.instruction-item:hover, .course-overview:hover {
+    background-color:  #f6f4f7;
+    opacity: 1;
+    transform: translateX(1%);
+    box-shadow: 0 10px 20px 4px rgba(35, 35, 35, .1);
 }
 
 .instruction-links, .overview-item {
