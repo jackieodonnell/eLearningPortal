@@ -21,7 +21,7 @@ CREATE TABLE course (
   course_id SERIAL PRIMARY KEY,
   teacher_id int,
   course_title varchar(50),
-  course_description varchar (200),
+  course_description varchar (500),
   difficulty_level varchar(2),
   cost decimal(10,2)
 );
@@ -36,14 +36,15 @@ CREATE TABLE curriculum (
   curriculum_id SERIAL PRIMARY KEY,
   course_id int,
   curriculum_title varchar(50),
-  curriculum_description varchar(200)
+  curriculum_description varchar(500)
 );
 
 CREATE TABLE daily_instructions (
   daily_instructions_id SERIAL PRIMARY KEY,
   current_day date,
   curriculum_id int,
-  instructions varchar(500)
+  instructions varchar(500),
+  content varchar(10000)
 );
 
 CREATE TABLE assignment (

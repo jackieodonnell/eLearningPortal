@@ -1,28 +1,25 @@
 <template>
   <div class="course-details">
-      <div class="course-container">
-          <div class="course-title-box">
-              <h1 class="course-title"> {{ course.courseTitle }} | Grade Level: {{ course.difficulty }} </h1>
-          </div>
-          <div class="course-desc-box">
-              <p class="course-description">{{ course.courseDescription }} </p>
-          </div>
-          <div class="curriculum">
-              <h1 class="curr-title"></h1>
-              <curriculum-list />
-          </div>
+      <div class="course-details-heading">
+        <h2 class="course-title"> {{ course.courseTitle }} | Level: {{ course.difficulty }} </h2>
+        <p class="course-description">{{ course.courseDescription }} </p>          
       </div>
-  </div>
+      <div class="curriculum-details">
+          <h3 class="curriculum-title">Curriculum Overview:</h3>
+          <p class="curriculum-description">{{curricula[0].curriculumDescription}}</p>         
+      </div>
+    </div>
 </template>
 
 <script>
 import courseService from '../services/CourseService';
-import CurriculumList from './CurriculumList.vue';
+import CurriculumService from '../services/CurriculumService';
+// import CurriculumList from './CurriculumList.vue';
 
 export default {
     name: "course-details",
     components: {
-    CurriculumList 
+    // CurriculumList 
     },
     data(){
         return {
@@ -33,15 +30,21 @@ export default {
                 courseDescription: '',
                 difficulty: '',
                 cost: '',
-            }
+            },
+            curricula: []
         }
     },
     created(){
         courseService.getCourseByCourseId(this.$route.params.courseId).then(response => {
             if (response.status == 200){
                 this.course = response.data;
+                this.curricula = CurriculumService.getAllCurriculumInCourse(this.course.courseId).then(response => {
+                    if (response.status == 200){
+                        this.curricula = response.data;
+                    }
+                });     
             }
-        })       
+        })
     }
 }
 </script>
@@ -59,5 +62,15 @@ export default {
     /* border: 1px solid red; */
     margin: 10px;
 }
+
+.curriculum-details {
+    border-top: 1px solid gray;
+}
+
+.course-details-heading {
+    text-align: center;
+}
+
+
 
 </style>

@@ -5,17 +5,17 @@
 
 
        <div class= "classes-container">
-          <h1 class= "classes-title">Your Classes</h1>
+          <h1 class= "classes-title">Your Classes Dashboard</h1>
          <course-list />
        </div>
    
      
      <div class= "calendar-container">
        <div class= "calendar-box">
-         <upcoming-assignments />
+         <!-- <upcoming-assignments /> -->
        </div>
      </div>
-
+     <footer-section class="footer"/>
  </div>
 </template>
 
@@ -23,7 +23,12 @@
 import CourseList from '../components/CourseList.vue';
 import NavBar from '../components/NavBar.vue';
 import HomePageHero from '../components/HomePageHero.vue';
+<<<<<<< HEAD
 import UpcomingAssignments from '../components/UpcomingAssignments.vue';
+=======
+import FooterSection from '../components/FooterSection.vue';
+// import UpcomingAssignments from '../components/UpcomingAssignments.vue';
+>>>>>>> main
 
 export default {
   name: "home",
@@ -31,8 +36,13 @@ export default {
     NavBar,
     CourseList,
     HomePageHero,
+<<<<<<< HEAD
     UpcomingAssignments,
    
+=======
+    FooterSection,
+    // UpcomingAssignments,
+>>>>>>> main
   }
 };
 </script>
@@ -42,10 +52,13 @@ export default {
 
 
   .classes-container {
-    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0px;
+    margin-bottom: 0px;
     width: 100%;
     height: 10%;
-    background-color: white;
+    /* background-color: white; */
+    background-color: #f6f4f7;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -53,26 +66,32 @@ export default {
   }
   .classes-title {
     text-align: center;
-    font-size: 36px;
-    font-weight: 1000;
-    color: #1F2937;
+    padding: 5px;
+    font-size: 1.5rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1f2937cc;
+    color: #1f2937cc;
+    font-weight: 400;
   }
-  .text-container {
+  /* .text-container {
     background-color: white;
     justify-content: center;
     display: flex;
-    gap: 70px;
-    flex-direction: row;
-    height: 150px;
-  }
-  .text-container div {
-    height: 100px;
-    width: 100px;
+    /* gap: 70px; */
+    /* flex-direction: row; */
+    /* height: 150px; */
+  /* } */
+  /* .text-container div { */
+    /* height: 100px; */
+    /* width: 100px;
     text-align: center;
     color: #1F2937;
     margin-top: 10px;
     font-weight: bolder;
-  }
+  } */ 
   .calendar-container {
     display: flex;
     height: 30vh;
@@ -86,13 +105,12 @@ export default {
     font-size: 18px;
     font-style: italic;
     font-weight: lighter;
-    margin: 80px;
+    margin: 0px;
   }
-  
-.footer {
-  grid-area: footer;
-  height: 10vh;
-}
 
+.footer {
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
 
 </style>

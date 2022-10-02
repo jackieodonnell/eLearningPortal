@@ -3,10 +3,11 @@
     <div class="hero-container">
       <div class="hero-one">
         <h1 class="hero-title">
-          Welcome to School {{ $store.state.user.firstname }}!
+          Welcome to School, {{ $store.state.user.firstname }}!
         </h1>
         <div class="home-page-btn-container">
-        <router-link :to="{}" tag="button" v-bind="teacher" v-if="!teacher">Join New Course</router-link>
+        <button v-bind="teacher" v-if="!teacher" v-on:click="showCourses">Join New Course</button>
+        <join-course v-if="display" />
         <router-link :to="{name: 'create-course'}" tag="button" v-bind="teacher" v-if="teacher">Create Course</router-link>
 
         </div>
@@ -22,11 +23,24 @@
 </template>
 
 <script>
+import JoinCourse from './JoinCourse.vue';
 export default {
+  components: { JoinCourse },
   name: "home-page-hero",
   data() {
     return {
-       teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")
+       teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER"),
+       display: false,
+    }
+  },
+  methods: {
+    showCourses(){
+      if (this.display == false) {
+        this.display = true;
+      } else {
+        this.display = false;
+      }
+
     }
   }
 };
@@ -34,19 +48,21 @@ export default {
 </script>
 
 <style>
-* {
+.home-page-hero {
   font-family: 'Schoolbell', cursive;
 }
   .hero-container {
     display: flex;
     justify-content: space-between;
-    background: #000b6c;
-    height: 25%;
+    /* background: #000b6c; */
+    background-color: #04469e;
+    max-height: 20%;
   }
 
   .hero-container div {
     display: flex;
-    margin: 50px;
+    padding: 20px;
+    /* margin: 50px; */
     /* border: 1px solid red; */
   }
 
@@ -62,23 +78,27 @@ export default {
  font-weight: bold;
  font-size: .8em;
  text-transform: uppercase;
- padding: 3px;
- background-color: #f4ff57;
- color: #5e6681;
+ padding: 10px;
+ /* background-color: #f4ff57; */
+ background-color: #f9dc59;
+
+ /* background-color: #5e6681; */
+ color: #001a33d0;
  box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
  transition: all .3s ease-in-out;
 }
 
 .home-page-btn-container button:hover {
  background-color: #5e6681;
- color: #ffeba7;
+ /* color: #ffeba7; */
+ color: #f9dc59;
  box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
 }
   
   .hero-one {
     flex-direction: column;
     align-self: center;
-    color: white;
+    color: #f6f4f7;
     width: 50%;
   }
 

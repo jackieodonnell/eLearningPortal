@@ -18,8 +18,8 @@ export default {
             dailyInstructionsId: '',
             currentDay: '',
             curriculumId: '',
-            instructions: ''
-        
+            instructions: '',
+            content: ''
         }
     }
 },
@@ -30,7 +30,12 @@ export default {
                     this.dailyInstruction = response.data;
                 }
         })
+    },
+    methods: {
+        displayContent(event){
+            this.instruction = event.target;
         }
+    },
 }
 
 </script>

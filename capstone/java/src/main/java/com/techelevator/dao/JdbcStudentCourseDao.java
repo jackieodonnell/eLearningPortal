@@ -14,8 +14,8 @@ public class JdbcStudentCourseDao implements StudentCourseDao {
 
     @Override
     public void enrollInCourse(StudentCourse studentCourse) {
-        String sql = "INSERT INTO course_student (course_id, student_id) " +
-                "VALUES (?, ?);";
-        dao.queryForObject(sql, Integer.class,studentCourse.getCourseId(), studentCourse.getStudentId());
+        String sql = "INSERT INTO course_student (student_id, course_id) " +
+                "VALUES (?, ?) ";
+        dao.update(sql, studentCourse.getStudentId(), studentCourse.getCourseId());
     }
 }
