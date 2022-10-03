@@ -91,6 +91,7 @@ export default {
   }
 
   .curriculum-container {
+    box-shadow: 0 0 0 1px rgba(107, 107, 107, 0.185);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-left: 15%;
     margin-right: 15%;
@@ -107,7 +108,7 @@ export default {
     flex-direction: column;
     flex-wrap: wrap;
     margin-right: 1%;
-    background-color: #f8e790;
+    background-color: #040f31de;
 }
 
 .content {
