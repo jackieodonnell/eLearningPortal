@@ -12,7 +12,7 @@
      
      <div class= "calendar-container">
        <div class= "calendar-box">
-         <!-- <upcoming-assignments /> -->
+         <upcoming-assignments />
        </div>
      </div>
      <footer-section class="footer"/>
@@ -23,12 +23,8 @@
 import CourseList from '../components/CourseList.vue';
 import NavBar from '../components/NavBar.vue';
 import HomePageHero from '../components/HomePageHero.vue';
-<<<<<<< HEAD
-import UpcomingAssignments from '../components/UpcomingAssignments.vue';
-=======
 import FooterSection from '../components/FooterSection.vue';
-// import UpcomingAssignments from '../components/UpcomingAssignments.vue';
->>>>>>> main
+import UpcomingAssignments from '../components/UpcomingAssignments.vue';
 
 export default {
   name: "home",
@@ -36,13 +32,8 @@ export default {
     NavBar,
     CourseList,
     HomePageHero,
-<<<<<<< HEAD
-    UpcomingAssignments,
-   
-=======
     FooterSection,
-    // UpcomingAssignments,
->>>>>>> main
+    UpcomingAssignments,
   }
 };
 </script>

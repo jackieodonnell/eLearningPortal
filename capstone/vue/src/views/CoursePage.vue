@@ -3,7 +3,7 @@
       <nav-bar />
       <class-page-hero />
       
-       <!-- <div class= "details-container">
+        <!-- <div class= "details-container">
             <course-details />
        </div> -->
       
