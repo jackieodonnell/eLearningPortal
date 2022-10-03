@@ -11,16 +11,18 @@
             <h2 id="assignment-type">&#128211;{{assignment.assignmentType}} Due On: {{assignment.dueDate}}</h2>
             <h3>{{assignment.assignmentTitle}}</h3>
             <p>{{assignment.assignmentDescription}}</p>
-            <div id="submit-assignment-btn-container">
-                <button id="submit-assignment-btn">
+            <div id="submit-assignment-btn-container" v-bind="teacher" v-if="!teacher">
+                <button id="submit-assignment-btn" v-on:click="showSubmitForm" v-if="displaySubmitForm == false">
                     Submit Assignment
                 </button>
             </div> 
+            <submit-assignment-form v-if="displaySubmitForm" v-on:displaySubmitForm="showSubmitForm"/>
         </div>
-        <div id="add-assignment-btn-container">
+        <div id="add-assignment-btn-container" v-bind="teacher" v-if="teacher">
             <button id="add-assignment-btn">
                 Add Assignment
             </button>
+            
         </div> 
 
   </div>
@@ -29,11 +31,12 @@
 <script>
 import AssignmentService from '../services/AssignmentService';
 import InstructionService from '../services/InstructionService'
+import SubmitAssignmentForm from './SubmitAssignmentForm.vue';
 
 export default {
     name: "instruction-content",
     props: {
-        dailyInstructionsId: Number,
+      dailyInstructionsId: Number,  
     },
     data(){
         return {
@@ -45,6 +48,8 @@ export default {
                 content: ''
             },
         assignments: [],
+        displaySubmitForm: false,
+        teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER"),
         }
     },
     watch: {
@@ -74,23 +79,18 @@ export default {
                 }
         })
     },
-    // mounted() {
-    //     InstructionService.getInstructionById(this.$route.params.instructionId).then(
-    //         response => {
-    //             if (response.status == 200){
-    //                 this.dailyInstruction = response.data;
-    //             }
-    //     })
-    // },
-    // watch: {
-    //     dailyInstruction(){
-    //          AssignmentService.getAllAssignmentsInDailyInstruction(this.dailyInstruction.dailyInstructionsId).then(resp => {
-    //                     if (resp.status == 200){
-    //                         this.assignments = resp.data;
-    //                     }
-    //                 })     
-    //     }
-    // }
+    components: {
+        SubmitAssignmentForm    
+    },
+    methods: {
+        showSubmitForm(){
+            if (this.displaySubmitForm == false) {
+                this.displaySubmitForm = true;
+            } else {
+                this.displaySubmitForm = false;
+            }            
+        }
+    }
 }
 </script>
 

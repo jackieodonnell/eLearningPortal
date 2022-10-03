@@ -58,13 +58,7 @@ export default {
     },
 }
 
-  computed: {},
-  components: {
-    // Instruction,
-    // InstructionContent,
-    Assignment
-  },
-};
+
 </script>
 
 <style>
