@@ -1,6 +1,10 @@
 <template>
   <div class="curriculum-list">
-          <new-lesson v-bind:curriculumId="curriculumId" v-if="displayNewLesson" v-on:displayNewLesson="showNewLessonForm" />
+    <new-lesson
+      v-bind:curriculumId="curriculumId"
+      v-if="displayNewLesson"
+      v-on:displayNewLesson="showNewLessonForm"
+    />
     <div
       id="curriculum-items"
       v-for="curriculum in curricula"
@@ -29,17 +33,11 @@
         </router-link>
       </div>
       <div id="add-lesson-btn-container">
-        <button
-          v-bind="teacher"
-          v-if="teacher"
-          v-on:click="showNewLessonForm"
-        >
+        <button v-bind="teacher" v-if="teacher" v-on:click="showNewLessonForm">
           Add Lesson
         </button>
       </div>
-      
     </div>
-
   </div>
 </template>
 
@@ -104,38 +102,6 @@ export default {
     },
   },
 };
-<<<<<<< HEAD
-=======
-//     name: 'curriculum-list',
-//     data() {
-//         return {
-//             instruction: {},
-//             curricula: [],
-//             dailyInstructions: [],
-//             curriculumId: 0,
-//             assignments: []
-//         }
-//     },
-//     created() {
-//         CurriculumService.getAllCurriculumInCourse(this.$route.params.courseId).then(response => {
-//             if(response.status == 200) {
-//                 this.curricula = response.data  
-//                 this.curriculumId = this.curricula[0].curriculumId
-//             }
-//         });
-//         InstructionService.getInstructionsInCourse(this.$route.params.courseId).then(response => {
-//             if(response.status == 200) {
-//                 this.dailyInstructions = response.data 
-//             } 
-//         });
-//         AssignmentService.getAllAssignmentsInCourse(this.$route.params.courseId).then(response => {
-//             if (response.status == 200) {
-//                 this.assignments = response.data;
-//             }
-//         });
-//     },
-// }
->>>>>>> main
 </script>
 
 <style>
@@ -157,6 +123,7 @@ export default {
   background-color: #202d53a1;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(107, 107, 107, 0.185);
+  flex-wrap: wrap;
 }
 
 #overview-item {
