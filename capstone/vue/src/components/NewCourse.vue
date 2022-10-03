@@ -80,11 +80,16 @@ export default {
 </script>
 
 <style>
+.new-course {
+    width: 100%;
+}
+
 .create-new-course {
     background-color: #cccccc94;
     border-radius: 10px;
     padding: 30px;
     font-family: sans-serif;
+
 }
 
 .form-header {
@@ -101,13 +106,13 @@ div.form-element > label {
 div.form-element > input,
 div.form-element > select {
   height: 30px;
-  width: 300px;
+  width: 80%;
   border-radius: 4px;
   padding: 3px 10px;
 }
 div.form-element > textarea {
-  width: 100%;
-  height: 150px;
+  width: 80%;
+  height: 50%;
   padding: 10px 10px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -116,13 +121,14 @@ div.form-element > textarea {
   resize: none;
 }
 form > input[type="button"], form > input[type="submit"]{
-  width: 40%;
+  width: 10%;
+  height: 10%;
   font-size: 1rem;
   border-radius: 8px;
   background-color: rgb(73, 109, 226);
   border: none;
   color: white;
-  padding: 5% 10%;
+  padding: 1%;
   text-decoration: none;
   margin: 4px 4px;
   cursor: pointer;

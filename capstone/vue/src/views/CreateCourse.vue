@@ -1,24 +1,22 @@
 <template>
   <div class="create-course">
-      <new-course />
+    <nav-bar />
+    <new-course />
   </div>
 </template>
 
 <script>
-import NewCourse from '../components/NewCourse.vue';
+import NavBar from "../components/NavBar.vue";
+import NewCourse from "../components/NewCourse.vue";
 
 export default {
-    name: "create-course",
-    components: { 
-        NewCourse 
-    },
+  name: "create-course",
+  components: {
+    NewCourse,
+    NavBar,
+  },
 };
 </script>
 
 <style>
-.create-course {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 </style>
