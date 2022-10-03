@@ -7,7 +7,7 @@
       </div>
       <h1 class="create-account-header">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
-        {{ registrationErrorMsg }}
+        <h3 id="error-message"> {{ registrationErrorMsg }} </h3>
       </div>
       <!-- <label for="username" class="sr-only">Username</label> -->
       <div id="text">
@@ -143,6 +143,10 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
   padding: 10px; */
+}
+
+#error-message {
+  color: red;
 }
 
 #app-title-div {
