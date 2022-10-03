@@ -58,11 +58,15 @@ CREATE TABLE assignment (
 );
 --
 --CREATE TABLE grades (
+-- grade_id serial
 --  student_id int,
 --  assignment_id int,
 --  course_id int,
 --  grade int,
+-- assignment_submission varchar
+-- status (graded? submitted? incomplete?)
 --  PRIMARY KEY (student_id, assignment_id)
+
 --);
 
 ALTER TABLE course ADD FOREIGN KEY (teacher_id) REFERENCES users (user_id);

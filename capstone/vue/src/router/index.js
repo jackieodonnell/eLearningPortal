@@ -9,6 +9,7 @@ import CoursePage from '../views/CoursePage.vue'
 import InstructionContent from '../components/InstructionContent'
 import Account from '../views/Account.vue'
 import store from '../store/index'
+import CreateLesson from '../views/CreateLesson'
 
 Vue.use(Router)
 
@@ -86,6 +87,23 @@ const router = new Router({
         }], 
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: "/course/lesson/new",
+      name: "create-lesson",
+      component: CreateLesson,
+      beforeEnter: (to, from, next) => {
+        if(store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")){
+          next();
+        }
+        else{
+          alert("You don't have access to this page.")
+          next(from)
+        }
+      },
+      meta: {
+        requiresAuth: false,
       }
     },
     {
