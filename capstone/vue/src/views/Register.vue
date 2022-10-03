@@ -93,10 +93,12 @@ export default {
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
       } else if ((this.user.password.search(/[A-Z]/) < 0) || 
-                 (this.user.password.search(/[0-9]/) < 0)) {
+                 (this.user.password.search(/[0-9]/) < 0) ||
+                 (this.user.password.length < 8)) {
         this.registrationErrors = true;
-        this.registrationErrorMsg = 'Password must include at least one ' + 
-                                    'uppercase letter and at least one number.';
+        this.registrationErrorMsg = 'Password must be at least 8 characters, ' +
+                                    'and must include at least one uppercase letter ' + 
+                                    'and at least one number.';
       }
         else {
         authService
