@@ -50,6 +50,7 @@ import AssignmentService from "../services/AssignmentService";
 import NewLesson from "../components/NewLesson.vue";
 
 export default {
+<<<<<<< HEAD
   name: "curriculum-list",
   data() {
     return {
@@ -104,6 +105,39 @@ export default {
     },
   },
 };
+=======
+    name: 'curriculum-list',
+    data() {
+        return {
+            instruction: {},
+            curricula: [],
+            dailyInstructions: [],
+            curriculumId: 0,
+            assignments: []
+        }
+    },
+    created() {
+        CurriculumService.getAllCurriculumInCourse(this.$route.params.courseId).then(response => {
+            if(response.status == 200) {
+                this.curricula = response.data  
+                this.curriculumId = this.curricula[0].curriculumId
+            }
+        });
+        InstructionService.getInstructionsInCourse(this.$route.params.courseId).then(response => {
+            if(response.status == 200) {
+                this.dailyInstructions = response.data 
+            } 
+        });
+        AssignmentService.getAllAssignmentsInCourse(this.$route.params.courseId).then(response => {
+            if (response.status == 200) {
+                this.assignments = response.data;
+            }
+        });
+    },
+}
+
+
+>>>>>>> main
 </script>
 
 <style>
