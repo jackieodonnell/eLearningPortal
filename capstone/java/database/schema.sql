@@ -57,7 +57,6 @@ CREATE TABLE assignment (
   assignment_description varchar(500),
   assignment_type varchar(50)
 );
-<<<<<<< HEAD
 
 CREATE TABLE grades (
   grade_id SERIAL PRIMARY KEY,
@@ -70,20 +69,7 @@ CREATE TABLE grades (
   submission_content varchar (10000),
   feedback varchar (5000)	
 );
-=======
---
---CREATE TABLE grades (
--- grade_id serial
---  student_id int,
---  assignment_id int,
---  course_id int,
---  grade int,
--- assignment_submission varchar
--- status (graded? submitted? incomplete?)
---  PRIMARY KEY (student_id, assignment_id)
 
---);
->>>>>>> main
 
 ALTER TABLE course ADD FOREIGN KEY (teacher_id) REFERENCES users (user_id);
 
