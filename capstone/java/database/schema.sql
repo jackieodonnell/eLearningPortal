@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS course_student CASCADE;
 DROP TABLE IF EXISTS curriculum CASCADE;
 DROP TABLE IF EXISTS daily_instructions CASCADE;
 DROP TABLE IF EXISTS assignment CASCADE;
+DROP TABLE IF EXISTS grades CASCADE;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -56,14 +57,18 @@ CREATE TABLE assignment (
   assignment_description varchar(500),
   assignment_type varchar(50)
 );
---
---CREATE TABLE grades (
---  student_id int,
---  assignment_id int,
---  course_id int,
---  grade int,
---  PRIMARY KEY (student_id, assignment_id)
---);
+
+CREATE TABLE grades (
+  grade_id SERIAL PRIMARY KEY,
+  student_id int,
+  assignment_id int,
+  course_id int,
+  total_points int,
+  earned_points int,
+  status varchar(12) DEFAULT 'Incomplete',
+  submission_content varchar (10000),
+  feedback varchar (5000)	
+);
 
 ALTER TABLE course ADD FOREIGN KEY (teacher_id) REFERENCES users (user_id);
 
@@ -77,10 +82,10 @@ ALTER TABLE daily_instructions ADD FOREIGN KEY (curriculum_id) REFERENCES curric
 
 ALTER TABLE assignment ADD FOREIGN KEY (daily_instructions_id) REFERENCES daily_instructions (daily_instructions_id);
 --
---ALTER TABLE grades ADD FOREIGN KEY (student_id) REFERENCES users (user_id);
+ALTER TABLE grades ADD FOREIGN KEY (student_id) REFERENCES users (user_id);
 --
---ALTER TABLE grades ADD FOREIGN KEY (assignment_id) REFERENCES assignment (assignment_id);
+ALTER TABLE grades ADD FOREIGN KEY (assignment_id) REFERENCES assignment (assignment_id);
 
---ALTER TABLE grades ADD FOREIGN KEY (course_id) REFERENCES course (course_id);
+ALTER TABLE grades ADD FOREIGN KEY (course_id) REFERENCES course (course_id);
 
 COMMIT TRANSACTION;
