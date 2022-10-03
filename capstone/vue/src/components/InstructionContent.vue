@@ -8,7 +8,7 @@
             <p>{{dailyInstruction.content}}</p>
         </div>
         <div id="assignment-content" v-for="assignment in assignments" v-bind:key="assignment.assignmentId">
-            <h2>&#128211;{{assignment.assignmentType}} Due On: {{assignment.dueDate}}</h2>
+            <h2 id="assignment-type">&#128211;{{assignment.assignmentType}} Due On: {{assignment.dueDate}}</h2>
             <h3>{{assignment.assignmentTitle}}</h3>
             <p>{{assignment.assignmentDescription}}</p>
             <div id="submit-assignment-btn-container">
@@ -98,8 +98,12 @@ export default {
 #instruction-heading {
     text-align: center;
 }
+
 #assignment-content {
     border-top: 1px solid gray;
+}
+
+#assignment-content h2{
     text-transform: capitalize;
 }
 
