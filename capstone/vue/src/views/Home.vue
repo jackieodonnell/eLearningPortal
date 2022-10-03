@@ -58,13 +58,13 @@ export default {
   .classes-title {
     text-align: center;
     padding: 5px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 20px;
     text-transform: uppercase;
-    border-bottom: 1px solid #1f2937cc;
-    color: #1f2937cc;
+    border-bottom: 1px solid #040f3142;
+    color: #040f31de;
     font-weight: 400;
   }
   /* .text-container {
