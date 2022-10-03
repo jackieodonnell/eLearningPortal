@@ -10,7 +10,7 @@
           {{ course.courseTitle }}-- Course ID: {{ course.courseId }}
         </option>
       </select>
-      <input type="submit" value="Join" />
+      <input type="submit" id="join-course-btn" value="Join" />
     </form>
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
       enrollInCourse() {
           courseService.enrollInCourse(this.studentCourse.studentId, this.selectedCourseId).then(response => {
               if (response.status == 201) {
-                  this.$router.push({name: 'home'})
+                  this.$router.go()
               } else {
                   console.log("Error -- failed to join course")
               }
@@ -55,4 +55,22 @@ export default {
 </script>
 
 <style>
+#join-course-btn {
+  width: fit-content;
+  display: inline;
+  height: fit-content;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: rgb(73, 109, 226);
+  border: none;
+  color: white;
+  padding: 1%;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+#join-course-btn:hover {
+    background-color:#04AA6D
+}
 </style>

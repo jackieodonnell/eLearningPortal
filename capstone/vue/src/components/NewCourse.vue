@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import curriculumService from '../services/CurriculumService';
 import courseService from '../services/CourseService';
 
 export default {
@@ -58,7 +59,19 @@ export default {
         createNewCourse() {
             courseService.createCourse(this.newCourse).then(response => {
                 if (response.status == 201) {
-                    this.resetForm();
+                    const courseId = response.data;
+                    const newCurriculum = {
+                        curriculumId: '',
+                        courseId: courseId,
+                        curriculumTitle: '',
+                        curriculumDescription: '',
+                    }
+                    curriculumService.createCurriculum(newCurriculum).then(resp => {
+                        if (resp.status == 201){
+                            this.resetForm();
+                        }
+                    })
+                
                 } else {
                     console.log('Error - failed to create new course');
                 }

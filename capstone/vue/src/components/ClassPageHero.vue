@@ -4,10 +4,8 @@
       <div class="hero-one">
         <h1 class="hero-title">{{ course.courseTitle }}</h1>
         <div class="course-btns-container">
-          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">Add Curriculum</router-link>
-          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">Edit Curriculum</router-link>
-          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">Delete Curriculum</router-link>
-          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">Delete Course</router-link>
+          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">View Student Grades</router-link>
+          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">Archive Curriculum</router-link>
 
         </div>
       </div>
