@@ -8,19 +8,24 @@
        </div> -->
       
       <div class="curriculum-container">
-          <curriculum-list />
+          <div class="sidebar">
+            <curriculum-list />
+          </div>
+          <div class="content">
+            <course-details v-if="this.$route.name == 'course-page'"/>
+            <router-view v-else></router-view>
+          </div>
       </div>
-
-      <!-- <div class="instruction-content">
-          <instruction-content v-bind:dailyInstructionsId="parseInt($route.params.instructionId)"/>
+      <!-- <div class="content">
+       
       </div> -->
             
-     <div class= "assignments-container">
+     <!-- <div class= "assignments-container">
        <div class= "assignments-box">
          <h2>Upcoming assignments</h2>
        </div>
-     </div>
-    
+     </div> -->
+    <footer-section />
   </div>
 </template>
 
@@ -29,7 +34,9 @@
 import NavBar from '../components/NavBar.vue';
 import ClassPageHero from '../components/ClassPageHero.vue';
 import CurriculumList from '../components/CurriculumList.vue';
-// import InstructionContent from '../components/InstructionContent.vue';
+import CourseDetails from '../components/CourseDetails.vue';
+import FooterSection from '../components/FooterSection.vue';
+
 
 export default {
     name: "course-page",
@@ -38,14 +45,19 @@ export default {
         NavBar,
         ClassPageHero,
         CurriculumList,
-        // InstructionContent
+        CourseDetails,
+        FooterSection,
+       
     },
 }
 </script>
 
 <style>
+  .course-page {
+    background-color: #ddddddb0;
+  }
 
-  .curriculum-container {
+  .details-container {
     margin-top: 20px;
     width: 100%;
     height: 10%;
@@ -77,5 +89,33 @@ export default {
     font-weight: lighter;
     margin: 80px;
   }
+
+  .curriculum-container {
+    box-shadow: 0 0 0 1px rgba(107, 107, 107, 0.185);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 5%;
+    display: flex;
+    border: none;
+    border-radius: 4px;
+    background-color:  #f6f4f7;
+    min-height: 80vh;
+
+  }
+  .sidebar {
+    flex: 0 0 25%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: 1%;
+    background-color: #040f31de;
+}
+
+.content {
+    flex: 0 0 70%;
+    flex-direction: column;
+    background-color: #f6f4f7;
+    padding-left: 1%;
+} 
 
 </style>

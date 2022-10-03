@@ -6,7 +6,7 @@
     <div class="card-text">
     <h2 class="course-title">{{course.courseTitle}}</h2>
     <h4 class="course-difficulty">Level {{course.difficulty}}</h4>
-    <h3 class="course-description">{{course.courseDescription}}</h3>
+    <!-- <h3 class="course-description">{{course.courseDescription}}</h3> -->
     </div>
     <div class="card-icon">
       <svg viewBox="0 0 28 25">
@@ -45,7 +45,8 @@ export default {
  position: absolute;
  height: 100%;
  width: 100%;
- background-color: #f4ff57;
+ /* background-color: #f4ff57; */
+ background-color: #ffe25ff3;
  border-radius: 20px;
 }
 
@@ -87,6 +88,10 @@ p {
  color: #333;
  font-weight: 500;
  font-size: 16px;
+}
+
+.card-text {
+  color: #001a33d3;
 }
 
 /*Hover*/

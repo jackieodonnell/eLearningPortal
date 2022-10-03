@@ -1,8 +1,8 @@
 <template>
   <div class="assignment">
-      <h2 class="assigned-date"> Assigned On: {{assignment.assignedDate}}</h2> | <h2 class="due-date">{{dueDate}}</h2>
-      <h2 class="assignment-title">{{assignment.assignmentTitle}}</h2>
-      <p class="assignment-description">{{assignment.assignmentDescription}}</p>
+        <h2>&#128211;{{assignment.assignmentType}} Due On: {{assignment.dueDate}}</h2>
+        <h3>{{assignment.assignmentTitle}}</h3>
+        <p>{{assignment.assignmentDescription}}</p>
   </div>
 </template>
 

@@ -19,7 +19,7 @@ public class StudentCourseController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/student/enroll/{studentId}/{courseId}")
-    public void enrollInCourse(@RequestBody StudentCourse studentCourse) {
+    public void enrollInCourse(@PathVariable int studentId, @PathVariable int courseId, @RequestBody StudentCourse studentCourse) {
         studentCourseDao.enrollInCourse(studentCourse);
     }
 }

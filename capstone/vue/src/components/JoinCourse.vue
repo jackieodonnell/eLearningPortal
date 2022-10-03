@@ -1,7 +1,7 @@
 <template>
   <div class="joinClass">
-    <form action="join-class" v-on:submit.prevent="enrollInCourse">
-      <select name="courses" id="courses" >
+    <form action="join-class" v-on:submit.prevent="enrollInCourse" >
+      <select name="courses" id="courses" v-model="selection">
         <option
           v-for="course in courses"
           v-bind:key="course.courseTitle"
@@ -23,12 +23,17 @@ export default {
     return {
         studentCourse: {
             studentId: this.$store.state.user.id,
-            courseId: '5',
+            courseId: this.selectedCourseId,
   
         },
       courses: [],
-      
+      selection: ''
     };
+  },
+  computed: {
+    selectedCourseId(){
+      return this.selection.charAt(this.selection.length - 1);
+    }
   },
   created() {
     courseService.getCourses().then((response) => {
@@ -37,7 +42,7 @@ export default {
   },
   methods: {
       enrollInCourse() {
-          courseService.enrollInCourse(this.studentCourse.studentId, this.studentCourse.courseId).then(response => {
+          courseService.enrollInCourse(this.studentCourse.studentId, this.selectedCourseId).then(response => {
               if (response.status == 201) {
                   this.$router.push({name: 'home'})
               } else {
