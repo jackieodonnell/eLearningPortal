@@ -5,13 +5,10 @@
         <h1 class="hero-title">{{ course.courseTitle }}</h1>
         <div class="course-btns-container">
           <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
-            >View Student Grades</router-link
+            >View Grades</router-link
           >
           <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
             >Archive Curriculum</router-link
-          >
-          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
-            >View Student Grades</router-link
           >
           <button v-on:click="archiveClass" v-bind="teacher" v-if="teacher">
             Archive Class

@@ -3,7 +3,7 @@
     <!-- course-card class="card" v-for="course in $store.state.courses" 
     v-bind:key="course.course_title" v-bind:course="course">
     </course-card -->
-    <course-card class="card" v-for="course in courses" 
+    <course-card class="card" v-for="course in activeCourses"
     v-bind:key="course.courseTitle" v-bind:course="course" >
     </course-card>
   </div>
@@ -47,8 +47,13 @@ export default {
     },
     computed: {
         activeCourses() {
-            const activeCourses = this.courses.filter(course => course.isArchived == false)
-            return activeCourses;
+            let activeCourses = this.courses.filter((course) => {
+                return (!course.archived)
+            })
+            return activeCourses
+            // return this.courses.filter((course) => {
+            //     return course.isArchived === false;
+            // })
         }
     }
 }
