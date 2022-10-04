@@ -1,5 +1,6 @@
 <template>
     <div class="grade-card">
+        <h1> {{ grade.totalPoints }}</h1>
     </div>
 </template>
 

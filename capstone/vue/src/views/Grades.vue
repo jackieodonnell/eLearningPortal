@@ -3,6 +3,8 @@
         <nav-bar />
         <grade-page-hero />
         <teacher-grade-list />
+
+        
     </div>  
 </template>
 

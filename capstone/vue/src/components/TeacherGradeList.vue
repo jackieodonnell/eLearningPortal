@@ -1,12 +1,20 @@
 <template>
     <div class="teacher-grade-list">
-        <grade-card class="grade-card" v-for="grade in grades"
-    v-bind:key="grade.gradeId" v-bind:grade="grade"> </grade-card>
+        <!-- <grade-card class="grade-card" v-for="grade in grades"
+    v-bind:key="grade.gradeId" v-bind:grade="grade"> </grade-card> -->
+        <thead>
+            <tr></tr>
+        </thead>
+        <tbody>
+            <tr v-for="grade in grades" v-bind:key="grade.gradeId" v-bind:grade="grade">
+                <td> {{ grade }}</td>
+            </tr>
+        </tbody>
     </div>
 </template>
 
 <script>
-import GradeCard from './GradeCard.vue';
+// import GradeCard from './GradeCard.vue';
 import gradesService from '../services/GradesService';
 
 export default {
@@ -17,7 +25,7 @@ export default {
         }
     },
     components: {
-      GradeCard
+    //   GradeCard
     },
     created(){
         gradesService.allGradesForAssignment(this.$route.params.assignmentId)
