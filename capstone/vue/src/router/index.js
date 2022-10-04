@@ -116,7 +116,7 @@ const router = new Router({
       }
     },
     {
-      path: "/grades",
+      path: "/course/:courseId/grades",
       name: "grades",
       component: Grades,
       meta: {

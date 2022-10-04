@@ -27,5 +27,9 @@ export default {
 
     deleteGrade(grade){
         return axios.delete('/course/assignment/work', grade)
+    },
+
+    getStudentIdInCourse(courseId){
+        return axios.get(`/course/${courseId}/students`)
     }
 }

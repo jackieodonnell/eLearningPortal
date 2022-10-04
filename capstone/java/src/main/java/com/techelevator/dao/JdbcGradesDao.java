@@ -26,6 +26,19 @@ public class JdbcGradesDao implements GradesDao{
     }
 
     @Override
+    public List<Grades> getAllGrades() {
+        List<Grades> gradesList = new ArrayList<>();
+        String sql = "SELECT SELECT grade_id, student_id, assignment_id, course_id, total_points, earned_points, status, submission_content, feedback " +
+                "FROM grades;";
+        SqlRowSet result = dao.queryForRowSet(sql);
+        while (result.next()) {
+            Grades grades = mapRowToGrades(result);
+            gradesList.add(grades);
+        }
+        return gradesList;
+    }
+
+    @Override
     public List<Grades> allGradesForAssignment(int assignmentId) {
         List<Grades> gradesList = new ArrayList<>();
         String sql = "SELECT grade_id, student_id, assignment_id, course_id, total_points, earned_points, status, submission_content, feedback " +
