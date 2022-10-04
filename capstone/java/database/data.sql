@@ -129,18 +129,18 @@ INSERT INTO assignment (daily_instructions_id, assigned_date, due_date, assignme
 
 
 INSERT INTO grades (student_id, assignment_id, course_id, total_points, earned_points, status, submission_content, feedback)
-	VALUES (4, 1, 4, 100, 0, 'Incomplete', 'This is Jackie''s submission for US History assignment 1.', ''),
-		    (4, 2, 4, 100, 0, 'Incomplete', 'This is Jackie''s submission for US History assignment 2.', ''),
+	VALUES (4, 1, 4, 100, 95, 'Graded', 'This is Jackie''s submission for US History assignment 1.', 'Jackie did a great job on US History assignment 1!'),
+		    (4, 2, 4, 100, 0, 'Submitted', 'This is Jackie''s submission for US History assignment 2.', ''),
 			(4, 3, 4, 100, 0, 'Incomplete', 'This is Jackie''s submission for US History assignment 3.', ''),
-			(6, 1, 4, 100, 0, 'Incomplete', 'This is William''s submission for US History assignment 1.', ''),
-		    (6, 2, 4, 100, 0, 'Incomplete', 'This is William''s submission for US History assignment 2.', ''),
+			(6, 1, 4, 100, 0, 'Submitted', 'This is William''s submission for US History assignment 1.', ''),
+		    (6, 2, 4, 100, 100, 'Graded', 'This is William''s submission for US History assignment 2.', 'William did an outstanding job on US History assignment 2!'),
 			(6, 3, 4, 100, 0, 'Incomplete', 'This is William''s submission for US History assignment 3.', ''),
-			(5, 9, 3, 100, 0, 'Incomplete', 'This is Preston''s submission for English assignment 1.', ''),
-		    (5, 10, 3, 100, 0, 'Incomplete', 'This is Preston''s submission for English assignment 2.', ''),
+			(5, 9, 3, 100, 95, 'Graded', 'This is Preston''s submission for English assignment 1.', 'Preston did an excellent job on English assignment 1!'),
+		    (5, 10, 3, 100, 0, 'Submitted', 'This is Preston''s submission for English assignment 2.', ''),
 			(5, 11, 3, 100, 0, 'Incomplete', 'This is Preston''s submission for English assignment 3.', ''),
 			(6, 9, 3, 100, 0, 'Incomplete', 'This is William''s submission for English assignment 1.', ''),
-		    (6, 10, 3, 100, 0, 'Incomplete', 'This is William''s submission for English assignment 2.', ''),
-			(6, 11, 3, 100, 0, 'Incomplete', 'This is William''s submission for English assignment 3.', '');
+		    (6, 10, 3, 100, 90, 'Graded', 'This is William''s submission for English assignment 2.', 'William did a great job on English assignment 2!'),
+			(6, 11, 3, 100, 0, 'Submitted', 'This is William''s submission for English assignment 3.', '');
 		  
 
 COMMIT TRANSACTION;
