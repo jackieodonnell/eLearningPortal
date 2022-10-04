@@ -4,9 +4,22 @@
       <h2 class="course-title">
         {{ course.courseTitle }} | Level: {{ course.difficulty }}
       </h2>
-      <p class="course-description">{{ course.courseDescription }}</p>
+      <edit-textarea
+        v-if="displayEditDescription"
+        v-bind:currentText="course.courseDescription"
+        v-on:editDescriptionInput="editDescriptionInput"
+      />
+      <p v-if="!displayEditDescription" class="course-description">
+        {{ course.courseDescription }}
+      </p>
       <div class="edit-course-overview" v-bind="teacher" v-if="teacher">
-        <button id="edit-course-overview-btn">Edit Description</button>
+        <button
+          id="edit-course-overview-btn"
+          v-on:click="toggleEditDescription"
+          v-if="!displayEditDescription"
+        >
+          Edit Description
+        </button>
       </div>
     </div>
     <div class="curriculum-details">
@@ -24,10 +37,11 @@
 <script>
 import courseService from "../services/CourseService";
 import CurriculumService from "../services/CurriculumService";
+import EditTextarea from "./EditTextarea.vue";
 
 export default {
   name: "course-details",
-  components: {},
+  components: { EditTextarea },
   data() {
     return {
       course: {
@@ -42,6 +56,8 @@ export default {
       teacher: this.$store.state.user.authorities.some(
         (e) => e["name"] === "ROLE_TEACHER"
       ),
+      displayEditDescription: false,
+      editDescriptionInput: "",
     };
   },
   created() {
@@ -59,6 +75,15 @@ export default {
           });
         }
       });
+  },
+  methods: {
+    toggleEditDescription() {
+      if (this.displayEditDescription == false) {
+        this.displayEditDescription = true;
+      } else {
+        this.displayEditDescription = false;
+      }
+    },
   },
 };
 </script>
