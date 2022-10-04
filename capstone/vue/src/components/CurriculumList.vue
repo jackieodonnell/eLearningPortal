@@ -28,6 +28,7 @@
           }"
           v-bind:dailyInstructionsId="instruction.dailyInstructionsId"
           id="instruction-link"
+          class="instruction-link"
         >
           {{ instruction.instructions }}
         </router-link>
@@ -122,12 +123,13 @@ export default {
   /* background-color: #c3e7dd; */
   background-color: #202d53a1;
   border-radius: 2px;
-  box-shadow: 0 0 0 1px rgba(107, 107, 107, 0.185);
+  box-shadow: 0 5px 5px 1px rgba(105, 105, 133, 0.349);
   flex-wrap: wrap;
 }
 
 #overview-item {
-  background-color: #384c8ab0;
+  background-color: #7175a062;
+  box-shadow: 0 5px 5px 1px rgba(40, 40, 53, 0.842);
 }
 
 #instruction-item:hover,
@@ -138,7 +140,16 @@ export default {
   transform: translateX(1%);
   box-shadow: 0 10px 20px 4px rgba(104, 104, 104, 0.1);
 }
-#instruction-link,
+
+.instruction-link,
+#overview-link {
+  text-decoration: none;
+  color: #f6f4f7;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
 #overview-link {
   text-decoration: none;
   color: #f6f4f7;
@@ -151,12 +162,24 @@ export default {
   color: #1e1c3b;
   font-weight: 400;
 }
+
 #overview-item:hover #overview-link {
   color: #1e1c3b;
   font-weight: 400;
 }
 #overview-link {
   font-weight: 500;
+}
+#instruction-item:has(a.router-link-active) {
+  background-color: #fffdfdf5;
+  opacity: 1;
+  transform: translateX(1%);
+  box-shadow: 0 10px 20px 4px rgba(104, 104, 104, 0.1);
+}
+
+.router-link-active {
+  color: #1e1c3b;
+  font-weight: 400;
 }
 
 #add-lesson-btn-container {
@@ -175,7 +198,7 @@ export default {
   padding-inline: 10%;
   background-color: #f9dc59;
   color: #5e6681;
-  box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+  box-shadow: 0 8px 24px 0 #1e1c3b9f;
   transition: all 0.3s ease-in-out;
 }
 #add-lesson-btn-container button:hover {

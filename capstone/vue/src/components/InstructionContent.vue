@@ -7,6 +7,10 @@
     <div id="instruction-content">
       <p>{{ dailyInstruction.content }}</p>
     </div>
+    <div class="edit-lesson" v-bind="teacher" v-if="teacher">
+      <button id="edit-lesson-btn">Edit Lesson</button>
+    </div>
+
     <div
       id="assignment-content"
       v-for="assignment in assignments"
@@ -18,6 +22,9 @@
       </h2>
       <h3>{{ assignment.assignmentTitle }}</h3>
       <p>{{ assignment.assignmentDescription }}</p>
+      <div class="edit-assignment" v-bind="teacher" v-if="teacher">
+        <button id="edit-assignment-btn">Edit Assignment</button>
+      </div>
       <div
         id="submit-assignment-btn-container"
         v-bind="teacher"
@@ -189,5 +196,33 @@ export default {
   background-color: #18a04c;
   color: #fff8e2;
   box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+}
+
+.edit-lesson,
+.edit-assignment {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+#edit-lesson-btn,
+#edit-assignment-btn {
+  width: fit-content;
+  border: none;
+  box-shadow: 0 1px 1px 1px rgba(39, 39, 39, 0.171);
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 5px;
+  padding-inline: 3%;
+  background-color: #f33e26d8;
+  color: #f1f1f1;
+  transition: all 0.3s ease-in-out;
+}
+
+#edit-lesson-btn:hover,
+#edit-assignment-btn:hover {
+  background-color: #5e6681;
+  color: #ffeba7;
 }
 </style>

@@ -4,9 +4,12 @@
       <div class="hero-one">
         <h1 class="hero-title">{{ course.courseTitle }}</h1>
         <div class="course-btns-container">
-          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">View Student Grades</router-link>
-          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">Archive Curriculum</router-link>
-
+          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
+            >View Student Grades</router-link
+          >
+          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
+            >Archive Curriculum</router-link
+          >
         </div>
       </div>
       <div class="hero-two">
@@ -34,7 +37,9 @@ export default {
         difficulty: "",
         cost: "",
       },
-      teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")
+      teacher: this.$store.state.user.authorities.some(
+        (e) => e["name"] === "ROLE_TEACHER"
+      ),
     };
   },
   created() {
@@ -75,28 +80,28 @@ export default {
 }
 
 .course-btns-container button {
- margin-right: 10px;
- border: none;
- border-radius: 4px;
- font-weight: bold;
- font-size: .8em;
- text-transform: uppercase;
- padding: 10px;
- /* background-color: #f4ff57; */
- background-color: #f9dc59;
- color: #5e6681;
- box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
- transition: all .3s ease-in-out;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 10px;
+  /* background-color: #f4ff57; */
+  background-color: #f9dc59;
+  color: #5e6681;
+  box-shadow: 0 8px 24px 0 #1e1c3b9f;
+  transition: all 0.3s ease-in-out;
 }
 
 .course-btns-container button:hover {
- background-color: #5e6681;
- color: #ffeba7;
- box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+  background-color: #5e6681;
+  color: #ffeba7;
+  box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
 }
 
 .hero-title {
-  font-family: 'Schoolbell', cursive;
+  font-family: "Schoolbell", cursive;
   text-align: center;
   font-size: 48px;
   font-style: extra-bold;
