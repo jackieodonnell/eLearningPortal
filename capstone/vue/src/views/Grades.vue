@@ -2,7 +2,7 @@
     <div class="grades">
         <nav-bar />
         <grade-page-hero />
-        <teacher-grade-list />
+        <student-grade-list />
 
         
     </div>  
@@ -11,14 +11,16 @@
 <script>
 import GradePageHero from '../components/GradePageHero.vue';
 import NavBar from '../components/NavBar.vue';
-import TeacherGradeList from '../components/TeacherGradeList.vue'
+import StudentGradeList from '../components/StudentGradeList.vue';
+// import TeacherGradeList from '../components/TeacherGradeList.vue'
 
 export default {
     name: "grades",
     components: {
-        TeacherGradeList,
+        // TeacherGradeList,
         NavBar,
-        GradePageHero
+        GradePageHero,
+        StudentGradeList
     },  
 };
 </script>

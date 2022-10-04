@@ -1,12 +1,9 @@
 <template>
     <div class="grade-card">
-<<<<<<< HEAD
-        <h1> {{ grade.totalPoints }}</h1>
-=======
-        <div> {{grade.earnedPoints}}</div>
-        <div> {{grade.status}}</div>
-        <div> {{grade.feedback}}</div>
->>>>>>> main
+        <p> {{ grade.studentId }}</p>
+        <p>{{ grade.earnedPoints }}</p>
+        <p> {{ grade.totalPoints }}</p>
+        <p> {{ grade.status }}</p>
     </div>
 </template>
 
@@ -20,3 +17,12 @@ export default {
         }
 }   
 </script>
+<style scoped>
+* {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    width: 100px;
+}
+
+</style>
