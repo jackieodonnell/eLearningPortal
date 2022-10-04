@@ -7,7 +7,7 @@
       rows="10"
       v-bind:placeholder="currentText"
     ></textarea>
-    <button id="save-edit-textarea" v-on:click.prevent="saveInput">Save</button>
+    <button id="save-edit-textarea" v-on:click="saveInput">Save</button>
     <button id="cancel-edit-textarea" v-on:click.prevent="cancelInput">
       Cancel
     </button>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "edit-text-area",
+  name: "edit-textarea",
   props: ["currentText"],
   data() {
     return {
@@ -28,7 +28,9 @@ export default {
   },
   methods: {
     saveInput() {
-      this.$emit("editDescriptionInput", this.inputText);
+      console.log("SAVE TEST");
+      // this.$store.commit("SET_EDIT_DESCRIPTION", this.inputText);
+      this.$emit("save-input-text", this.inputText);
     },
     cancelInput() {
       this.$emit("displayEditDescription", false);
