@@ -10,6 +10,7 @@ import InstructionContent from '../components/InstructionContent'
 import Account from '../views/Account.vue'
 import store from '../store/index'
 import CreateLesson from '../views/CreateLesson'
+import Grades from '../views/Grades.vue'
 
 Vue.use(Router)
 
@@ -110,6 +111,14 @@ const router = new Router({
       path: "/account",
       name: "account",
       component: Account,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/grades",
+      name: "grades",
+      component: Grades,
       meta: {
         requiresAuth: false
       }

@@ -129,7 +129,7 @@ INSERT INTO assignment (daily_instructions_id, assigned_date, due_date, assignme
 
 
 INSERT INTO grades (student_id, assignment_id, course_id, total_points, earned_points, status, submission_content, feedback)
-	VALUES (4, 1, 4, 100, 95, 'Graded', 'This is Jackie''s submission for US History assignment 1.', 'Jackie did a great job on US History assignment 1!'),
+	VALUES (4, 1, 4, 100, 95, 'Graded', 'This is Jackie''s submission for US History assignment 1.', 'Jackie did an awesome job on US History assignment 1!'),
 		    (4, 2, 4, 100, 0, 'Submitted', 'This is Jackie''s submission for US History assignment 2.', ''),
 			(4, 3, 4, 100, 0, 'Incomplete', 'This is Jackie''s submission for US History assignment 3.', ''),
 			(6, 1, 4, 100, 0, 'Submitted', 'This is William''s submission for US History assignment 1.', ''),
@@ -144,3 +144,5 @@ INSERT INTO grades (student_id, assignment_id, course_id, total_points, earned_p
 		  
 
 COMMIT TRANSACTION;
+
+SELECT * FROM grades
