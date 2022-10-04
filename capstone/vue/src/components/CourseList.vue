@@ -4,7 +4,7 @@
     v-bind:key="course.course_title" v-bind:course="course">
     </course-card -->
     <course-card class="card" v-for="course in courses" 
-    v-bind:key="course.courseTitle" v-bind:course="course">
+    v-bind:key="course.courseTitle" v-bind:course="course" >
     </course-card>
   </div>
 </template>
@@ -43,6 +43,12 @@ export default {
                 this.courses = response.data
                 }
             });
+        }
+    },
+    computed: {
+        activeCourses() {
+            const activeCourses = this.courses.filter(course => course.isArchived == false)
+            return activeCourses;
         }
     }
 }

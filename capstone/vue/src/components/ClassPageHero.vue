@@ -10,6 +10,12 @@
           <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
             >Archive Curriculum</router-link
           >
+          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
+            >View Student Grades</router-link
+          >
+          <button v-on:click="archiveClass" v-bind="teacher" v-if="teacher">
+            Archive Class
+          </button>
         </div>
       </div>
       <div class="hero-two">
@@ -36,6 +42,7 @@ export default {
         courseDescription: "",
         difficulty: "",
         cost: "",
+        isArchived: "",
       },
       teacher: this.$store.state.user.authorities.some(
         (e) => e["name"] === "ROLE_TEACHER"
@@ -50,6 +57,16 @@ export default {
           this.course = response.data;
         }
       });
+  },
+  methods: {
+    archiveClass() {
+      this.course.isArchived = true;
+      courseService.updateCourse(this.course).then((response) => {
+        if (response.status == 200) {
+          this.$router.push({ name: "home" });
+        }
+      });
+    },
   },
 };
 </script>

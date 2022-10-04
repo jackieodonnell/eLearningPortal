@@ -52,6 +52,7 @@ export default {
                 courseDescription: '',
                 difficulty: '',
                 cost: '',
+                isArchived: false,
             }
         }
     },
@@ -85,6 +86,7 @@ export default {
                 courseDescription: '',
                 difficultyLevel: '',
                 cost: '',
+                isArchived: false,
             };
             this.$router.push({name: 'home'})
         },

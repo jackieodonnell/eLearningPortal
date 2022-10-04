@@ -12,8 +12,8 @@ import java.util.List;
 
 public class JdbcCouseTests extends BaseDaoTests{
 
-    private static final Course COURSE_1 = new Course(1,4, "course1", "courseStuff", "5", new BigDecimal("0"));
-    private static final Course COURSE_2 = new Course(2,7, "course2", "courseStuff", "4", new BigDecimal("0"));
+    private static final Course COURSE_1 = new Course(1,4, "course1", "courseStuff", "5", new BigDecimal("0"), false);
+    private static final Course COURSE_2 = new Course(2,7, "course2", "courseStuff", "4", new BigDecimal("0"), false);
 
     private JdbcCourseDao sut;
 
@@ -25,7 +25,7 @@ public class JdbcCouseTests extends BaseDaoTests{
 
     @Test
     public void createCourse_returns_course_id() {
-        Course newCourse = new Course(3, 4, "course3", "courseStuff", "6", new BigDecimal("0"));
+        Course newCourse = new Course(3, 4, "course3", "courseStuff", "6", new BigDecimal("0"), false);
 
         int expectedCourseId = 3;
         int actualCourseId = sut.createCourse(newCourse);

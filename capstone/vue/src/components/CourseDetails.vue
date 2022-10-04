@@ -51,6 +51,7 @@ export default {
         courseDescription: "",
         difficulty: "",
         cost: "",
+        isArchived: "",
       },
       curricula: [],
       teacher: this.$store.state.user.authorities.some(

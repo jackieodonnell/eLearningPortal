@@ -9,14 +9,16 @@ public class Course {
     private String courseDescription;
     private String difficulty;
     private BigDecimal cost;
+    private boolean isArchived;
 
-    public Course(int courseId, int teacherId, String courseTitle, String courseDescription, String difficulty, BigDecimal cost) {
+    public Course(int courseId, int teacherId, String courseTitle, String courseDescription, String difficulty, BigDecimal cost, boolean isArchived) {
         this.courseId = courseId;
         this.teacherId = teacherId;
         this.courseTitle = courseTitle;
         this.courseDescription = courseDescription;
         this.difficulty = difficulty;
         this.cost = cost;
+        this.isArchived = isArchived;
     }
 
     public Course() {
@@ -68,5 +70,13 @@ public class Course {
 
     public void setCost(BigDecimal cost) {
         this.cost = cost;
+    }
+
+    public boolean isArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(boolean archived) {
+        isArchived = archived;
     }
 }
