@@ -102,10 +102,6 @@ export default {
     },
   },
 };
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 </script>
 
 <style>

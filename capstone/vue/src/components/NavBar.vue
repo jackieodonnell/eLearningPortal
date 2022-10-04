@@ -11,7 +11,7 @@
     <ul>
         <li><router-link :to="{name: 'home'}">Home</router-link></li>
         <!-- li><router-link :to="{name: '#'}">Grades</router-link></li -->
-        <li><router-link :to="{name: '#'}">Account</router-link></li>
+        <li><router-link :to="{name: 'account'}">Account</router-link></li>
         <li><router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link></li>
     </ul>
   
