@@ -1,16 +1,16 @@
 <template>
     <div class="grades">
-        <teacher-grade-view />
+        <teacher-grade-list />
     </div>  
 </template>
 
 <script>
-import TeacherGradeView from '../components/TeacherGradeView.vue'
+import TeacherGradeList from '../components/TeacherGradeList.vue'
 
 export default {
     name: "grades",
     components: {
-        TeacherGradeView
+        TeacherGradeList
     },  
 };
 </script>
