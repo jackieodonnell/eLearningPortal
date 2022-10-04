@@ -10,6 +10,8 @@ public interface GradesDao {
     int addGrade(Grades grades);
 
     //r
+    List<Grades> getAllGrades();
+
     List<Grades> allGradesForAssignment(int assignmentId);
 
     List<Grades> allGradesForStudentInCourse(int courseId, int studentId);
