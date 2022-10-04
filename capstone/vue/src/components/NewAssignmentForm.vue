@@ -52,6 +52,7 @@
 
 <script>
 import assignmentService from "../services/AssignmentService";
+import gradesService from "../services/GradesService"
 export default {
   name: "new-assignment-form",
   props: ["dailyInstructionsId"],
@@ -65,6 +66,7 @@ export default {
         assignmentDescription: "",
         assignmentType: "",
       },
+      newAssignmentId: ''
     };
   },
   created() {
@@ -74,12 +76,35 @@ export default {
     createNewAssignment() {
       assignmentService.createAssignment(this.assignment).then((response) => {
         if (response.status == 201) {
+          this.newAssignmentId = response.data;
           this.displayNewAssignment();
-        } else {
-          console.log("Error - failed to create new assignment");
+        gradesService.getStudentIdInCourse(this.$route.params.courseId).then((resp) => {
+          const studentIdList = resp.data;
+     
+          studentIdList.forEach(studentId => {
+            const gradeObject = {
+            // gradeId: '',
+            studentId: studentId,
+            assignmentId: this.newAssignmentId,
+            courseId: this.$route.params.courseId,
+            totalPoints: '',
+            earnedPoints: '',
+            status: '',
+            submissionContent: '',
+            feedback: '',
+          }
+            gradesService.addGrade(gradeObject).then((rsp) => {
+              if (rsp.status == 201) {
+              console.log("Grade object created")
+            }
+          });
+            
+          });
+        })
+
         }
-      });
-    },
+        }
+      )},
     displayNewAssignment() {
       this.$emit("displayNewAssignmentForm", false);
     },
