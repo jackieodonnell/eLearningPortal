@@ -44,7 +44,7 @@ public class CurriculumController {
 
     @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/course/curriculum/{curriculumId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/course/curriculum/update/{curriculumId}", method = RequestMethod.PUT)
     public void updateCurriculum(@RequestBody Curriculum curriculum) {
         curriculumDao.updateCurriculum(curriculum);
     }

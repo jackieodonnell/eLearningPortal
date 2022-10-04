@@ -55,7 +55,7 @@ public class JdbcCurriculumDao implements CurriculumDao{
     public void updateCurriculum(Curriculum curriculum) {
         String sql = "UPDATE curriculum SET curriculum_id = ?, course_id = ?, curriculum_title = ?, curriculum_description = ? " +
                 "WHERE curriculum_id = ?;";
-        dao.update(sql, curriculum.getCurriculumId(), curriculum.getCourseId(), curriculum.getCurriculumTitle(), curriculum.getCurriculumDescription());
+        dao.update(sql, curriculum.getCurriculumId(), curriculum.getCourseId(), curriculum.getCurriculumTitle(), curriculum.getCurriculumDescription(), curriculum.getCurriculumId());
     }
 
     @Override

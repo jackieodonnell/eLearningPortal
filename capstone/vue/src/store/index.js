@@ -61,7 +61,8 @@ export default new Vuex.Store({
     //     difficulty_level: 8,
     //     cost: 200
     //   },
-    // ]
+    // ],
+      editDescription: ''
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -79,6 +80,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_EDIT_DESCRIPTION(state, inputText) {
+      state.editDescription = inputText;
     }
   }
 })
