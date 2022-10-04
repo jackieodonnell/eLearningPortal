@@ -7,11 +7,12 @@
       <edit-textarea
         v-if="displayEditDescription"
         v-bind:currentText="course.courseDescription"
-        v-on:editDescriptionInput="editDescriptionInput"
+        v-on:save-input-text="saveDescription"
       />
       <p v-if="!displayEditDescription" class="course-description">
         {{ course.courseDescription }}
       </p>
+      {{ this.$store.state.editDescription }}
       <div class="edit-course-overview" v-bind="teacher" v-if="teacher">
         <button
           id="edit-course-overview-btn"
@@ -27,8 +28,19 @@
       <p class="curriculum-description">
         {{ curricula[0].curriculumDescription }}
       </p>
+      <edit-textarea
+        v-if="displayEditCurriculum"
+        v-bind:currentText="curricula[0].curriculumDescription"
+        v-on:save-input-text="saveCurriculumOverview"
+      />
       <div class="edit-curriculum-overview" v-bind="teacher" v-if="teacher">
-        <button id="edit-curriculum-overview-btn">Edit Overview</button>
+        <button
+          id="edit-curriculum-overview-btn"
+          v-on:click="toggleEditCurriculum"
+          v-if="!displayEditCurriculum"
+        >
+          Edit Overview
+        </button>
       </div>
     </div>
   </div>
@@ -58,7 +70,8 @@ export default {
         (e) => e["name"] === "ROLE_TEACHER"
       ),
       displayEditDescription: false,
-      editDescriptionInput: "",
+      // editDescriptionInput: "",
+      displayEditCurriculum: false,
     };
   },
   created() {
@@ -84,6 +97,24 @@ export default {
       } else {
         this.displayEditDescription = false;
       }
+    },
+    toggleEditCurriculum() {
+      if (this.displayEditCurriculum == false) {
+        this.displayEditCurriculum = true;
+      } else {
+        this.displayEditCurriculum = false;
+      }
+    },
+
+    saveDescription(userInput) {
+      this.course.courseDescription = userInput;
+      courseService.updateCourse(this.course);
+      this.toggleEditDescription();
+    },
+    saveCurriculumOverview(userInput) {
+      this.curricula[0].curriculumDescription = userInput;
+      CurriculumService.updateCurriculum(this.curricula[0]);
+      this.toggleEditCurriculum();
     },
   },
 };

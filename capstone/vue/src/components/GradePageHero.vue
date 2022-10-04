@@ -1,16 +1,10 @@
 <template>
-  <div class="class-page-hero">
+<div class="grade-page-hero">
     <div class="hero-container">
       <div class="hero-one">
         <h1 class="hero-title">{{ course.courseTitle }}</h1>
         <div class="course-btns-container">
-          <router-link :to="{ name:'grades' }" tag="button">View Grades</router-link>
-          <!-- <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
-            >Archive Curriculum</router-link
-          > -->
-          <button v-on:click="archiveClass" v-bind="teacher" v-if="teacher">
-            Archive Class
-          </button>
+          <router-link :to="{ name:'course-page'}" tag="button">View Course</router-link>
         </div>
       </div>
       <div class="hero-two">
@@ -21,13 +15,14 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
 import courseService from "../services/CourseService";
 
 export default {
-  name: "class-page-hero",
+    name: "grade-page-hero",
   data() {
     return {
       course: {
@@ -52,28 +47,12 @@ export default {
           this.course = response.data;
         }
       });
-  },
-  methods: {
-    archiveClass() {
-      this.course.isArchived = true;
-      courseService.updateCourse(this.course).then((response) => {
-        if (response.status == 200) {
-          this.$router.push({ name: "home" });
-        }
-      });
-    },
-  },
-};
+
+},
+}
 </script>
 
 <style>
-/* .hero-container {
-  display: flex;
-  justify-content: space-between;
-  background: #000b6c;
-  height: 20%;
-} */
-
 .hero-container div {
   display: flex;
   /* margin: 50px; */
@@ -129,4 +108,5 @@ export default {
   height: 20vh;
   justify-content: right;
 }
+
 </style>

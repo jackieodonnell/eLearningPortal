@@ -16,7 +16,7 @@ export default {
 
     updateCurriculum(curriculum) {
         const id = curriculum.curriculumId
-        return axios.put(`/course/curriculum/${id}`, curriculum);
+        return axios.put(`/course/curriculum/update/${id}`, curriculum);
     },
 
     deleteCurriculum(curriculum) {
