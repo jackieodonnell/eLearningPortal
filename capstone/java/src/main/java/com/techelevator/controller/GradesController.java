@@ -37,12 +37,12 @@ public class GradesController {
     }
 
     @RequestMapping(value = "/course/curriculum/{assignmentId}/{studentId}", method = RequestMethod.GET)
-    public Grades getGrade(int assignmentId, int studentId) {
+    public Grades getGrade(@PathVariable int assignmentId, @PathVariable int studentId) {
         return gradesDao.getGrade(assignmentId, studentId);
     }
 
-    @RequestMapping(value = "/course/averages/{courseId}/{studentID}", method = RequestMethod.GET)
-    public double getCourseAverageForStudent(int courseId, int studentId) {
+    @RequestMapping(value = "/course/averages/{courseId}/{studentId}", method = RequestMethod.GET)
+    public double getCourseAverageForStudent(@PathVariable int courseId, @PathVariable int studentId) {
         return gradesDao.getCourseAverageForStudent(courseId, studentId);
     }
 
