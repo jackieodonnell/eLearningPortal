@@ -30,6 +30,7 @@ export default {
                 courseDescription: '',
                 difficulty: '',
                 cost: '',
+                isArchived: '',
             },
             curricula: []
         }

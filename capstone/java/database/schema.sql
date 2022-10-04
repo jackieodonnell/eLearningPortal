@@ -24,7 +24,8 @@ CREATE TABLE course (
   course_title varchar(50),
   course_description varchar (500),
   difficulty_level varchar(2),
-  cost decimal(10,2)
+  cost decimal(10,2),
+  isArchived boolean
 );
 
 CREATE TABLE course_student (

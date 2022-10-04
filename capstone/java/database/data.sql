@@ -14,14 +14,14 @@ INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('
 																			'William', 'Kendig');
 
 
-INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost) 
-	VALUES(3, 'Algebra 1', 'This course introduces students to variables, algebraic expressions, equations, inequalities, functions, and all their multiple representations.', 6, 0);
-INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost) 
-	VALUES(3, 'Biology', 'This course focuses on introducing students to the diversity of life found on our planet.', 7, 0);
-INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost) 
-	VALUES(3, 'English', 'This course adheres to the Common Core Standards for 8th grade English.', 8, 0);
-INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost) 
-	VALUES(3, 'US History', 'In this course students will study United States History focusing on the Great Awakening to westward expansion.', 7, 0);
+INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
+	VALUES(3, 'Algebra 1', 'This course introduces students to variables, algebraic expressions, equations, inequalities, functions, and all their multiple representations.', 6, 0, false);
+INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
+	VALUES(3, 'Biology', 'This course focuses on introducing students to the diversity of life found on our planet.', 7, 0, false);
+INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
+	VALUES(3, 'English', 'This course adheres to the Common Core Standards for 8th grade English.', 8, 0, false);
+INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
+	VALUES(3, 'US History', 'In this course students will study United States History focusing on the Great Awakening to westward expansion.', 7, 0, false);
 	
 INSERT INTO course_student(student_id, course_id) VALUES(4, 1);
 INSERT INTO course_student(student_id, course_id) VALUES(5, 1);

@@ -18,6 +18,11 @@ export default {
     return axios.post('/courses', course)
   },
 
+  updateCourse(course){
+    const courseId = course.courseId
+    return axios.put(`/course/${courseId}`, course)
+  },
+
   getCourseByCourseId(courseId){
     return axios.get(`/course/${courseId}`)
   },

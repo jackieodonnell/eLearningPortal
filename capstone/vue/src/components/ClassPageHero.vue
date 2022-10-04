@@ -5,7 +5,7 @@
         <h1 class="hero-title">{{ course.courseTitle }}</h1>
         <div class="course-btns-container">
           <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">View Student Grades</router-link>
-          <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher">Archive Curriculum</router-link>
+          <button v-on:click="archiveClass"  v-bind="teacher" v-if="teacher">Archive Class</button>
 
         </div>
       </div>
@@ -33,6 +33,7 @@ export default {
         courseDescription: "",
         difficulty: "",
         cost: "",
+        isArchived: "",
       },
       teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")
     };
@@ -46,6 +47,16 @@ export default {
         }
       });
   },
+  methods: {
+    archiveClass() {
+      this.course.isArchived = true;
+      courseService.updateCourse(this.course).then(response => {
+        if (response.status == 200) {
+          this.$router.push({name: 'home'})
+        }
+      })
+    }
+  }
 };
 </script>
 

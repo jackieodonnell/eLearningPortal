@@ -19,15 +19,15 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public int createCourse(Course course) {
-        String sql = "INSERT INTO course (course_id, teacher_id, course_title, course_description, difficulty_level, cost) " +
-                "VALUES (DEFAULT, ?, ?, ?, ?, ?) RETURNING course_id;";
-        return dao.queryForObject(sql, Integer.class, course.getTeacherId(), course.getCourseTitle(), course.getCourseDescription(), course.getDifficulty(), course.getCost());
+        String sql = "INSERT INTO course (course_id, teacher_id, course_title, course_description, difficulty_level, cost, isArchived) " +
+                "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?) RETURNING course_id;";
+        return dao.queryForObject(sql, Integer.class, course.getTeacherId(), course.getCourseTitle(), course.getCourseDescription(), course.getDifficulty(), course.getCost(), course.isArchived());
     }
 
     @Override
     public List<Course> getAllCourses() {
         List<Course> courses = new ArrayList<>();
-        String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost FROM course;";
+        String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost, isArchived FROM course;";
         SqlRowSet results = dao.queryForRowSet(sql);
         while(results.next()) {
             Course course = mapRowToCourse(results);
@@ -39,7 +39,7 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public List<Course> getAllCoursesByStudentId(int studentId) {
         List<Course> courses = new ArrayList<>();
-        String sql = "SELECT course.course_id, teacher_id, course_title, course_description, difficulty_level, cost FROM course " +
+        String sql = "SELECT course.course_id, teacher_id, course_title, course_description, difficulty_level, cost, isArchived FROM course " +
                 "JOIN course_student ON course.course_id = course_student.course_id WHERE course_student.student_id = ?;";
         SqlRowSet results = dao.queryForRowSet(sql, studentId);
         while(results.next()) {
@@ -52,7 +52,7 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public List<Course> getAllCoursesByTeacherId(int teacherId) {
         List<Course> courses = new ArrayList<>();
-        String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost FROM course " +
+        String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost, isArchived FROM course " +
                 "WHERE teacher_id = ?;";
         SqlRowSet results = dao.queryForRowSet(sql,teacherId);
         while(results.next()) {
@@ -65,7 +65,7 @@ public class JdbcCourseDao implements CourseDao {
     @Override
     public Course getCourseById(int courseId) {
         Course course = null;
-        String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost FROM course " +
+        String sql = "SELECT course_id, teacher_id, course_title, course_description, difficulty_level, cost, isArchived FROM course " +
                 "WHERE course_id = ?;";
         SqlRowSet results = dao.queryForRowSet(sql, courseId);
         while (results.next()) {
@@ -76,9 +76,9 @@ public class JdbcCourseDao implements CourseDao {
 
     @Override
     public void updateCourse(Course course) {
-        String sql = "UPDATE course SET teacher_id = ?, course_title = ?, course_description = ?, difficulty_level = ?, cost = ? " +
+        String sql = "UPDATE course SET teacher_id = ?, course_title = ?, course_description = ?, difficulty_level = ?, cost = ?, isArchived = ? " +
                 "WHERE course_id = ?;";
-        dao.update(sql, course.getTeacherId(), course.getCourseTitle(), course.getCourseDescription(), course.getDifficulty(), course.getCost(), course.getCourseId());
+        dao.update(sql, course.getTeacherId(), course.getCourseTitle(), course.getCourseDescription(), course.getDifficulty(), course.getCost(), course.isArchived(), course.getCourseId());
     }
 
     @Override
@@ -96,6 +96,7 @@ public class JdbcCourseDao implements CourseDao {
         course.setCourseDescription(result.getString("course_description"));
         course.setDifficulty(result.getString("difficulty_level"));
         course.setCost(result.getBigDecimal("cost"));
+        course.setIsArchived(result.getBoolean("isArchived"));
         return course;
     }
 }
