@@ -5,7 +5,11 @@ export default {
         return axios.post('/course/assignment/work', grade)
       },
 
-    allGradesForAssignment(id){
+    getAllGrades(){
+    return axios.get('/grades')
+    },
+    
+      allGradesForAssignment(id){
         return axios.get(`/course/${id}/grades`)
     },
 

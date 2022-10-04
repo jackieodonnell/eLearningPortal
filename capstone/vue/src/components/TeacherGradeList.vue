@@ -20,10 +20,11 @@ export default {
       GradeCard
     },
     created(){
-        gradesService.allGradesForAssignment(this.$route.params.assignmentId)
+        gradesService.getAllGrades()
             .then(response => {
                 if (response.status == 200) {
-                this.grades = response.data
+                    this.grades = response.data;
+                    console.log(this.grades)
                 }
             })
     
