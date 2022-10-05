@@ -13,8 +13,16 @@ export default {
         return axios.get(`/course/${assignmentId}/grades`)
     },
 
+    allJoinedGradesForAssignment(assignmentId){
+        return axios.get(`/j/course/${assignmentId}/grades`)
+    },
+
     allGradesForStudentInCourse(courseId, studentId){
         return axios.get(`/${courseId}/assignment/grades/${studentId}`)
+    },
+
+    allJoinedGradesForStudentInCourse(courseId, studentId){
+        return axios.get(`/j/${courseId}/assignment/grades/${studentId}`)
     },
 
     getGrade(assignmentId, studentId){

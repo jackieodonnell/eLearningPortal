@@ -1,6 +1,6 @@
 <template>
   <div class="joinClass">
-    <form action="join-class" v-on:submit.prevent="enrollInCourse" >
+    <form action="join-class" v-on:submit.prevent="enrollInCourse">
       <select name="courses" id="courses" v-model="selection">
         <option
           v-for="course in courses"
@@ -10,7 +10,7 @@
           {{ course.courseTitle }}-- Course ID: {{ course.courseId }}
         </option>
       </select>
-      <input type="submit" value="Join" />
+      <input type="submit" value="Join" id="join-course-submit-btn" />
     </form>
   </div>
 </template>
@@ -21,19 +21,18 @@ export default {
   name: "join-class",
   data() {
     return {
-        studentCourse: {
-            studentId: this.$store.state.user.id,
-            courseId: this.selectedCourseId,
-  
-        },
+      studentCourse: {
+        studentId: this.$store.state.user.id,
+        courseId: this.selectedCourseId,
+      },
       courses: [],
-      selection: ''
+      selection: "",
     };
   },
   computed: {
-    selectedCourseId(){
+    selectedCourseId() {
       return this.selection.charAt(this.selection.length - 1);
-    }
+    },
   },
   created() {
     courseService.getCourses().then((response) => {
@@ -41,19 +40,25 @@ export default {
     });
   },
   methods: {
-      enrollInCourse() {
-          courseService.enrollInCourse(this.studentCourse.studentId, this.selectedCourseId).then(response => {
-              if (response.status == 201) {
-                  this.$router.push({name: 'home'})
-              } else {
-                  console.log("Error -- failed to join course")
-              }
-          })
-      }
-  }
+    enrollInCourse() {
+      courseService
+        .enrollInCourse(this.studentCourse.studentId, this.selectedCourseId)
+        .then((response) => {
+          if (response.status == 201) {
+            this.$router.push({ name: "home" });
+          } else {
+            console.log("Error -- failed to join course");
+          }
+        });
+    },
+  },
 };
 </script>
 
 <style>
-
+#join-course-submit-btn {
+  min-height: 100%;
+  min-width: fit-content;
+  padding: 5px;
+}
 </style>
