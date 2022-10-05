@@ -51,7 +51,7 @@ public class GradesController {
         return gradesDao.getAllGrades();
     }
 
-    @PreAuthorize("hasRole('ROLE_TEACHER')")
+//    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/course/assignment/work", method = RequestMethod.PUT)
     public void updateGrade(@RequestBody Grades grades) {

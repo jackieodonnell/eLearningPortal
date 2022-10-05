@@ -85,7 +85,8 @@ const router = new Router({
           path: ":instructionId",
           name: "instruction-content",
           component: InstructionContent
-        }], 
+        },
+      ], 
       meta: {
         requiresAuth: true
       }
