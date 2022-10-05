@@ -1,7 +1,7 @@
 <template>
   <div class="submit-assignment-container">
       <form action="submit-assignment" id="submit-assignment-form" v-on:submit.prevent="submitAssignment">
-          <textarea name="submit-assignment-textarea" id="submit-assignment-textarea" cols="100" rows="25"></textarea>
+          <textarea v-model="grade.submissionContent" name="submit-assignment-textarea" id="submit-assignment-textarea" cols="100" rows="25"></textarea>
           <br>
           <button id="submit-assignment-button">
               Submit
@@ -14,18 +14,26 @@
 </template>
 
 <script>
+import gradesService from "../services/GradesService"
+
 export default {
     name: "submit-assignment-form",
     // props: ['displaySubmitForm'],
     data() {
         return {
-            submission: '',
-        }
+            grade: {
+                submissionContent: '',
+                status: "Submitted"
+            }
+            
+    }
     },
     methods: {
         submitAssignment() {
             // need to update grade status
+            gradesService.updateGrade(this.grade)
             this.$emit('displaySubmitForm', false)
+
 
         }
     }
