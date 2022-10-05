@@ -22,6 +22,9 @@ public class JdbcAssignmentDao implements AssignmentDao{
                 "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?) RETURNING assignment_id;";
         return dao.queryForObject(sql, Integer.class, assignment.getDailyInstructionsId(), assignment.getAssignedDate(), assignment.getDueDate(), assignment.getAssignmentTitle(),
                 assignment.getAssignmentDescription(), assignment.getAssignmentType());
+        //get the count of student in course to loop through
+        //for loop through those students.length
+        //for each student create a grade
     }
 
     @Override
@@ -35,6 +38,18 @@ public class JdbcAssignmentDao implements AssignmentDao{
             assignments.add(assignment);
         }
         return assignments;
+    }
+
+    @Override
+    public int getCourseIdByAssignmentId(int assignmentId) {
+//        int courseId = 0;
+        String sql = "SELECT course.course_id FROM course " +
+        "JOIN curriculum ON curriculum.course_id = course.course_id " +
+        "JOIN daily_instructions ON curriculum.curriculum_id = daily_instructions.curriculum_id " +
+        "JOIN assignment ON assignment.daily_instructions_id = daily_instructions.daily_instructions_id " +
+        "WHERE assignment.assignment_id = ?;";
+        return dao.queryForObject(sql, Integer.class, assignmentId);
+
     }
 
     @Override

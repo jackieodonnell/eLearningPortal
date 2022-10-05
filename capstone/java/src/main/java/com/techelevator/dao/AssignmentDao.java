@@ -10,6 +10,8 @@ public interface AssignmentDao {
 
     List<Assignment> getAllAssignments();
 
+    int getCourseIdByAssignmentId(int assignmentId);
+
     List<Assignment> getAllAssignmentsByInstructionId(int instructionId);
 
     List<Assignment> getAllAssignmentsByCurriculumId(int curriculumId);
