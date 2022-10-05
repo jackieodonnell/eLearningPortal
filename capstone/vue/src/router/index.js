@@ -86,12 +86,6 @@ const router = new Router({
           name: "instruction-content",
           component: InstructionContent
         },
-        {
-          path:"grades2",
-          name: "grades2",
-          component: Grades
-        }
-      
       ], 
       meta: {
         requiresAuth: true
