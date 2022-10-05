@@ -4,10 +4,7 @@
       <div class="hero-one">
         <h1 class="hero-title">{{ course.courseTitle }}</h1>
         <div class="course-btns-container">
-          <router-link :to="{ name: 'grades' }" tag="button"
-            >View Grades</router-link
-          >
-
+          <router-link :to="{ name: 'grades' }" tag="button">View Grades</router-link>
           <!-- <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
             >Archive Curriculum</router-link
           > -->

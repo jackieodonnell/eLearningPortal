@@ -24,7 +24,7 @@
     </table>
     <div class="total-course-score">
       <h2 id="course-score-score">
-        Current Course Score: {{ totalCourseScore }}%
+        Current Course Score: {{ totalCourseScore }}
       </h2>
     </div>
   </div>
@@ -72,7 +72,11 @@ export default {
           total += grade.totalPoints;
         }
       });
-      return (earned / total) * 100;
+      if (this.grades.length == 0){
+        return "You have no grade yet"
+      }
+
+      return Math.round((earned / total) * 100) + "%";
     },
   },
 };
