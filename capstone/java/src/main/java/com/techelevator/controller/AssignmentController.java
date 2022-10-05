@@ -36,10 +36,8 @@ public class AssignmentController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/assignments/new", method = RequestMethod.POST)
     public void createAssignment(@RequestBody Assignment assignment, int totalPoints) {
-        List<Integer> studentsInCourse = studentCourseDao.getStudentsByCourseId(assignmentDao.getCourseIdByAssignmentId(assignment.getAssignmentId()));
-        //object = studentcoursedao.getallstudentsincourse
-        //loop through that number of students to run joinedgradedao.addjoinedgrades
         assignmentDao.createAssignment(assignment);
+        List<Integer> studentsInCourse = studentCourseDao.getStudentsByCourseId(assignmentDao.getCourseIdByAssignmentId(assignment.getAssignmentId()));
         for (int i = 0; i < studentsInCourse.size(); i++) {
             JoinedGrades joinedGrades = new JoinedGrades();
             joinedGrades.setStudentId(studentsInCourse.get(i));
