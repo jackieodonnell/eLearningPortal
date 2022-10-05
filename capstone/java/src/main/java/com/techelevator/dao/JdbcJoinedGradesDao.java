@@ -21,8 +21,8 @@ public class JdbcJoinedGradesDao implements JoinedGradesDao{
     @Override
     public int addJoinedGrade(JoinedGrades joinedGrades) {
         String sql = "INSERT INTO grades (grade_id, student_id, assignment_id, course_id, total_points, earned_points, status, submission_content, feedback) " +
-                "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING grade_id ;";
-        return dao.queryForObject(sql, Integer.class, joinedGrades.getStudentId(), joinedGrades.getAssignmentId(), joinedGrades.getCourseId(), joinedGrades.getTotalPoints(), joinedGrades.getEarnedPoints(), joinedGrades.getStatus(), joinedGrades.getSubmissionContent(), joinedGrades.getFeedback());
+                "VALUES (DEFAULT, ?, ?, ?, ?, ?, DEFAULT, ?, ?) RETURNING grade_id ;";
+        return dao.queryForObject(sql, Integer.class, joinedGrades.getStudentId(), joinedGrades.getAssignmentId(), joinedGrades.getCourseId(), joinedGrades.getTotalPoints(), joinedGrades.getEarnedPoints(), joinedGrades.getSubmissionContent(), joinedGrades.getFeedback());
     }
 
     @Override

@@ -2,11 +2,6 @@
   <div class="course-page">
     <nav-bar />
     <class-page-hero />
-
-    <!-- <div class= "details-container">
-            <course-details />
-       </div> -->
-
     <div class="curriculum-container">
       <div class="sidebar">
         <curriculum-list />
@@ -16,21 +11,11 @@
         <router-view v-else></router-view>
       </div>
     </div>
-    <!-- <div class="content">
-       
-      </div> -->
-
-    <!-- <div class= "assignments-container">
-       <div class= "assignments-box">
-         <h2>Upcoming assignments</h2>
-       </div>
-     </div> -->
     <footer-section />
   </div>
 </template>
 
 <script>
-// import CourseDetails from '../components/CourseDetails.vue';
 import NavBar from "../components/NavBar.vue";
 import ClassPageHero from "../components/ClassPageHero.vue";
 import CurriculumList from "../components/CurriculumList.vue";
@@ -40,7 +25,6 @@ import FooterSection from "../components/FooterSection.vue";
 export default {
   name: "course-page",
   components: {
-    // CourseDetails,
     NavBar,
     ClassPageHero,
     CurriculumList,
