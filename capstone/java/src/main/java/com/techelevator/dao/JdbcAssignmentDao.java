@@ -42,14 +42,13 @@ public class JdbcAssignmentDao implements AssignmentDao{
 
     @Override
     public int getCourseIdByAssignmentId(int assignmentId) {
-        int courseId = 0;
+//        int courseId = 0;
         String sql = "SELECT course.course_id FROM course " +
-        "JOIN curriculum ON curriculum.course_id = course.course_id" +
-        "JOIN daily_instructions ON curriculum.curriculum_id = daily_instructions.curriculum_id" +
-        "JOIN assignment ON assignment.daily_instructions_id = daily_instructions.daily_instructions_id" +
-        "WHERE assignment_id = ? RETURNING course.course_id;";
-        courseId = dao.queryForObject(sql, Integer.class, assignmentId);
-        return courseId;
+        "JOIN curriculum ON curriculum.course_id = course.course_id " +
+        "JOIN daily_instructions ON curriculum.curriculum_id = daily_instructions.curriculum_id " +
+        "JOIN assignment ON assignment.daily_instructions_id = daily_instructions.daily_instructions_id " +
+        "WHERE assignment.assignment_id = ?;";
+        return dao.queryForObject(sql, Integer.class, assignmentId);
 
     }
 

@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.*;
 import com.techelevator.model.Assignment;
 import com.techelevator.model.JoinedGrades;
+import com.techelevator.model.NewAssignmentWrapper;
 import com.techelevator.model.StudentCourse;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -35,14 +36,16 @@ public class AssignmentController {
     @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/assignments/new", method = RequestMethod.POST)
-    public void createAssignment(@RequestBody Assignment assignment, int totalPoints) {
-        assignmentDao.createAssignment(assignment);
-        List<Integer> studentsInCourse = studentCourseDao.getStudentsByCourseId(assignmentDao.getCourseIdByAssignmentId(assignment.getAssignmentId()));
+    public void createAssignment(@RequestBody NewAssignmentWrapper newAssignmentWrapper) {
+        Assignment assignment = newAssignmentWrapper.getAssignment();
+        int totalPoints = newAssignmentWrapper.getTotalPoints();
+        int assignmentId = assignmentDao.createAssignment(assignment);
+        List<Integer> studentsInCourse = studentCourseDao.getStudentsByCourseId(assignmentDao.getCourseIdByAssignmentId(assignmentId));
         for (int i = 0; i < studentsInCourse.size(); i++) {
             JoinedGrades joinedGrades = new JoinedGrades();
             joinedGrades.setStudentId(studentsInCourse.get(i));
-            joinedGrades.setAssignmentId(assignment.getAssignmentId());
-            joinedGrades.setCourseId(assignmentDao.getCourseIdByAssignmentId(assignment.getAssignmentId()));
+            joinedGrades.setAssignmentId(assignmentId);
+            joinedGrades.setCourseId(assignmentDao.getCourseIdByAssignmentId(assignmentId));
             joinedGrades.setTotalPoints(totalPoints);
             joinedGrades.setEarnedPoints(0);
             joinedGrades.setStatus("Incomplete");
