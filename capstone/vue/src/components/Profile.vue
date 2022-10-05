@@ -21,6 +21,12 @@
                 </td>
             </tr>
             <tr>
+                <td>Password: </td>
+                <td class="profile_text">
+                    {{ $store.state.user.authService.password }}
+                </td>
+            </tr>
+            <tr>
                 <td>Role: </td>
                 <td class="profile_text" v-on="confirmRole()">
                     {{ role }}
