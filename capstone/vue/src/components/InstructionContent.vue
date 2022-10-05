@@ -4,11 +4,22 @@
       <h3>{{ dailyInstruction.currentDay }}</h3>
       <h2>{{ dailyInstruction.instructions }}</h2>
     </div>
-    <div id="instruction-content">
+    <edit-textarea
+      v-if="displayEditLesson"
+      v-bind:currentText="dailyInstruction.content"
+      v-on:save-input-text="saveLesson"
+    />
+    <div v-if="!displayEditLesson" id="instruction-content">
       <p>{{ dailyInstruction.content }}</p>
     </div>
     <div class="edit-lesson" v-bind="teacher" v-if="teacher">
-      <button id="edit-lesson-btn">Edit Lesson</button>
+      <button
+        v-if="!displayEditLesson"
+        v-on:click="toggleEditLesson"
+        id="edit-lesson-btn"
+      >
+        Edit Lesson
+      </button>
     </div>
 
     <div
@@ -21,9 +32,22 @@
         {{ assignment.dueDate }}
       </h2>
       <h3>{{ assignment.assignmentTitle }}</h3>
-      <p>{{ assignment.assignmentDescription }}</p>
+      <p v-if="!displayEditAssignment">
+        {{ assignment.assignmentDescription }}
+      </p>
+      <edit-textarea
+        v-if="displayEditAssignment"
+        v-bind:currentText="assignment.assignmentDescription"
+        v-on:save-input-text="saveAssignment"
+      />
       <div class="edit-assignment" v-bind="teacher" v-if="teacher">
-        <button id="edit-assignment-btn">Edit Assignment</button>
+        <button
+          v-if="!displayEditAssignment"
+          v-on:click="toggleEditAssignment"
+          id="edit-assignment-btn"
+        >
+          Edit Assignment
+        </button>
       </div>
       <div
         id="submit-assignment-btn-container"
@@ -60,6 +84,7 @@ import AssignmentService from "../services/AssignmentService";
 import InstructionService from "../services/InstructionService";
 import NewAssignmentForm from "./NewAssignmentForm.vue";
 import SubmitAssignmentForm from "./SubmitAssignmentForm.vue";
+import EditTextarea from "./EditTextarea.vue";
 
 export default {
   name: "instruction-content",
@@ -79,6 +104,8 @@ export default {
       assignments: [],
       displaySubmitForm: false,
       displayNewAssignmentForm: false,
+      displayEditLesson: false,
+      displayEditAssignment: false,
       teacher: this.$store.state.user.authorities.some(
         (e) => e["name"] === "ROLE_TEACHER"
       ),
@@ -121,6 +148,7 @@ export default {
   components: {
     SubmitAssignmentForm,
     NewAssignmentForm,
+    EditTextarea,
   },
   methods: {
     showSubmitForm() {
@@ -136,6 +164,31 @@ export default {
       } else {
         this.displayNewAssignmentForm = false;
       }
+    },
+    toggleEditLesson() {
+      if (this.displayEditLesson == false) {
+        this.displayEditLesson = true;
+      } else {
+        this.displayEditLesson = false;
+      }
+    },
+    toggleEditAssignment() {
+      if (this.displayEditAssignment == false) {
+        this.displayEditAssignment = true;
+      } else {
+        this.displayEditAssignment = false;
+      }
+    },
+
+    saveLesson(userInput) {
+      this.dailyInstruction.content = userInput;
+      InstructionService.updateInstruction(this.dailyInstruction);
+      this.toggleEditLesson();
+    },
+    saveAssignment(userInput) {
+      this.assignments[0].assignmentDescription = userInput;
+      AssignmentService.updateAssignment(this.assignments[0]);
+      this.toggleEditAssignment();
     },
   },
 };

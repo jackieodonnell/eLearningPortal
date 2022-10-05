@@ -20,7 +20,6 @@ export default {
             courses: []
         }
     },
-    // props: ['tech'],
     components: {
       CourseCard
     },
