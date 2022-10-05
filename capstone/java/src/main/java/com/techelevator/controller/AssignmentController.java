@@ -2,6 +2,8 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.*;
 import com.techelevator.model.Assignment;
+import com.techelevator.model.JoinedGrades;
+import com.techelevator.model.StudentCourse;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -17,20 +19,39 @@ public class AssignmentController {
     private CurriculumDao curriculumDao;
     private DailyInstructionDao dailyInstructionDao;
     private AssignmentDao assignmentDao;
+    private StudentCourseDao studentCourseDao;
+    private JoinedGradesDao joinedGradesDao;
 
-    public AssignmentController(UserDao userDao, CourseDao courseDao, CurriculumDao curriculumDao, DailyInstructionDao dailyInstructionDao, AssignmentDao assignmentDao) {
+    public AssignmentController(UserDao userDao, CourseDao courseDao, CurriculumDao curriculumDao, DailyInstructionDao dailyInstructionDao, AssignmentDao assignmentDao, StudentCourseDao studentCourseDao, JoinedGradesDao joinedGradesDao) {
         this.userDao = userDao;
         this.courseDao = courseDao;
         this.curriculumDao = curriculumDao;
         this.dailyInstructionDao = dailyInstructionDao;
         this.assignmentDao = assignmentDao;
+        this.studentCourseDao = studentCourseDao;
+        this.joinedGradesDao = joinedGradesDao;
     }
 
     @PreAuthorize("hasRole('ROLE_TEACHER')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/assignments/new", method = RequestMethod.POST)
-    public int createAssignment(@RequestBody Assignment assignment) {
-        return assignmentDao.createAssignment(assignment);
+    public void createAssignment(@RequestBody Assignment assignment, int totalPoints) {
+        List<Integer> studentsInCourse = studentCourseDao.getStudentsByCourseId(assignmentDao.getCourseIdByAssignmentId(assignment.getAssignmentId()));
+        //object = studentcoursedao.getallstudentsincourse
+        //loop through that number of students to run joinedgradedao.addjoinedgrades
+        assignmentDao.createAssignment(assignment);
+        for (int i = 0; i < studentsInCourse.size(); i++) {
+            JoinedGrades joinedGrades = new JoinedGrades();
+            joinedGrades.setStudentId(studentsInCourse.get(i));
+            joinedGrades.setAssignmentId(assignment.getAssignmentId());
+            joinedGrades.setCourseId(assignmentDao.getCourseIdByAssignmentId(assignment.getAssignmentId()));
+            joinedGrades.setTotalPoints(totalPoints);
+            joinedGrades.setEarnedPoints(0);
+            joinedGrades.setStatus("Incomplete");
+            joinedGrades.setSubmissionContent("");
+            joinedGrades.setFeedback("");
+            joinedGradesDao.addJoinedGrade(joinedGrades);
+        }
     }
 
     @RequestMapping(value = "/assignments/all", method = RequestMethod.GET)
