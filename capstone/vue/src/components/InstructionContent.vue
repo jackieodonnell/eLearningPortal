@@ -75,6 +75,7 @@ export default {
         instructions: "",
         content: "",
       },
+      count: 0,
       assignments: [],
       displaySubmitForm: false,
       displayNewAssignmentForm: false,
