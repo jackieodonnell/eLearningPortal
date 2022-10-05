@@ -1,8 +1,14 @@
 <template>
-    <div class="grade-card">
-        <div> {{grade.earnedPoints}}</div>
-        <div> {{grade.status}}</div>
-        <div> {{grade.feedback}}</div>
+    <div class="class-container">
+        <div class="grade-card">
+            <table>
+                <tr>
+                    <td> {{grade.earnedPoints}} / {{grade.totalPoints}}</td>
+                    <td> {{grade.status}}</td>
+                    <td> {{grade.submissionContent}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </template>
 
@@ -16,3 +22,13 @@ export default {
         }
 }   
 </script>
+
+<style>
+th, td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: left;
+}
+</style>

@@ -9,20 +9,20 @@ export default {
     return axios.get('/grades')
     },
     
-      allGradesForAssignment(id){
-        return axios.get(`/course/${id}/grades`)
+    allGradesForAssignment(assignmentId){
+        return axios.get(`/course/${assignmentId}/grades`)
     },
 
-    allGradesForStudentInCourse(cId, sId){
-        return axios.get(`/${cId}/assignment/grades/${sId}`)
+    allGradesForStudentInCourse(courseId, studentId){
+        return axios.get(`/${courseId}/assignment/grades/${studentId}`)
     },
 
-    getGrade(aId, sId){
-        return axios.get(`/course/curriculum/${aId}/${sId}`)
+    getGrade(assignmentId, studentId){
+        return axios.get(`/course/curriculum/${assignmentId}/${studentId}`)
     },
 
-    getCourseAverageForStudent(cId, sId){
-        return axios.get(`/course/averages/${cId}/${sId}`)
+    getCourseAverageForStudent(courseId, studentId){
+        return axios.get(`/course/averages/${courseId}/${studentId}`)
     },
 
     updateGrade(grade){

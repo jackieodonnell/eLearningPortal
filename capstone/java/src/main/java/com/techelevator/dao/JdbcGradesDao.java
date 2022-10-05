@@ -28,7 +28,7 @@ public class JdbcGradesDao implements GradesDao{
     @Override
     public List<Grades> getAllGrades() {
         List<Grades> gradesList = new ArrayList<>();
-        String sql = "SELECT SELECT grade_id, student_id, assignment_id, course_id, total_points, earned_points, status, submission_content, feedback " +
+        String sql = "SELECT grade_id, student_id, assignment_id, course_id, total_points, earned_points, status, submission_content, feedback " +
                 "FROM grades;";
         SqlRowSet result = dao.queryForRowSet(sql);
         while (result.next()) {
@@ -79,8 +79,7 @@ public class JdbcGradesDao implements GradesDao{
     @Override
     public double getCourseAverageForStudent(int courseId, int studentId) {
         double average = 0;
-        String sql = "SELECT SUM(earned_points) AS total_earned_points, SUM(total_points) as total_possible WHERE course_id = ? AND student_id = ? " +
-                "SELECT total_earned_points / total_possible AS class_grade * 100 RETURNING class_grade";
+        String sql = "SELECT ROUND((AVG(earned_points) / AVG(total_points)) * 100, 2) AS class_grade FROM grades WHERE course_id = ? AND student_id = ?";
         average = dao.queryForObject(sql, Double.class, courseId, studentId);
         return average;
     }
@@ -89,12 +88,12 @@ public class JdbcGradesDao implements GradesDao{
     public void updateGrade(Grades grades) {
         String sql = "UPDATE grades SET student_id = ?, assignment_id = ?, course_id = ?, total_points = ?, earned_points = ?, status = ?, submission_content = ?, feedback = ? " +
                 "WHERE grade_id = ?;";
-        dao.update(sql, grades.getStudentId(), grades.getAssignmentId(), grades.getCourseId(), grades.getTotalPoints(), grades.getEarnedPoints(), grades.getStatus(), grades.getSubmissionContent(), grades.getFeedback());
+        dao.update(sql, grades.getStudentId(), grades.getAssignmentId(), grades.getCourseId(), grades.getTotalPoints(), grades.getEarnedPoints(), grades.getStatus(), grades.getSubmissionContent(), grades.getFeedback(), grades.getGradeId());
     }
 
     @Override
     public void deleteGrade(Grades grades) {
-        String sql = "DELETE FROM grades WHERE grades_id = ?;";
+        String sql = "DELETE FROM grades WHERE grade_id = ?;";
         dao.update(sql, grades.getGradeId());
     }
 
