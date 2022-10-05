@@ -65,6 +65,7 @@
       <submit-assignment-form
         v-if="displaySubmitForm"
         v-on:displaySubmitForm="showSubmitForm"
+        v-bind:selectedAssignment="assignment"
       />
     </div>
     <div id="add-assignment-btn-container" v-bind="teacher" v-if="teacher">

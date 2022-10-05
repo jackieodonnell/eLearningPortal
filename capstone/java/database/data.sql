@@ -188,3 +188,4 @@ INSERT INTO grades (student_id, assignment_id, course_id, total_points, earned_p
 
 COMMIT TRANSACTION;
 
+

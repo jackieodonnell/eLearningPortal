@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
 
-    createAssignment(assignment) {
-        return axios.post('assignments/new', assignment);
+    createAssignment(newAssignmentWrapper) {
+        return axios.post('assignments/new', newAssignmentWrapper);
     },
 
     getAssignmentById(assignmentId) {

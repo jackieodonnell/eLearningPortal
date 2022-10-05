@@ -40,19 +40,29 @@
           required
         />
       </div>
-      <input type="submit" value="Save" />
-      <input
-        type="button"
-        value="Cancel"
+      <div class="form-element">
+        <label for="total-points">Total Points:</label>
+        <input
+          type="number"
+          class="total-points"
+          v-model="totalPoints"
+          required
+        />
+      </div>
+      <input type="submit" value="Save" id="submit-new-assignment" />
+      <button
         v-on:click.prevent="displayNewAssignment"
-      />
+        id="cancel-new-assignment"
+      >
+        Cancel
+      </button>
     </form>
   </div>
 </template>
 
 <script>
 import assignmentService from "../services/AssignmentService";
-import gradesService from "../services/GradesService"
+// import gradesService from "../services/GradesService";
 export default {
   name: "new-assignment-form",
   props: ["dailyInstructionsId"],
@@ -66,7 +76,8 @@ export default {
         assignmentDescription: "",
         assignmentType: "",
       },
-      newAssignmentId: ''
+      newAssignmentId: "",
+      totalPoints: "",
     };
   },
   created() {
@@ -74,37 +85,18 @@ export default {
   },
   methods: {
     createNewAssignment() {
-      assignmentService.createAssignment(this.assignment).then((response) => {
-        if (response.status == 201) {
-          this.newAssignmentId = response.data;
-          this.displayNewAssignment();
-        gradesService.getStudentIdInCourse(this.$route.params.courseId).then((resp) => {
-          const studentIdList = resp.data;
-     
-          studentIdList.forEach(studentId => {
-            const gradeObject = {
-            // gradeId: '',
-            studentId: studentId,
-            assignmentId: this.newAssignmentId,
-            courseId: this.$route.params.courseId,
-            totalPoints: '',
-            earnedPoints: '',
-            status: '',
-            submissionContent: '',
-            feedback: '',
+      let newAssignmentWrapper = {
+        assignment: this.assignment,
+        totalPoints: this.totalPoints,
+      };
+      assignmentService
+        .createAssignment(newAssignmentWrapper)
+        .then((response) => {
+          if (response.status == 201) {
+            this.displayNewAssignment();
           }
-            gradesService.addGrade(gradeObject).then((rsp) => {
-              if (rsp.status == 201) {
-              console.log("Grade object created")
-            }
-          });
-            
-          });
-        })
-
-        }
-        }
-      )},
+        });
+    },
     displayNewAssignment() {
       this.$emit("displayNewAssignmentForm", false);
     },
@@ -113,4 +105,36 @@ export default {
 </script>
 
 <style>
+#cancel-new-assignment {
+  width: fit-content;
+  height: fit-content;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: rgb(73, 109, 226);
+  border: none;
+  color: white;
+  padding: 1%;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+#submit-new-assignment {
+  border: none;
+  box-shadow: 0 0 0 1px rgba(107, 107, 107, 0.185);
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 10px;
+  padding-inline: 3%;
+  background-color: #f9dc59;
+  color: #5e6681;
+  box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+  transition: all 0.3s ease-in-out;
+}
+
+#submit-new-assignment:hover {
+  background-color: #3ce07b;
+}
 </style>
