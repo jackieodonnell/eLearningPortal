@@ -19,13 +19,15 @@ export default {
     // props: ['displaySubmitForm'],
     data() {
         return {
-            submission: ''
+            submission: '',
+            count: 0,
         }
     },
     methods: {
         submitAssignment() {
             // need to update grade status
             this.$emit('displaySubmitForm', false)
+
         }
     }
 

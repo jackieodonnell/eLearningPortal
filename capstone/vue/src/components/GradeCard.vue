@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="class-container">
         <div class="grade-card">
             <table>
@@ -9,6 +10,13 @@
                 </tr>
             </table>
         </div>
+=======
+    <div class="grade-card">
+        <p> {{ grade.studentId }}</p>
+        <p>{{ grade.earnedPoints }}</p>
+        <p> {{ grade.totalPoints }}</p>
+        <p> {{ grade.status }}</p>
+>>>>>>> main
     </div>
 </template>
 
@@ -22,6 +30,7 @@ export default {
         }
 }   
 </script>
+<<<<<<< HEAD
 
 <style>
 th, td {
@@ -31,4 +40,14 @@ th, td {
   padding-right: 30px;
   text-align: left;
 }
+=======
+<style scoped>
+* {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    width: 100px;
+}
+
+>>>>>>> main
 </style>
