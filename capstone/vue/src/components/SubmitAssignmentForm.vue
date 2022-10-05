@@ -20,7 +20,6 @@ export default {
     data() {
         return {
             submission: '',
-            count: 0,
         }
     },
     methods: {

@@ -13,7 +13,7 @@
     <ul>
       <li> <div class="notification">
       <img v-if="teacher" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABMUlEQVRIie2Vu0oDQRSGv5OVbIxF8gDBJisWoilFn8BgbWGiYJWQxnfR0jaChbVo5QPYWWfBYrFPE8mEzB4LoyzGJbOLIAFPNZfz/9+ZGwPLHuKaOA5PAsE+ACjeQSm4Dl10BedK1B4BdaA+a7vpFiXooOkbqXQFOZ8BAA0VufR1eCUb9yY34G3QrnkS3wE7P9N5tvH0sLx5+5oZoIOmP5HqU6p5AlJkuJu2ktQzMIVqb6H5R4kNI5Vu2nQqQJT2QvPPXJFWZgCw5QpAZTsPYNUZgJbzAH4l/gF/D5h7yfpyVjJ2fCFIJ6NVvzjyetLoj5KjK9/TJtY8CrKXtVLQ08naNAD2k6NzW6Rgs5t/aad5tbnD+Ucz4XEE1GbdyA9u1l10zrdIiTtABEQKGS/AMsc7thJTmvVn6PsAAAAASUVORK5CYII=">
-      <div class="notificationcount" v-if="count != 0">{{this.count}}</div>
+      <div class="notificationcount" v-if="submittedGrades.length > 0"> {{submittedGrades.length}}</div>
       </div>
       </li>
     
@@ -30,14 +30,32 @@
 </template>
 
 <script>
+import gradesService from "../services/GradesService"
+
 export default {
   name: "nav-bar",
+  components: {
+  },
+  created() {
+    gradesService.getAllGrades().then((response) => {
+      if (response.status == 200) {
+        const grades = response.data;
+        this.submittedGrades = grades.filter((grade) => {
+          return grade.status == "Submitted"
+        })
+      
+
+      }
+    })
+
+  },
+
   data() {
     return {
+      submittedGrades: [],
       teacher: this.$store.state.user.authorities.some(
         (e) => e["name"] === "ROLE_TEACHER"
       ),
-      count: 0,
     };
   },
 };
@@ -70,7 +88,7 @@ body {
     color: #fff;
     background-color: #dc3549;
     height: 14px;
-    min-width: 14px;
+    min-width: 5px;
     font-size: 12px;
     font-weight: 500;
     position: absolute;
