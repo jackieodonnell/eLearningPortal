@@ -90,9 +90,6 @@ export default {
   },
   components: {
     NewLesson,
-    // Instruction,
-    // InstructionContent,
-    // Assignment
   },
   methods: {
     showNewLessonForm() {

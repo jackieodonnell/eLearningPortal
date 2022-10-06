@@ -4,10 +4,9 @@
       <div class="hero-one">
         <h1 class="hero-title">{{ course.courseTitle }}</h1>
         <div class="course-btns-container">
-          <router-link :to="{ name: 'grades' }" tag="button">View Grades</router-link>
-          <!-- <router-link :to="{}" tag="button" v-bind="teacher" v-if="teacher"
-            >Archive Curriculum</router-link
-          > -->
+          <router-link :to="{ name: 'grades' }" tag="button"
+            >View Grades</router-link
+          >
           <button v-on:click="archiveClass" v-bind="teacher" v-if="teacher">
             Archive Class
           </button>
@@ -55,10 +54,9 @@ export default {
   },
   methods: {
     archiveClass() {
-      this.course.isArchived = confirm("Do you want to archive the class?")
+      this.course.isArchived = confirm("Do you want to archive the class?");
       courseService.updateCourse(this.course).then((response) => {
         if (response.status == 200) {
-          
           this.$router.push({ name: "home" });
         }
       });
@@ -68,17 +66,8 @@ export default {
 </script>
 
 <style>
-/* .hero-container {
-  display: flex;
-  justify-content: space-between;
-  background: #000b6c;
-  height: 20%;
-} */
-
 .hero-container div {
   display: flex;
-  /* margin: 50px; */
-  /* border: 1px solid red; */
 }
 
 .hero-one {
@@ -100,7 +89,6 @@ export default {
   font-size: 0.8em;
   text-transform: uppercase;
   padding: 10px;
-  /* background-color: #f4ff57; */
   background-color: #f9dc59;
   color: #5e6681;
   box-shadow: 0 8px 24px 0 #1e1c3b9f;
