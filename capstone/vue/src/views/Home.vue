@@ -10,9 +10,10 @@
        </div>
    
      
-     <div class= "calendar-container">
-       <div class= "calendar-box">
-         <!-- <upcoming-assignments /> -->
+     <div class= "quote-container">
+       <div class= "quote-box">
+         <h1 class="einstein-quote">"Education is not the learning of facts, but the training of the mind to think!"</h1>
+         <h2 class= "quoter">-Albert Einstein</h2>
        </div>
      </div>
      <footer-section class="footer"/>
@@ -24,7 +25,7 @@ import CourseList from '../components/CourseList.vue';
 import NavBar from '../components/NavBar.vue';
 import HomePageHero from '../components/HomePageHero.vue';
 import FooterSection from '../components/FooterSection.vue';
-// import UpcomingAssignments from '../components/UpcomingAssignments.vue';
+
 
 export default {
   name: "home",
@@ -33,7 +34,7 @@ export default {
     CourseList,
     HomePageHero,
     FooterSection,
-    // UpcomingAssignments,
+    
   }
 };
 </script>
@@ -54,6 +55,7 @@ export default {
     display: flex;
     flex-direction: column;
     min-height: 25%;
+    padding-bottom: 50px;
   }
   .classes-title {
     text-align: center;
@@ -83,17 +85,22 @@ export default {
     margin-top: 10px;
     font-weight: bolder;
   } */ 
-  .calendar-container {
+  .quote-container {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     height: 30vh;
     background-color: #E5E7EB;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
   }
-  .calendar-box {
+  .quote-box {
+    color: #001a33c7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: #E5E7EB;
     text-align: center;
-    font-size: 18px;
+    font-size: 14px;
     font-style: italic;
     font-weight: lighter;
     margin: 0px;
