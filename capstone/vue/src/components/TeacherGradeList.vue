@@ -121,8 +121,7 @@ export default {
     filteredAssignments() {
       let tempAssigns = this.assignments;
       return tempAssigns.filter(
-        (assignment) => this.filteredGrades(assignment.assignmentId).length > 0
-      );
+        (assignment) => this.filteredGrades(assignment.assignmentId).length > 0).sort((a, b) => (a.assignmentId > b.assignmentId ? 1 : -1));
     },
     toggleEditGradeForm() {
       if (this.displayEditGradeForm == false) {

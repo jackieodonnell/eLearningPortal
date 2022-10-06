@@ -55,9 +55,10 @@ export default {
   },
   methods: {
     archiveClass() {
-      this.course.isArchived = true;
+      this.course.isArchived = confirm("Do you want to archive the class?")
       courseService.updateCourse(this.course).then((response) => {
         if (response.status == 200) {
+          
           this.$router.push({ name: "home" });
         }
       });

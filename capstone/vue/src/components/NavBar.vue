@@ -90,6 +90,10 @@ body {
   cursor: pointer;
 }
 
+.notificationcount {
+  font-family: Arial, Helvetica, sans-serif
+}
+
 .notification > .notificationcount {
   top: 8px;
   right: 22px;

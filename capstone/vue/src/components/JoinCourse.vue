@@ -3,7 +3,7 @@
     <form action="join-class" v-on:submit.prevent="enrollInCourse">
       <select name="courses" id="courses" v-model="selection">
         <option
-          v-for="course in courses"
+          v-for="course in filteredCourses()"
           v-bind:key="course.courseTitle"
           v-bind:course="course"
         >
@@ -40,6 +40,10 @@ export default {
     });
   },
   methods: {
+    filteredCourses() {
+      let filteredCourses = this.courses;
+      return filteredCourses.filter((course) => course.archived == false)
+    },
     enrollInCourse() {
       courseService
         .enrollInCourse(this.studentCourse.studentId, this.selectedCourseId)

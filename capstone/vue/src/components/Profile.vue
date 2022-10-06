@@ -60,13 +60,18 @@ export default {
 
 <style>
 .profile {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 50vh;
     width: 30vw;
     padding: 1.9rem 1.2rem;
     text-align: center;
     background-color:#ffe760;
     border-radius: 4px;
     box-shadow: 10px 10px #5e6681;
-    justify-self: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }
 .profile_text {
     margin-top: .5rem;
