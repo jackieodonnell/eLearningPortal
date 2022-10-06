@@ -30,7 +30,6 @@
             <td class="grade-name">Student Name</td>
             <td class="grade-points">Grade</td>
             <td class="grade-status">Status</td>
-            <!-- <td class="grade-sub-content">Submission Content</td> -->
             <td class="grade-feedback">Feedback</td>
             <td class="view-column">Submission</td>
           </tr>
@@ -57,7 +56,6 @@
               </button>
             </td>
             <td class="grade-status">{{ grade.status }}</td>
-            <!-- <td class="grade-sub-content">{{ grade.submissionContent }}</td> -->
             <td class="grade-feedback" id="teacher-feedback">
               {{ grade.feedback }}
             </td>
@@ -120,8 +118,12 @@ export default {
     },
     filteredAssignments() {
       let tempAssigns = this.assignments;
-      return tempAssigns.filter(
-        (assignment) => this.filteredGrades(assignment.assignmentId).length > 0).sort((a, b) => (a.assignmentId > b.assignmentId ? 1 : -1));
+      return tempAssigns
+        .filter(
+          (assignment) =>
+            this.filteredGrades(assignment.assignmentId).length > 0
+        )
+        .sort((a, b) => (a.assignmentId > b.assignmentId ? 1 : -1));
     },
     toggleEditGradeForm() {
       if (this.displayEditGradeForm == false) {
@@ -206,7 +208,6 @@ export default {
 
 .grades-table td {
   border: 1px solid rgba(105, 105, 105, 0.11);
-  /* overflow: auto; */
   padding-left: 5px;
   padding-bottom: 5px;
   padding-top: 5px;

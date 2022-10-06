@@ -4,12 +4,10 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
-import CreateCourse from '../views/CreateCourse.vue'
 import CoursePage from '../views/CoursePage.vue'
 import InstructionContent from '../components/InstructionContent'
 import Account from '../views/Account.vue'
 import store from '../store/index'
-import CreateLesson from '../views/CreateLesson'
 import Grades from '../views/Grades.vue'
 
 Vue.use(Router)
@@ -60,23 +58,6 @@ const router = new Router({
       }
     },
     {
-      path: "/course/new",
-      name: "create-course",
-      component: CreateCourse,
-      beforeEnter: (to, from, next) => {
-        if(store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")){
-          next();
-        }
-        else{
-          alert("You don't have access to this page.")
-          next(from)
-        }
-      },
-      meta: {
-        requiresAuth: false,
-      }
-    },
-    {
       path: "/course/:courseId",
       name: "course-page",
       component: CoursePage,
@@ -89,23 +70,6 @@ const router = new Router({
       ], 
       meta: {
         requiresAuth: true
-      }
-    },
-    {
-      path: "/course/lesson/new",
-      name: "create-lesson",
-      component: CreateLesson,
-      beforeEnter: (to, from, next) => {
-        if(store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER")){
-          next();
-        }
-        else{
-          alert("You don't have access to this page.")
-          next(from)
-        }
-      },
-      meta: {
-        requiresAuth: false,
       }
     },
     {

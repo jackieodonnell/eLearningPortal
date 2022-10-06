@@ -70,7 +70,6 @@ export default {
         (e) => e["name"] === "ROLE_TEACHER"
       ),
       displayEditDescription: false,
-      // editDescriptionInput: "",
       displayEditCurriculum: false,
     };
   },

@@ -25,13 +25,6 @@
             v-if="displayNewCourseForm"
             v-on:toggle-form="toggleNewCourseForm"
           />
-          <!-- <router-link
-            :to="{ name: 'create-course' }"
-            tag="button"
-            v-bind="teacher"
-            v-if="teacher"
-            >Create Course</router-link
-          > -->
         </div>
       </div>
       <div class="hero-two">
@@ -85,7 +78,6 @@ export default {
 .hero-container {
   display: flex;
   justify-content: space-between;
-  /* background: #000b6c; */
   background-color: #04469e;
   max-height: 20%;
 }
@@ -93,8 +85,6 @@ export default {
 .hero-container div {
   display: flex;
   padding: 20px;
-  /* margin: 50px; */
-  /* border: 1px solid red; */
 }
 
 .home-page-btn-container {
@@ -110,10 +100,7 @@ export default {
   font-size: 0.8em;
   text-transform: uppercase;
   padding: 10px;
-  /* background-color: #f4ff57; */
   background-color: #f9dc59;
-
-  /* background-color: #5e6681; */
   color: #001a33d0;
   box-shadow: 0 8px 24px 0 #1e1c3b9f;
   transition: all 0.3s ease-in-out;

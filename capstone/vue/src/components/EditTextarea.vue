@@ -29,7 +29,6 @@ export default {
   methods: {
     saveInput() {
       console.log("SAVE TEST");
-      // this.$store.commit("SET_EDIT_DESCRIPTION", this.inputText);
       this.$emit("save-input-text", this.inputText);
     },
     cancelInput() {

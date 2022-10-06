@@ -1,10 +1,12 @@
 <template>
-<div class="grade-page-hero">
+  <div class="grade-page-hero">
     <div class="hero-container">
       <div class="hero-one">
         <h1 class="hero-title">{{ course.courseTitle }}</h1>
         <div class="course-btns-container">
-          <router-link :to="{ name:'course-page'}" tag="button">View Course</router-link>
+          <router-link :to="{ name: 'course-page' }" tag="button"
+            >View Course</router-link
+          >
         </div>
       </div>
       <div class="hero-two">
@@ -15,14 +17,13 @@
       </div>
     </div>
   </div>
-  
 </template>
 
 <script>
 import courseService from "../services/CourseService";
 
 export default {
-    name: "grade-page-hero",
+  name: "grade-page-hero",
   data() {
     return {
       course: {
@@ -47,16 +48,13 @@ export default {
           this.course = response.data;
         }
       });
-
-},
-}
+  },
+};
 </script>
 
 <style>
 .hero-container div {
   display: flex;
-  /* margin: 50px; */
-  /* border: 1px solid red; */
 }
 
 .hero-one {
@@ -78,7 +76,6 @@ export default {
   font-size: 0.8em;
   text-transform: uppercase;
   padding: 10px;
-  /* background-color: #f4ff57; */
   background-color: #f9dc59;
   color: #5e6681;
   box-shadow: 0 8px 24px 0 #1e1c3b9f;
@@ -108,5 +105,4 @@ export default {
   height: 20vh;
   justify-content: right;
 }
-
 </style>

@@ -48,7 +48,6 @@ export default {
       this.grade.submissionContent = this.inputText;
       this.grade.status = "Submitted";
       GradesService.updateGrade(this.grade);
-      // need to update grade status
       this.$emit("displaySubmitForm", false);
       alert("Assignment Successfully Submitted!");
     },

@@ -29,8 +29,6 @@
           <td>{{ grade.assignmentTitle }}</td>
           <td>{{ grade.status }}</td>
           <td id="points">{{ grade.earnedPoints }}/{{ grade.totalPoints }}</td>
-
-          <!-- <td>{{ grade.feedback }}</td> -->
           <td id="view-grade-btn-container">
             <button
               id="view-grade-detail-btn"
@@ -155,7 +153,6 @@ export default {
 
 .student-grades-table td {
   border: 1px solid rgba(105, 105, 105, 0.11);
-  /* overflow: auto; */
   padding-left: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
