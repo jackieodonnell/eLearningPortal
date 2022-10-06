@@ -9,6 +9,7 @@
         <textarea
           id="assignment-title"
           type="textarea"
+          rows="1"
           v-model="assignment.assignmentTitle"
           required
         />
@@ -18,6 +19,7 @@
         <textarea
           type="textarea"
           id="assignment-description"
+          rows="8"
           v-model="assignment.assignmentDescription"
           required
         />
@@ -26,7 +28,7 @@
         <label for="assigned-date">Assign On Date:</label>
         <input
           type="date"
-          class="assigned-date"
+          id="assigned-date-input"
           v-model="assignment.assignedDate"
           required
         />
@@ -35,7 +37,7 @@
         <label for="due-date">Due Date:</label>
         <input
           type="date"
-          class="due-date"
+          id="due-date-input"
           v-model="assignment.dueDate"
           required
         />
@@ -44,8 +46,9 @@
         <label for="total-points">Total Points:</label>
         <input
           type="number"
-          class="total-points"
+          id="total-points-input"
           v-model="totalPoints"
+          placeholder="e.g. 20"
           required
         />
       </div>
@@ -93,12 +96,12 @@ export default {
         .createAssignment(newAssignmentWrapper)
         .then((response) => {
           if (response.status == 201) {
-            this.displayNewAssignment();
+            this.$emit("toggle-assignment-form", false);
           }
         });
     },
     displayNewAssignment() {
-      this.$emit("displayNewAssignmentForm", false);
+      this.$emit("toggle-assignment-form");
     },
   },
 };
@@ -119,6 +122,19 @@ export default {
   cursor: pointer;
 }
 
+.create-new-assignment {
+  width: 95%;
+  min-height: 10vh;
+  background-color: #fff8d996;
+  padding: 20px;
+  margin-top: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 0 4px 3px rgba(97, 97, 97, 0.151);
+  border: 1px solid rgba(83, 83, 83, 0.637);
+  border-radius: 5px;
+}
+
 #submit-new-assignment {
   border: none;
   box-shadow: 0 0 0 1px rgba(107, 107, 107, 0.185);
@@ -132,9 +148,34 @@ export default {
   color: #5e6681;
   box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
   transition: all 0.3s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.create-assignment-header {
+  text-transform: uppercase;
+  text-align: center;
+  color: #032647b4;
+  font-size: 1.8rem;
+  padding-bottom: 10px;
 }
 
 #submit-new-assignment:hover {
-  background-color: #3ce07b;
+  background-color: #18a04c;
+  color: #fff8e2;
+  box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+}
+
+#assignment-description,
+#assignment-title {
+  box-shadow: 0 1px 3px 1px rgba(39, 39, 39, 0.171);
+}
+
+#assigned-date-input,
+#due-date-input,
+#total-points-input {
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 1px 3px 1px rgba(39, 39, 39, 0.171);
+  width: 30%;
 }
 </style>

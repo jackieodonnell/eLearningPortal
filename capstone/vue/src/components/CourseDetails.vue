@@ -25,7 +25,7 @@
     </div>
     <div class="curriculum-details">
       <h3 class="curriculum-title">Curriculum Overview:</h3>
-      <p class="curriculum-description">
+      <p class="curriculum-description" v-if="!displayEditCurriculum">
         {{ curricula[0].curriculumDescription }}
       </p>
       <edit-textarea

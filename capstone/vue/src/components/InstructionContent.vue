@@ -69,12 +69,17 @@
       />
     </div>
     <div id="add-assignment-btn-container" v-bind="teacher" v-if="teacher">
-      <button id="add-assignment-btn" v-on:click="showNewAssignmentForm">
+      <button
+        id="add-assignment-btn"
+        v-on:click="showNewAssignmentForm"
+        v-if="!displayNewAssignmentForm"
+      >
         Add Assignment
       </button>
       <new-assignment-form
         v-if="displayNewAssignmentForm"
         v-bind:dailyInstructionsId="dailyInstruction.dailyInstructionsId"
+        v-on:toggle-assignment-form="showNewAssignmentForm"
       />
     </div>
   </div>
@@ -239,6 +244,8 @@ export default {
 #submit-assignment-btn-container button {
   background-color: #6ddf99;
   color: #040f31de;
+  box-shadow: 0 1px 4px 1px rgba(39, 39, 39, 0.171);
+  margin-bottom: 20px;
 }
 
 #add-assignment-btn-container button:hover {

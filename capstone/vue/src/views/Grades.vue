@@ -51,7 +51,7 @@ export default {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 0px;
+  margin-top: 2px;
   padding-top: 5%;
   padding-left: 20px;
   padding-right: 20px;
@@ -62,14 +62,16 @@ export default {
 }
 #teacher-grade-list {
   width: 70%;
-  box-shadow: 0 0 0 1px rgba(107, 107, 107, 0.185);
+  box-shadow: 0 0 0 2px rgba(182, 179, 179, 0.281);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 0px;
-  padding-top: 5%;
+  margin-top: 1px;
+  margin-bottom: 50px;
+  padding-top: 15px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 15px;
   border: none;
   border-radius: 4px;
   background-color: #f6f4f7;

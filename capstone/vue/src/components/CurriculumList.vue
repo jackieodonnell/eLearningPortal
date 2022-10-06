@@ -4,6 +4,7 @@
       v-bind:curriculumId="curriculumId"
       v-if="displayNewLesson"
       v-on:displayNewLesson="showNewLessonForm"
+      id="new-lesson-form"
     />
     <div
       id="curriculum-items"
@@ -118,9 +119,6 @@ export default {
   padding-bottom: 8px;
   padding-left: 3%;
   padding-right: 3%;
-  /* border-bottom: 1px solid rgba(128, 128, 128, 0.411); */
-  /* border-right: 1px solid rgba(128, 128, 128, 0.411); */
-  /* background-color: #c3e7dd; */
   background-color: #202d53a1;
   border-radius: 2px;
   box-shadow: 0 5px 5px 1px rgba(105, 105, 133, 0.349);
@@ -205,5 +203,12 @@ export default {
   background-color: #5e6681;
   color: #ffeba7;
   box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+}
+#new-lesson-form {
+  position: fixed;
+  left: 50%;
+  right: 0%;
+  top: 40%;
+  transform: translate(-50%, -50%);
 }
 </style>

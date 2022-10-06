@@ -10,7 +10,7 @@
         v-model="inputText"
         id="submit-assignment-textarea"
         cols="100"
-        rows="25"
+        rows="20"
       ></textarea>
       <br />
       <button id="submit-assignment-button">Submit</button>
@@ -65,11 +65,17 @@ export default {
   text-align: right;
 }
 
+#submit-assignment-textarea {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 15px;
+  width: 98%;
+  box-shadow: 0 0 2px 1px rgba(71, 71, 71, 0.205);
+}
+
 #submit-assignment-button,
 #cancel-submission-button {
   border: none;
   margin-right: 1%;
-  box-shadow: 0 0 0 1px rgba(107, 107, 107, 0.185);
   border-radius: 4px;
   font-weight: bold;
   font-size: 0.8em;
@@ -78,8 +84,9 @@ export default {
   padding-inline: 3%;
   background-color: #6ddf99;
   color: #040f31de;
-  box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+  box-shadow: 0 1px 4px 1px rgba(39, 39, 39, 0.171);
   transition: all 0.3s ease-in-out;
+  margin-bottom: 20px;
 }
 #cancel-submission-button {
   background-color: #d66c6c;
