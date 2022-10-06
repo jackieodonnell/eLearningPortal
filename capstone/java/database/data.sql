@@ -12,14 +12,7 @@ INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('
 																			'Preston', 'Phillips');
 INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('williamkendig','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT', 
 																			'William', 'Kendig');
-INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('jasonhelms','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT',
-																			'Jason', 'Helms'); --7
-INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('cameronbowling','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT',
-                                                                			'Cameron', 'Bowling'); --8
-INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('connorrilling','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT',
-																			'Connor', 'Rilling'); --9
-INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('kylebones','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT',
-																			'Kyle', 'Bones'); --10
+
 
 INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
 	VALUES(3, 'Algebra 1', 'This course introduces students to variables, algebraic expressions, equations, inequalities, functions, and all their multiple representations.', 6, 0, false);
@@ -38,20 +31,7 @@ INSERT INTO course_student(student_id, course_id) VALUES(5, 2);
 INSERT INTO course_student(student_id, course_id) VALUES(6, 3);
 INSERT INTO course_student(student_id, course_id) VALUES(5, 3);
 INSERT INTO course_student(student_id, course_id) VALUES(4, 4);
-INSERT INTO course_student(student_id, course_id) VALUES(6, 4); --
-INSERT INTO course_student(student_id, course_id) VALUES(7, 1);
-INSERT INTO course_student(student_id, course_id) VALUES(8, 4);
-INSERT INTO course_student(student_id, course_id) VALUES(9, 1);
-INSERT INTO course_student(student_id, course_id) VALUES(7, 2);
-INSERT INTO course_student(student_id, course_id) VALUES(8, 2);
-INSERT INTO course_student(student_id, course_id) VALUES(9, 3);
-INSERT INTO course_student(student_id, course_id) VALUES(8, 3);
-INSERT INTO course_student(student_id, course_id) VALUES(7, 4);
-INSERT INTO course_student(student_id, course_id) VALUES(9, 4);
-INSERT INTO course_student(student_id, course_id) VALUES(10, 3);
-INSERT INTO course_student(student_id, course_id) VALUES(10, 4);
-INSERT INTO course_student(student_id, course_id) VALUES(10, 1);
-
+INSERT INTO course_student(student_id, course_id) VALUES(6, 4);
 
 INSERT INTO curriculum (course_id, curriculum_title, curriculum_description)
     VALUES (4, 'U.S. History', 'American History is a course designed for furthering your knowledge and appreciation of our nation''s past, present, and future. The course will develop an understanding of social, political, economical, cultural, and military experiences that have played a crucial role in shaping the history of our country.');
@@ -151,41 +131,16 @@ INSERT INTO assignment (daily_instructions_id, assigned_date, due_date, assignme
 INSERT INTO grades (student_id, assignment_id, course_id, total_points, earned_points, status, submission_content, feedback)
 	VALUES (4, 1, 4, 100, 95, 'Graded', 'This is Jackie''s submission for US History assignment 1.', 'Jackie did an awesome job on US History assignment 1!'),
 		    (4, 2, 4, 100, 0, 'Submitted', 'This is Jackie''s submission for US History assignment 2.', ''),
-			(4, 3, 4, 100, 0, 'Incomplete', '', ''),
-			(8, 1, 4, 100, 91, 'Graded', 'This is Cameron''s submission for US History assignment 1.', 'Cameron did an awesome job on US History assignment 1!'),
-            (8, 2, 4, 100, 0, 'Submitted', 'This is Cameron''s submission for US History assignment 2.', ''),
-            (8, 3, 4, 100, 0, 'Incomplete', '', ''),
-            (9, 1, 4, 100, 95, 'Graded', 'This is Connor''s submission for US History assignment 1.', 'Connor did an awesome job on US History assignment 1!'),
-            (9, 2, 4, 100, 0, 'Submitted', 'This is Connor''s submission for US History assignment 2.', ''),
-            (9, 3, 4, 100, 0, 'Incomplete', '', ''),
-            (10, 1, 4, 100, 95, 'Graded', 'This is Kyle''s submission for US History assignment 1.', 'Kyle did an awesome job on US History assignment 1!'),
-            (10, 2, 4, 100, 0, 'Submitted', 'This is Kyle''s submission for US History assignment 2.', ''),
-            (10, 3, 4, 100, 0, 'Incomplete', '', ''),
-			(7, 1, 4, 100, 96, 'Graded', 'This is Jason''s submission for US History assignment 1.', 'Jason did an awesome job on US History assignment 1!'),
-            (7, 2, 4, 100, 0, 'Submitted', 'This is Jason''s submission for US History assignment 2.', ''),
-            (7, 3, 4, 100, 0, 'Incomplete', '', ''),
+			(4, 3, 4, 100, 0, 'Incomplete', 'This is Jackie''s submission for US History assignment 3.', ''),
 			(6, 1, 4, 100, 0, 'Submitted', 'This is William''s submission for US History assignment 1.', ''),
 		    (6, 2, 4, 100, 100, 'Graded', 'This is William''s submission for US History assignment 2.', 'William did an outstanding job on US History assignment 2!'),
-			(6, 3, 4, 100, 0, 'Incomplete', '', ''),
-			(5, 9, 3, 100, 99, 'Graded', 'This is Preston''s submission for English assignment 1.', 'Preston did an excellent job on English assignment 1!'),
+			(6, 3, 4, 100, 0, 'Incomplete', 'This is William''s submission for US History assignment 3.', ''),
+			(5, 9, 3, 100, 95, 'Graded', 'This is Preston''s submission for English assignment 1.', 'Preston did an excellent job on English assignment 1!'),
 		    (5, 10, 3, 100, 0, 'Submitted', 'This is Preston''s submission for English assignment 2.', ''),
-			(5, 11, 3, 100, 0, 'Incomplete', '', ''),
-			(6, 9, 3, 100, 0, 'Incomplete', '', ''),
-		    (6, 10, 3, 100, 91, 'Graded', 'This is William''s submission for English assignment 2.', 'William did a great job on English assignment 2!'),
-			(6, 11, 3, 100, 0, 'Submitted', 'This is William''s submission for English assignment 3.', ''),
-			(8, 9, 3, 100, 0, 'Incomplete', '', ''),
-            (8, 10, 3, 100, 97, 'Graded', 'This is Cameron''s submission for English assignment 2.', 'Cameron did a great job on English assignment 2!'),
-            (8, 11, 3, 100, 0, 'Submitted', 'This is Cameron''s submission for English assignment 3.', ''),
-            (9, 9, 3, 100, 0, 'Incomplete', '', ''),
-            (9, 10, 3, 100, 98, 'Graded', 'This is Connor''s submission for English assignment 2.', 'Connor did a great job on English assignment 2!'),
-            (9, 11, 3, 100, 0, 'Submitted', 'This is Connor''s submission for English assignment 3.', ''),
-            (10, 9, 3, 100, 0, 'Incomplete', '', ''),
-            (10, 10, 3, 100, 92, 'Graded', 'This is Kyle''s submission for English assignment 2.', 'Kyle did a great job on English assignment 2!'),
-            (10, 11, 3, 100, 0, 'Submitted', 'This is Kyle''s submission for English assignment 3.', '');
-
-
-
+			(5, 11, 3, 100, 0, 'Incomplete', 'This is Preston''s submission for English assignment 3.', ''),
+			(6, 9, 3, 100, 0, 'Incomplete', 'This is William''s submission for English assignment 1.', ''),
+		    (6, 10, 3, 100, 90, 'Graded', 'This is William''s submission for English assignment 2.', 'William did a great job on English assignment 2!'),
+			(6, 11, 3, 100, 0, 'Submitted', 'This is William''s submission for English assignment 3.', '');
+		  
 
 COMMIT TRANSACTION;
-
-
