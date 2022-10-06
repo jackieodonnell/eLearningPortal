@@ -70,6 +70,7 @@ export default {
       .then((response) => {
         if (response.status == 200) {
           this.grades = response.data;
+          this.grades.sort((a, b) => (a.assignmentId > b.assignmentId ? 1 : -1))
         }
       });
   },
