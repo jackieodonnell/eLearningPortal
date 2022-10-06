@@ -6,10 +6,32 @@
           Welcome to School, {{ $store.state.user.firstname }}!
         </h1>
         <div class="home-page-btn-container">
-        <button v-bind="teacher" v-if="!teacher" v-on:click="showCourses">Join New Course</button>
-        <join-course v-if="display" />
-        <router-link :to="{name: 'create-course'}" tag="button" v-bind="teacher" v-if="teacher">Create Course</router-link>
+          <button v-bind="teacher" v-if="!teacher" v-on:click="showCourses">
+            Join New Course
+          </button>
+          <join-course v-if="display" />
 
+          <button
+            id="create-course-button"
+            v-bind="teacher"
+            v-if="teacher && !displayNewCourseForm"
+            v-on:click.prevent="toggleNewCourseForm"
+          >
+            Create Course
+          </button>
+
+          <new-course
+            id="new-course-form-popup"
+            v-if="displayNewCourseForm"
+            v-on:toggle-form="toggleNewCourseForm"
+          />
+          <!-- <router-link
+            :to="{ name: 'create-course' }"
+            tag="button"
+            v-bind="teacher"
+            v-if="teacher"
+            >Create Course</router-link
+          > -->
         </div>
       </div>
       <div class="hero-two">
@@ -23,102 +45,120 @@
 </template>
 
 <script>
-import JoinCourse from './JoinCourse.vue';
+import JoinCourse from "./JoinCourse.vue";
+import NewCourse from "./NewCourse.vue";
 export default {
-  components: { JoinCourse },
+  components: { JoinCourse, NewCourse },
   name: "home-page-hero",
   data() {
     return {
-       teacher: this.$store.state.user.authorities.some(e => e ['name'] === "ROLE_TEACHER"),
-       display: false,
-    }
+      teacher: this.$store.state.user.authorities.some(
+        (e) => e["name"] === "ROLE_TEACHER"
+      ),
+      display: false,
+      displayNewCourseForm: false,
+    };
   },
   methods: {
-    showCourses(){
+    showCourses() {
       if (this.display == false) {
         this.display = true;
       } else {
         this.display = false;
       }
-
-    }
-  }
+    },
+    toggleNewCourseForm() {
+      if (this.displayNewCourseForm == false) {
+        this.displayNewCourseForm = true;
+      } else {
+        this.displayNewCourseForm = false;
+      }
+    },
+  },
 };
-
 </script>
 
 <style>
 .home-page-hero {
-  font-family: 'Schoolbell', cursive;
+  font-family: "Schoolbell", cursive;
 }
-  .hero-container {
-    display: flex;
-    justify-content: space-between;
-    /* background: #000b6c; */
-    background-color: #04469e;
-    max-height: 20%;
-  }
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  /* background: #000b6c; */
+  background-color: #04469e;
+  max-height: 20%;
+}
 
-  .hero-container div {
-    display: flex;
-    padding: 20px;
-    /* margin: 50px; */
-    /* border: 1px solid red; */
-  }
+.hero-container div {
+  display: flex;
+  padding: 20px;
+  /* margin: 50px; */
+  /* border: 1px solid red; */
+}
 
-  .home-page-btn-container {
+.home-page-btn-container {
   gap: 5px;
   justify-content: center;
 }
 
-  .home-page-btn-container button {
- margin: 5px;
- border: none;
- border-radius: 4px;
- font-weight: bold;
- font-size: .8em;
- text-transform: uppercase;
- padding: 10px;
- /* background-color: #f4ff57; */
- background-color: #f9dc59;
+.home-page-btn-container button {
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 10px;
+  /* background-color: #f4ff57; */
+  background-color: #f9dc59;
 
- /* background-color: #5e6681; */
- color: #001a33d0;
- box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
- transition: all .3s ease-in-out;
+  /* background-color: #5e6681; */
+  color: #001a33d0;
+  box-shadow: 0 8px 24px 0 #1e1c3b9f;
+  transition: all 0.3s ease-in-out;
 }
 
 .home-page-btn-container button:hover {
- background-color: #5e6681;
- /* color: #ffeba7; */
- color: #f9dc59;
- box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+  background-color: #5e6681;
+  color: #f9dc59;
+  box-shadow: 0 8px 24px 0 #1e1c3b9f;
+  transition: all 0.3s ease-in-out;
 }
-  
-  .hero-one {
-    flex-direction: column;
-    align-self: center;
-    color: #f6f4f7;
-    width: 50%;
-  }
 
-  .hero-one button {
-    width: fit-content;
-  }
+.hero-one {
+  flex-direction: column;
+  align-self: center;
+  color: #f6f4f7;
+  width: 50%;
+}
 
-  .hero-title {
-    font-size: 48px;
-    font-style: extra-bold;
-    font-family: #F9FAF8;
-  }
-  .hero-subtitle {
-    font-size: 18px;
-    font-family: #E5E7EB;
-  }
+.hero-one button {
+  width: fit-content;
+}
 
-  .hero-picture {
-    border-radius: 8px;
-    height: 20vh;
-    justify-content: right;
-  }
+.hero-title {
+  font-size: 48px;
+  font-style: extra-bold;
+  font-family: #f9faf8;
+}
+.hero-subtitle {
+  font-size: 18px;
+  font-family: #e5e7eb;
+}
+
+.hero-picture {
+  border-radius: 8px;
+  height: 20vh;
+  justify-content: right;
+}
+
+#new-course-form-popup {
+  z-index: 100;
+  width: 60%;
+  position: fixed;
+  left: 70%;
+  display: block;
+  transform: translate(-80%, -45%);
+}
 </style>

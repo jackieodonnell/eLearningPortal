@@ -55,23 +55,33 @@ export default {
 
 #save-edit-textarea,
 #cancel-edit-textarea {
-  width: 10%;
-  height: fit-content;
-  font-size: 1rem;
-  border-radius: 8px;
-  background-color: rgb(73, 109, 226);
   border: none;
-  color: white;
-  padding: 1%;
-  text-decoration: none;
-  margin: 4px 4px;
-  cursor: pointer;
+  margin-right: 1%;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 10px;
+  padding-inline: 3%;
+  background-color: #6ddf99;
+  color: #040f31de;
+  box-shadow: 0 1px 4px 1px rgba(39, 39, 39, 0.171);
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+#cancel-edit-textarea {
+  background-color: #d66c6c;
+  color: #040f31de;
 }
 
 #save-edit-textarea:hover {
-  background-color: #04aa6d;
+  background-color: #18a04c;
+  color: #fff8e2;
+  box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
 }
 #cancel-edit-textarea:hover {
-  background-color: #eb453f;
+  background-color: #a71d1d;
+  color: #fff8e2;
+  box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
 }
 </style>
