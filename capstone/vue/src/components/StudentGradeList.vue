@@ -100,8 +100,8 @@ export default {
       let total = 0;
       this.grades.forEach((grade) => {
         if (grade.status == "Graded") {
-          earned += grade.earnedPoints;
-          total += grade.totalPoints;
+          earned += parseInt(grade.earnedPoints);
+          total += parseInt(grade.totalPoints);
         }
       });
       if (this.grades.length == 0) {
