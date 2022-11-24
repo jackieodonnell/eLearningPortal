@@ -28,7 +28,6 @@ export default {
   },
   methods: {
     saveInput() {
-      console.log("SAVE TEST");
       this.$emit("save-input-text", this.inputText);
     },
     cancelInput() {

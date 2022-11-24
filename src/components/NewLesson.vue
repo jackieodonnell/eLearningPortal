@@ -69,9 +69,7 @@ export default {
         (response) => {
           if (response.status == 201) {
             this.displayNewLesson();
-          } else {
-            console.log("Error - failed to create new course");
-          }
+          } 
         }
       );
     },

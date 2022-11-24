@@ -92,8 +92,6 @@ export default {
               this.resetForm();
             }
           });
-        } else {
-          console.log("Error - failed to create new course");
         }
       });
     },

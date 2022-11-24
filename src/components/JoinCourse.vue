@@ -50,8 +50,6 @@ export default {
         .then((response) => {
           if (response.status == 201) {
             this.$router.go();
-          } else {
-            console.log("Error -- failed to join course");
           }
         });
     },
