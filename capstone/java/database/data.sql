@@ -20,15 +20,19 @@ INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('
 																			'Connor', 'Rilling'); --9
 INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('kylebones','$2a$10$iE97sq59HBlkA1l8NlO5ZOIOdsPlv6wMPJCueIJjRnEnG4Xkj0za6','ROLE_STUDENT',
 																			'Kyle', 'Bones'); --10
+INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('student','$2a$10$pLH4VOqejQdahvM7.H5.c./09eU9yh.4Cb0GoL.Vk5nOBRfBStRuS','ROLE_STUDENT',
+																			'Sally', 'Demo'); --11
+INSERT INTO users (username,password_hash,role, first_name, last_name) VALUES ('teacher','$2a$10$f0nTn/8Jor8YEaMALF25jO8BppxaJ4MuOX9TpQ6Qd8vsc.NGrnfQu','ROLE_TEACHER',
+																			'Sally', 'Demo'); --12
 
 INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
 	VALUES(3, 'Algebra 1', 'This course introduces students to variables, algebraic expressions, equations, inequalities, functions, and all their multiple representations.', 6, 0, false);
 INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
 	VALUES(3, 'Biology', 'This course focuses on introducing students to the diversity of life found on our planet.', 7, 0, false);
 INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
-	VALUES(3, 'English', 'This course adheres to the Common Core Standards for 8th grade English.', 8, 0, false);
+	VALUES(12, 'English', 'This course adheres to the Common Core Standards for 8th grade English.', 8, 0, false);
 INSERT INTO course(teacher_id, course_title, course_description, difficulty_level, cost, isArchived)
-	VALUES(3, 'US History', 'In this course students will study United States History focusing on the Great Awakening to westward expansion.', 7, 0, false);
+	VALUES(12, 'US History', 'In this course students will study United States History focusing on the Great Awakening to westward expansion.', 7, 0, false);
 	
 INSERT INTO course_student(student_id, course_id) VALUES(4, 1);
 INSERT INTO course_student(student_id, course_id) VALUES(5, 1);
@@ -51,6 +55,8 @@ INSERT INTO course_student(student_id, course_id) VALUES(9, 4);
 INSERT INTO course_student(student_id, course_id) VALUES(10, 3);
 INSERT INTO course_student(student_id, course_id) VALUES(10, 4);
 INSERT INTO course_student(student_id, course_id) VALUES(10, 1);
+INSERT INTO course_student(student_id, course_id) VALUES(11, 3);
+INSERT INTO course_student(student_id, course_id) VALUES(11, 4);
 
 
 INSERT INTO curriculum (course_id, curriculum_title, curriculum_description)
@@ -181,10 +187,21 @@ INSERT INTO grades (student_id, assignment_id, course_id, total_points, earned_p
             (9, 11, 3, 100, 0, 'Submitted', 'This is Connor''s submission for English assignment 3.', ''),
             (10, 9, 3, 100, 0, 'Incomplete', '', ''),
             (10, 10, 3, 100, 92, 'Graded', 'This is Kyle''s submission for English assignment 2.', 'Kyle did a great job on English assignment 2!'),
-            (10, 11, 3, 100, 0, 'Submitted', 'This is Kyle''s submission for English assignment 3.', '');
-
-
-
+            (10, 11, 3, 100, 0, 'Submitted', 'This is Kyle''s submission for English assignment 3.', ''),
+            (11, 1, 4, 100, 90, 'Graded', 'This is Sally Demo''s submission for US History assignment 1.', 'Nice job on this assignment!'),
+            (11, 2, 4, 100, 0, 'Submitted', 'This is Sally Demo''s submission for US History assignment 2.', ''),
+            (11, 3, 4, 100, 0, 'Incomplete', '', ''),
+            (11, 5, 4, 100, 0, 'Incomplete', '', ''),
+            (11, 6, 4, 100, 0, 'Incomplete', '', ''),
+            (11, 7, 4, 100, 0, 'Incomplete', '', ''),
+            (11, 8, 4, 100, 0, 'Incomplete', '', ''),
+            (11, 9, 3, 100, 70, 'Graded', 'This is Sally Demo''s submission for English assignment 1.', 'Not your best work here, Sally!'),
+            (11, 10, 3, 100, 82, 'Graded', 'This is Sally Demo''s submisoin for English assignment 2.', 'Good job on this one, just watch out for those typos!'),
+            (11, 11, 3, 100, 0, 'Submitted', 'This is Sally Demo''s submission for English assignment 3.', ''),
+            (11, 12, 3, 100, 0, 'Submitted', 'This is Sally Demo''s submission for English assignment 4.', ''),
+            (11, 13, 3, 100, 0, 'Incomplete', '', ''),
+            (11, 14, 3, 100, 0, 'Incomplete', '', ''),
+            (11, 15, 3, 100, 0, 'Incomplete', '', '');
 
 COMMIT TRANSACTION;
 

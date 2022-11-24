@@ -38,6 +38,13 @@
         v-model="user.password"
         required
       />
+      <div id="demo-credentials">
+        <p class="demo-instructions"> Sign in with one of our demo accounts...</p>
+        <p> (username = 'student'), (password = 'Student1')</p>
+        <p> (username = 'teacher'), (password = 'Teacher1')</p>
+        <p class="demo-instructions"> ...or create your own account!</p>  
+      </div>
+    
       <button class="btn" type="submit">Sign in</button>
       <router-link :to="{ name: 'register' }">
         <button class="btn">Create Account</button>
@@ -112,7 +119,7 @@ export default {
 
 .form-signin {
   width: 30vw;
-  height: 30vh;
+  height: fit-content;
   padding: 2rem 1rem;
   text-align: center;
   background-color: #ffe760;
@@ -170,4 +177,36 @@ input {
   margin-bottom: 5%;
   color: #001a33;
 }
+
+#demo-credentials {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px; 
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+}
+#demo-credentials p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.8rem;
+  margin: 0;
+  font-weight: 600;
+  color: #095ac4;
+  background-color: rgba(255, 255, 255, 0.787);
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: fit-content;
+  padding-inline: 10px;
+
+ 
+}
+ #demo-credentials .demo-instructions {
+  font-style: italic;
+  color: #001a33;
+  font-size: 0.8rem;
+  font-weight: 400;
+  background-color: transparent;
+  border: none;
+ }
+
 </style>
