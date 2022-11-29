@@ -6,7 +6,7 @@ import axios from 'axios'
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'https://incrementum-app.azurewebsites.net';
+axios.defaults.baseURL = 'https://incrementum-server.fly.dev';
 
 new Vue({
   router,
